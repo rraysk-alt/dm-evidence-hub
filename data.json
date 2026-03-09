@@ -39,7 +39,13 @@
     "All",
     "Patient xp",
     "Aligners, Patient xp",
-    "Phase 1"
+    "Phase 1",
+    "All, Patient xp",
+    "Aligners & Braces",
+    "Engage",
+    "Observation",
+    "Observation, Retention",
+    "AI Accuracy"
   ],
   "ih_tv": [
     12,
@@ -47,7 +53,13 @@
     4,
     2,
     2,
-    2
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
   ],
   "ac_tl": [
     "Aligners",
@@ -55,7 +67,13 @@
     "Hygiene",
     "Measurement accuracy",
     "Patient xp",
-    "Perio"
+    "Perio",
+    "Aw passivity",
+    "Phase 1",
+    "Engage",
+    "Picture quality",
+    "AI accuracy",
+    "Retention"
   ],
   "ac_tv": [
     10,
@@ -63,28 +81,44 @@
     3,
     2,
     2,
-    2
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1
   ],
   "type_l": [
     "Prospective Study",
     "Prospective multicentric study",
     "RCT",
     "Retrospective multicentric study",
-    "Pilot Study"
+    "Pilot Study",
+    "Retrospective cohort study",
+    "Pilot study",
+    "In-vitro comparative study",
+    "In-vivo non-controlled study",
+    "Prospective non-randomized\ncomparative study"
   ],
   "type_v": [
     5,
     4,
     4,
     3,
-    3
+    3,
+    2,
+    1,
+    1,
+    1,
+    1
   ],
   "str_v": [
     0,
-    0,
-    0,
-    0,
-    0
+    5,
+    14,
+    17,
+    1
   ],
   "sen_v": [
     3,
@@ -93,7 +127,193 @@
     15,
     15
   ],
-  "scatter": [],
+  "scatter": [
+    {
+      "x": 2,
+      "y": 4,
+      "title": "Accuracy of a smartphone-based orthodontic treatment-monitor"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "title": "Accuracy of Dental Monitoring 3D digital dental models using"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "In-vivo evaluation of Artificial Intelligence  Driven Remote"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "The Assessment of Rapid Palatal Expansion Using a Remote Mon"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "title": "Diagnostic accuracy of artiﬁcial intelligence for dental  an"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Assessing an AI-driven remote monitoring system for reliable"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Accuracy of DentalMonitoring’s artificial intelligence in de"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "title": "Clinical evaluation of Artificial Intelligence Driven Remote"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "Outcomes of clear aligner treatment with and without Dental "
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "\nClinical outcomes and patient perspectives of \nDental Monit"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "title": "Comparative assessment of treatment efficiency \nand patient "
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "title": "The improvement of predictability in Clear Aligner \ntreatmen"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "title": "Evaluating Dental Monitoring effectiveness compared with con"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "title": "Effectiveness of dental monitoring system in orthodontics: A"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "title": "Remote digital monitoring during the retention\nphase of orth"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Individualizing Aligner Change Schedule: A Single-Blind, \nRa"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "title": "Attitude towards Telemonitoring in Orthodontists and \nOrthod"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "Remote monitoring and “Tele-orthodontics”: Concept, \nscope a"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Artificial intelligence with counseling on the treatment \nou"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Effects of artificial intelligence-assisted dental monitorin"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "title": "Remote aligner supervision and STL generation with dental mo"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "Accuracy assessment of Smart stereolithography models genera"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "Comparison Between Measurements Taken on AI-Generated and Co"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "Dental Monitoring Application: it is a valid innovation in t"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "title": "Effectiveness of AI-driven remote monitoring technology in i"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "title": "Effects of remote digital monitoring on oral hygiene of orth"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "title": "The New Role of the Dental Assistant and Nurse in the Age of"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "title": "Pilot case control evaluation of artificial intelligence ass"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "title": "Assessment of artificial intelligence-based remote monitorin"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Accuracy of dentalmonitoring’s artificial intelligence in de"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Accuracy of DentalMonitoring’s artificial intelligence in de"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "title": "Tele-orthodontics in real-world practice: A clinical audit o"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "title": "Characterizing orthodontic tooth movement in real time using"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "title": "Assessment of AI-based monitoring method in assessing oral h"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "AW passivity FDA paper"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Occlusion FDA paper"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "SmartSTL FDA paper"
+    }
+  ],
   "inhouse": [
     {
       "title": "The patient experience study",
@@ -534,10 +754,10 @@
       "topic": "Measurement accuracy",
       "type": "Pilot study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2019",
+      "strength": 2,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Accuracy of Dental Monitoring 3D digital dental models using photograph and video mode",
@@ -546,10 +766,10 @@
       "topic": "SmartSTL",
       "type": "In-vitro comparative study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2019",
+      "strength": 3,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "In-vivo evaluation of Artificial Intelligence  Driven Remote Monitoring technology for  tracking tooth movement and reconstruction  of 3-dimensional digital models during  orthodontic treatment",
@@ -558,10 +778,10 @@
       "topic": "SmartSTL",
       "type": "In-vivo non-controlled study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "The Assessment of Rapid Palatal Expansion Using a Remote Monitoring Software",
@@ -570,10 +790,10 @@
       "topic": "Phase 1",
       "type": "Prospective non-randomized\ncomparative study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2019",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Diagnostic accuracy of artiﬁcial intelligence for dental  and occlusal parameters using standardized clinical  photographs",
@@ -582,10 +802,10 @@
       "topic": "Engage",
       "type": "Prospective clinical study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 4,
       "sentiment": 2,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Assessing an AI-driven remote monitoring system for reliable clinical photo acquisition and patient usability",
@@ -594,10 +814,10 @@
       "topic": "Picture quality",
       "type": "Prospective multicentric study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Accuracy of DentalMonitoring’s artificial intelligence in detecting the loss of aligners’ auxiliaries: a retrospective multi-centric study",
@@ -606,10 +826,10 @@
       "topic": "Aligners",
       "type": "Retrospective multicentric study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Clinical evaluation of Artificial Intelligence Driven Remote Monitoring technology for assessment of patient oral hygiene during orthodontic treatment",
@@ -618,10 +838,10 @@
       "topic": "AI accuracy",
       "type": "in-vivo prospective clinical\nstudy",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2024",
+      "strength": 4,
       "sentiment": 2,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Outcomes of clear aligner treatment with and without Dental Monitoring: A retrospective cohort study",
@@ -630,10 +850,10 @@
       "topic": "Aligners",
       "type": "Retrospective cohort study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2021",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "\nClinical outcomes and patient perspectives of \nDental Monitoring® GoLive® with Invisalign®-a \nretrospective cohort study",
@@ -642,10 +862,10 @@
       "topic": "Aligners",
       "type": "Retrospective cohort study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2020",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Comparative assessment of treatment efficiency \nand patient experience between Dental Monitoring \nand conventional monitoring of clear aligner \ntherapy: A single-center randomized controlled trial.",
@@ -654,10 +874,10 @@
       "topic": "Aligners",
       "type": "RCT",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 4,
       "sentiment": 1,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "The improvement of predictability in Clear Aligner \ntreatment in conjunction with Digital Monitoring",
@@ -666,10 +886,10 @@
       "topic": "Aligners",
       "type": "Prospective observational",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 2,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Evaluating Dental Monitoring effectiveness compared with conventional monitoring of clear aligner therapy using the Peer Assessment Rating index",
@@ -678,10 +898,10 @@
       "topic": "Aligners",
       "type": "RCT",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2024",
+      "strength": 4,
       "sentiment": 1,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Effectiveness of dental monitoring system in orthodontics: A systematic review",
@@ -690,10 +910,10 @@
       "topic": "Aligners",
       "type": "Systematic review",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 5,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Remote digital monitoring during the retention\nphase of orthodontic treatment: A prospective \nfeasibility study",
@@ -702,10 +922,10 @@
       "topic": "Retention",
       "type": "Prospective feasibility study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2022",
+      "strength": 3,
       "sentiment": 3,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Individualizing Aligner Change Schedule: A Single-Blind, \nRandomized Controlled Trial",
@@ -714,10 +934,10 @@
       "topic": "Aligners",
       "type": "Thesis - RCT",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2024",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Attitude towards Telemonitoring in Orthodontists and \nOrthodontic Patients",
@@ -726,10 +946,10 @@
       "topic": "Patient xp",
       "type": "MC cross-sectional Obs\nstudy (Uni & private practice)",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2021",
+      "strength": 3,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Remote monitoring and “Tele-orthodontics”: Concept, \nscope and applications",
@@ -738,10 +958,10 @@
       "topic": "Patient xp",
       "type": "Non-randomized Obs Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2018",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Artificial intelligence with counseling on the treatment \noutcomes and quality of life in periodontitis patients",
@@ -750,10 +970,10 @@
       "topic": "Perio",
       "type": "RCT",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2024",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Effects of artificial intelligence-assisted dental monitoring\n intervention in patients with periodontitis: \nA randomized controlled trial",
@@ -762,10 +982,10 @@
       "topic": "Perio",
       "type": "RCT",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2022",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Remote aligner supervision and STL generation with dental monitoring®: Clinical integration and case report",
@@ -774,10 +994,10 @@
       "topic": "SmartSTL",
       "type": "Case Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 2,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Accuracy assessment of Smart stereolithography models generated by Dental Monitoring®: A pilot study",
@@ -786,10 +1006,10 @@
       "topic": "SmartSTL",
       "type": "Pilot Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Comparison Between Measurements Taken on AI-Generated and Conventional Digital Models: A Retrospective Study",
@@ -798,10 +1018,10 @@
       "topic": "SmartSTL",
       "type": "Retrospective study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Dental Monitoring Application: it is a valid innovation in the Orthodontics Practice?",
@@ -810,10 +1030,10 @@
       "topic": "Aw passivity",
       "type": "Prospective Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2020",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Effectiveness of AI-driven remote monitoring technology in improving oral hygiene during orthodontic treatment",
@@ -822,10 +1042,10 @@
       "topic": "Hygiene",
       "type": "Prospective Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 4,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Effects of remote digital monitoring on oral hygiene of orthodontic patients: a prospective study",
@@ -834,10 +1054,10 @@
       "topic": "Hygiene",
       "type": "Prospective Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2021",
+      "strength": 4,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "The New Role of the Dental Assistant and Nurse in the Age of Advanced Artificial Intelligence in Telehealth Orthodontic Care with Dental Monitoring: Preliminary Report",
@@ -846,10 +1066,10 @@
       "topic": "DMC",
       "type": "Preliminary report",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 2,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Pilot case control evaluation of artificial intelligence assisted orthodontic monitoring and pediatric patient perception",
@@ -858,10 +1078,10 @@
       "topic": "Aligners",
       "type": "Pilot Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 3,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Assessment of artificial intelligence-based remote monitoring of clear aligner therapy: A prospective study.",
@@ -870,10 +1090,10 @@
       "topic": "Aligners",
       "type": "Prospective Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 3,
       "sentiment": 1,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Accuracy of dentalmonitoring’s artificial intelligence in detecting aligner tracking issues: a retrospective multi-centric study",
@@ -882,10 +1102,10 @@
       "topic": "Aligner unseats",
       "type": "Retrospective multicentric study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Accuracy of DentalMonitoring’s artificial intelligence in detecting common orthodontic braces treatment related emergencies",
@@ -894,10 +1114,10 @@
       "topic": "Braces",
       "type": "Retrospective multicentric study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 4,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Tele-orthodontics in real-world practice: A clinical audit of its impact on treatment efficiency and business performance",
@@ -906,10 +1126,10 @@
       "topic": "All",
       "type": "retrospective study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2026",
+      "strength": 3,
       "sentiment": 2,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Characterizing orthodontic tooth movement in real time using dental monitoring scans: A pilot study",
@@ -918,10 +1138,10 @@
       "topic": "Measurement accuracy",
       "type": "Pilot Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2023",
+      "strength": 2,
       "sentiment": 4,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "Assessment of AI-based monitoring method in assessing oral hygiene during orthodontic treatment",
@@ -930,10 +1150,10 @@
       "topic": "Hygiene",
       "type": "Prospective Study",
       "status": "Published",
-      "date": "",
-      "strength": 0,
+      "date": "2025",
+      "strength": 3,
       "sentiment": 5,
-      "url": ""
+      "url": "Link"
     },
     {
       "title": "AW passivity FDA paper",
@@ -943,7 +1163,7 @@
       "type": "Prospective multicentric study",
       "status": "In Progress",
       "date": "",
-      "strength": 0,
+      "strength": 4,
       "sentiment": 5,
       "url": ""
     },
@@ -955,7 +1175,7 @@
       "type": "Prospective multicentric study",
       "status": "In Progress",
       "date": "",
-      "strength": 0,
+      "strength": 4,
       "sentiment": 5,
       "url": ""
     },
@@ -967,7 +1187,7 @@
       "type": "Prospective multicentric study",
       "status": "In Progress",
       "date": "",
-      "strength": 0,
+      "strength": 4,
       "sentiment": 5,
       "url": ""
     }
