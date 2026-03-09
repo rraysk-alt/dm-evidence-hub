@@ -1,11 +1,11 @@
 {
   "n_ih": 0,
-  "n_ac": 35,
-  "n_total": 35,
-  "n_pub": 32,
+  "n_ac": 37,
+  "n_total": 37,
+  "n_pub": 34,
   "n_prog": 3,
   "ih_pub": 0,
-  "ac_pub": 32,
+  "ac_pub": 34,
   "ih_prog": 0,
   "ac_prog": 3,
   "fmt_l": [],
@@ -22,23 +22,23 @@
   ],
   "usp_ac": [
     14,
-    16,
-    17
+    17,
+    18
   ],
   "ih_tl": [],
   "ih_tv": [],
   "ac_tl": [
     "Aligners",
     "SmartSTL",
+    "Hygiene",
+    "Measurement accuracy",
     "Patient xp",
-    "Perio",
-    "Aw passivity",
-    "Hygiene"
+    "Perio"
   ],
   "ac_tv": [
     10,
     6,
-    2,
+    3,
     2,
     2,
     2
@@ -439,6 +439,30 @@
       "journal": "Seminars in Orthodontics",
       "usp": "Practice Optimization & Growth",
       "topic": "All",
+      "type": "",
+      "status": "Published",
+      "date": "",
+      "strength": 0,
+      "sentiment": 0,
+      "url": ""
+    },
+    {
+      "title": "Characterizing orthodontic tooth movement in real time using dental monitoring scans: A pilot study",
+      "journal": "Orthodontics and Craniofacial Research",
+      "usp": "Product Accuracy",
+      "topic": "Measurement accuracy",
+      "type": "",
+      "status": "Published",
+      "date": "",
+      "strength": 0,
+      "sentiment": 0,
+      "url": ""
+    },
+    {
+      "title": "Assessment of AI-based monitoring method in assessing oral hygiene during orthodontic treatment",
+      "journal": "Journal of Orthodontic Science",
+      "usp": "Clinical control",
+      "topic": "Hygiene",
       "type": "",
       "status": "Published",
       "date": "",
