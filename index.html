@@ -72,7 +72,6 @@ td a:hover{color:#00B4C6!important;border-bottom-color:#00B4C6}
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-left">
     <svg width="200" height="40" viewBox="0 0 440 88" xmlns="http://www.w3.org/2000/svg">
@@ -91,41 +90,36 @@ td a:hover{color:#00B4C6!important;border-bottom-color:#00B4C6}
     <div class="internal-note">For internal use only</div>
   </div>
 </div>
-
 <div class="main">
   <div class="kpi-grid">
-    <div class="kpi-card"><div class="kpi-icon">&#128202;</div><div class="kpi-value c-teal" id="kv0">78</div><div class="kpi-label">Total Evidence Pieces</div><div class="kpi-sub">In-house + Peer-reviewed</div></div>
-    <div class="kpi-card"><div class="kpi-icon">&#127970;</div><div class="kpi-value c-navy" id="kv1">43</div><div class="kpi-label">In-house Publications</div><div class="kpi-sub">White papers, case studies &amp; data</div></div>
-    <div class="kpi-card"><div class="kpi-icon">&#127891;</div><div class="kpi-value c-purple" id="kv2">35</div><div class="kpi-label">Peer-Reviewed Studies</div><div class="kpi-sub">Academic journals</div></div>
-    <div class="kpi-card"><div class="kpi-icon">&#9989;</div><div class="kpi-value c-green" id="kv3">72</div><div class="kpi-label">Published</div><div class="kpi-sub" id="ks3">40 in-house &middot; 32 academic</div></div>
-    <div class="kpi-card"><div class="kpi-icon">&#128260;</div><div class="kpi-value c-amber" id="kv4">6</div><div class="kpi-label">In Progress</div><div class="kpi-sub" id="ks4">3 in-house &middot; 3 academic</div></div>
+    <div class="kpi-card"><div class="kpi-icon">&#128202;</div><div class="kpi-value c-teal" id="kv0">—</div><div class="kpi-label">Total Evidence Pieces</div><div class="kpi-sub">In-house + Peer-reviewed</div></div>
+    <div class="kpi-card"><div class="kpi-icon">&#127970;</div><div class="kpi-value c-navy" id="kv1">—</div><div class="kpi-label">In-house Publications</div><div class="kpi-sub">White papers, case studies &amp; data</div></div>
+    <div class="kpi-card"><div class="kpi-icon">&#127891;</div><div class="kpi-value c-purple" id="kv2">—</div><div class="kpi-label">Peer-Reviewed Studies</div><div class="kpi-sub">Academic journals</div></div>
+    <div class="kpi-card"><div class="kpi-icon">&#9989;</div><div class="kpi-value c-green" id="kv3">—</div><div class="kpi-label">Published</div><div class="kpi-sub" id="ks3">— in-house &middot; — academic</div></div>
+    <div class="kpi-card"><div class="kpi-icon">&#128260;</div><div class="kpi-value c-amber" id="kv4">—</div><div class="kpi-label">In Progress</div><div class="kpi-sub" id="ks4">— in-house &middot; — academic</div></div>
   </div>
-
   <div class="sec-title">&#128200; Evidence Overview <span class="sec-tag">Distribution</span></div>
   <div class="g3">
     <div class="card"><div class="card-title">Evidence Mix &#8212; In-house vs Peer-reviewed</div><canvas id="cMix" height="230"></canvas></div>
     <div class="card"><div class="card-title">Publication Status</div><canvas id="cStatus" height="230"></canvas></div>
     <div class="card"><div class="card-title">USP Distribution &#8212; In-house vs Peer-reviewed</div><canvas id="cUSP" height="230"></canvas></div>
   </div>
-
   <div class="sec-title">&#128203; Format &amp; Study Type <span class="sec-tag">By source</span></div>
   <div class="g2">
-    <div class="card"><div class="card-title">In-house &#8212; By Format</div><canvas id="cFormat" height="170"></canvas></div>
-    <div class="card"><div class="card-title">Peer-Reviewed &#8212; By Study Type</div><canvas id="cType" height="170"></canvas></div>
+    <div class="card"><div class="card-title">In-house &#8212; By Format</div><canvas id="cFormat"></canvas></div>
+    <div class="card"><div class="card-title">Peer-Reviewed &#8212; By Study Type</div><canvas id="cType"></canvas></div>
   </div>
-
   <div class="sec-title">&#127991; Topic Coverage <span class="sec-tag">What we cover</span></div>
   <div class="g2">
-    <div class="card"><div class="card-title">In-house &#8212; Topics</div><canvas id="cIHT" height="210"></canvas></div>
-    <div class="card"><div class="card-title">Peer-Reviewed &#8212; Topics</div><canvas id="cACT" height="210"></canvas></div>
+    <div class="card"><div class="card-title">In-house &#8212; Topics</div><canvas id="cIHT"></canvas></div>
+    <div class="card"><div class="card-title">Peer-Reviewed &#8212; Topics</div><canvas id="cACT"></canvas></div>
   </div>
-
   <div class="quality-wrap">
     <div class="sec-title">&#128300; Peer-Reviewed Evidence Quality <span class="sec-tag">Strength &amp; Sentiment</span></div>
     <div class="sent-row">
-      <div class="sbadge sb-pos" id="qb0">&#9989; 80% positive for DM (28 / 35 studies)</div>
-      <div class="sbadge sb-neg" id="qb1">&#9888;&#65039; 17% mixed or negative (6 / 35 studies)</div>
-      <div class="sbadge sb-avg" id="qb2">&#128202; Avg. evidence strength: 3.4 / 5</div>
+      <div class="sbadge sb-pos" id="qb0">&#9989; Loading…</div>
+      <div class="sbadge sb-neg" id="qb1">&#9888;&#65039; Loading…</div>
+      <div class="sbadge sb-avg" id="qb2">&#128202; Loading…</div>
     </div>
     <div class="g3">
       <div class="card"><div class="card-title">Strength of Evidence (1&#8211;5)</div><canvas id="cStr" height="230"></canvas></div>
@@ -137,13 +131,12 @@ td a:hover{color:#00B4C6!important;border-bottom-color:#00B4C6}
       <div class="leg-row"><strong>Sentiment:</strong> 1=Negative for DM &nbsp;2=Mixed/Inconclusive &nbsp;3=Neutral &nbsp;4=Positive &nbsp;5=Strongly positive</div>
     </div>
   </div>
-
   <div class="db-wrap">
     <div class="sec-title">&#128269; Evidence Database <span class="sec-tag" id="db-cnt">Loading...</span></div>
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('all')">All Evidence <span class="cnt-badge" id="tb0">78</span></button>
-      <button class="tab-btn" onclick="switchTab('inhouse')">In-house <span class="cnt-badge" id="tb1">43</span></button>
-      <button class="tab-btn" onclick="switchTab('academic')">Peer-Reviewed <span class="cnt-badge" id="tb2">35</span></button>
+      <button class="tab-btn active" onclick="switchTab('all')">All Evidence <span class="cnt-badge" id="tb0">—</span></button>
+      <button class="tab-btn" onclick="switchTab('inhouse')">In-house <span class="cnt-badge" id="tb1">—</span></button>
+      <button class="tab-btn" onclick="switchTab('academic')">Peer-Reviewed <span class="cnt-badge" id="tb2">—</span></button>
     </div>
     <div class="db-ctrl">
       <input type="text" id="srch" placeholder="&#128269;  Search title, author, journal, topic..." oninput="render()">
@@ -154,7 +147,6 @@ td a:hover{color:#00B4C6!important;border-bottom-color:#00B4C6}
     <div class="tbl-wrap"><table><thead id="thead"></thead><tbody id="tbody"><tr><td colspan="9" class="no-res">Loading data...</td></tr></tbody></table></div>
   </div>
 </div>
-
 <script>
 var DATA=null;
 
@@ -165,9 +157,11 @@ function _updateDynamic(d){
   });
   var ks3=document.getElementById('ks3');if(ks3)ks3.textContent=d.ih_pub+' in-house \u00b7 '+d.ac_pub+' academic';
   var ks4=document.getElementById('ks4');if(ks4)ks4.textContent=d.ih_prog+' in-house \u00b7 '+d.ac_prog+' academic';
-  var pct=Math.round((d.sen_v[3]+d.sen_v[4])/d.n_ac*100);
-  var neg=Math.round((d.sen_v[0]+d.sen_v[1])/d.n_ac*100);
-  var avg=(d.str_v.reduce(function(a,v,i){return a+(i+1)*v;},0)/d.n_ac).toFixed(1);
+  var pct=d.n_ac>0?Math.round((d.sen_v[3]+d.sen_v[4])/d.n_ac*100):0;
+  var neg=d.n_ac>0?Math.round((d.sen_v[0]+d.sen_v[1])/d.n_ac*100):0;
+  var strSum=d.str_v.reduce(function(a,v,i){return a+(i+1)*v;},0);
+  var strCount=d.str_v.reduce(function(a,v){return a+v;},0);
+  var avg=strCount>0?(strSum/strCount).toFixed(1):'0.0';
   var qb0=document.getElementById('qb0');if(qb0)qb0.innerHTML='\u2705 '+pct+'% positive for DM ('+(d.sen_v[3]+d.sen_v[4])+' / '+d.n_ac+' studies)';
   var qb1=document.getElementById('qb1');if(qb1)qb1.innerHTML='\u26a0\ufe0f '+neg+'% mixed or negative ('+(d.sen_v[0]+d.sen_v[1])+' / '+d.n_ac+' studies)';
   var qb2=document.getElementById('qb2');if(qb2)qb2.innerHTML='\ud83d\udcca Avg. evidence strength: '+avg+' / 5';
@@ -176,29 +170,38 @@ function _updateDynamic(d){
   if(ub){var now=new Date();ub.innerHTML='\ud83d\udcc5 Last updated: '+now.toLocaleString('en-GB',{month:'long',year:'numeric'});}
 }
 
+function setH(id,n,minH){var el=document.getElementById(id);if(el)el.setAttribute('height',Math.max(minH,n*30+30));}
+
 function _initCharts(d){
   DATA=d;
   Chart.defaults.font.family='Inter';
   Chart.defaults.font.size=11;
-  var T='#00B4C6',N='#1B2B3A',P='#8B5CF6',G='#10B981',A='#F59E0B';
+  var T='#00B4C6',N='#1B2B3A',P='#8B5CF6',G='#10B981',A='#F59E0B',R='#F43F5E',O='#FB923C';
+  var PALETTE=[T,N,P,G,A,R,O,'#6366F1','#14B8A6','#F97316'];
   var SC={'1':'#EF4444','2':'#F97316','3':'#F59E0B','4':'#10B981','5':'#059669'};
   var SA=[SC[1],SC[2],SC[3],SC[4],SC[5]];
+
+  // Dynamic canvas heights based on data
+  setH('cFormat', d.fmt_l.length, 140);
+  setH('cType',   d.type_l.length, 170);
+  setH('cIHT',    d.ih_tl.length,  210);
+  setH('cACT',    d.ac_tl.length,  210);
+
   var donutOpts=function(){return {plugins:{legend:{position:'bottom',labels:{padding:12,font:{size:11}}},tooltip:{callbacks:{label:function(c){return ' '+c.label+': '+c.parsed+' ('+Math.round(c.parsed/d.n_total*100)+'%)';}}}}}};
 
   new Chart('cMix',{type:'doughnut',data:{labels:['In-house','Peer-Reviewed'],datasets:[{data:[d.n_ih,d.n_ac],backgroundColor:[N,T],borderWidth:0,hoverOffset:8}]},options:donutOpts()});
   new Chart('cStatus',{type:'doughnut',data:{labels:['Published','In Progress'],datasets:[{data:[d.n_pub,d.n_prog],backgroundColor:[G,A],borderWidth:0,hoverOffset:8}]},options:{plugins:{legend:{position:'bottom',labels:{padding:12}},tooltip:{callbacks:{label:function(c){return ' '+c.label+': '+c.parsed;}}}}}});
-  new Chart('cUSP',{type:'bar',data:{labels:d.usp_l.map(function(l){return l.replace('Practice Optimization & Growth','Prac. Opt. & Growth');}),datasets:[{label:'In-house',data:d.usp_ih,backgroundColor:N,borderRadius:4},{label:'Peer-Reviewed',data:d.usp_ac,backgroundColor:T,borderRadius:4}]},options:{plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true,grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
-  new Chart('cFormat',{type:'bar',data:{labels:d.fmt_l,datasets:[{data:d.fmt_v,backgroundColor:[T,P,N],borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
-  new Chart('cType',{type:'bar',data:{labels:d.type_l,datasets:[{data:d.type_v,backgroundColor:T,borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
-  new Chart('cIHT',{type:'bar',data:{labels:d.ih_tl,datasets:[{data:d.ih_tv,backgroundColor:N,borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
-  new Chart('cACT',{type:'bar',data:{labels:d.ac_tl,datasets:[{data:d.ac_tv,backgroundColor:T,borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
+  new Chart('cUSP',{type:'bar',data:{labels:d.usp_l.map(function(l){return l.replace('Practice Optimization & Growth','Prac. Opt. & Growth');}),datasets:[{label:'In-house',data:d.usp_ih,backgroundColor:N,borderRadius:4},{label:'Peer-Reviewed',data:d.usp_ac,backgroundColor:T,borderRadius:4}]},options:{plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
+  new Chart('cFormat',{type:'bar',data:{labels:d.fmt_l,datasets:[{data:d.fmt_v,backgroundColor:d.fmt_l.map(function(_,i){return PALETTE[i%PALETTE.length];}),borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{precision:0},grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
+  new Chart('cType',{type:'bar',data:{labels:d.type_l,datasets:[{data:d.type_v,backgroundColor:T,borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{precision:0},grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
+  new Chart('cIHT',{type:'bar',data:{labels:d.ih_tl,datasets:[{data:d.ih_tv,backgroundColor:N,borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{precision:0},grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
+  new Chart('cACT',{type:'bar',data:{labels:d.ac_tl,datasets:[{data:d.ac_tv,backgroundColor:T,borderRadius:6}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{precision:0},grid:{color:'#F1F5F9'}},y:{grid:{display:false}}}}});
 
   var STR_L=['1 \u2013 Expert opinion','2 \u2013 Pilot / Case series','3 \u2013 Cohort / Observational','4 \u2013 RCT / Prospective','5 \u2013 Systematic review'];
   var SEN_L=['1 \u2013 Negative for DM','2 \u2013 Mixed / Inconclusive','3 \u2013 Neutral','4 \u2013 Positive for DM','5 \u2013 Strongly positive'];
 
-  new Chart('cStr',{type:'bar',data:{labels:STR_L,datasets:[{data:d.str_v,backgroundColor:SA,borderRadius:5,barThickness:22}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+c.parsed.x+' stud'+(c.parsed.x===1?'y':'ies');}}}},scales:{x:{beginAtZero:true,grid:{color:'rgba(255,255,255,0.08)'},ticks:{color:'#94A3B8',precision:0}},y:{grid:{display:false},ticks:{color:'#CBD5E1',font:{size:10}}}}}});
-
-  new Chart('cSen',{type:'bar',data:{labels:SEN_L,datasets:[{data:d.sen_v.map(function(v,i){return i<2?-v:v;}),backgroundColor:SA,borderRadius:5,barThickness:22}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+Math.abs(c.parsed.x)+' stud'+(Math.abs(c.parsed.x)===1?'y':'ies');}}}},scales:{x:{min:-15,max:15,grid:{color:'rgba(255,255,255,0.08)'},ticks:{color:'#94A3B8',precision:0,callback:function(v){return Math.abs(v);}}},y:{grid:{display:false},ticks:{color:'#CBD5E1',font:{size:10}}}}}});
+  new Chart('cStr',{type:'bar',data:{labels:STR_L,datasets:[{data:d.str_v,backgroundColor:SA,borderRadius:5,barThickness:22}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+c.parsed.x+' stud'+(c.parsed.x===1?'y':'ies');}}}},scales:{x:{beginAtZero:true,ticks:{color:'#94A3B8',precision:0},grid:{color:'rgba(255,255,255,0.08)'}},y:{grid:{display:false},ticks:{color:'#CBD5E1',font:{size:10}}}}}});
+  new Chart('cSen',{type:'bar',data:{labels:SEN_L,datasets:[{data:d.sen_v.map(function(v,i){return i<2?-v:v;}),backgroundColor:SA,borderRadius:5,barThickness:22}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+Math.abs(c.parsed.x)+' stud'+(Math.abs(c.parsed.x)===1?'y':'ies');}}}},scales:{x:{min:-20,max:20,grid:{color:'rgba(255,255,255,0.08)'},ticks:{color:'#94A3B8',precision:0,callback:function(v){return Math.abs(v);}}},y:{grid:{display:false},ticks:{color:'#CBD5E1',font:{size:10}}}}}});
 
   new Chart('cScat',{
     type:'scatter',
@@ -236,8 +239,8 @@ function trunc(s,n){return s&&s.length>n?s.substring(0,n)+'\u2026':(s||'');}
 function sBadge(s){var l=(s||'').toLowerCase();return l==='published'?'<span class="bdg b-pub">Published</span>':'<span class="bdg b-prog">In Progress</span>';}
 function fBadge(f){if(!f)return'';var l=f.toLowerCase();if(l.includes('data'))return'<span class="bdg b-dw">'+f+'</span>';if(l.includes('case'))return'<span class="bdg b-cs">'+f+'</span>';return'<span class="bdg b-wp">'+f+'</span>';}
 function tTags(t){if(!t)return'';return t.split(',').map(function(x){return'<span class="ttag">'+x.trim()+'</span>';}).join('');}
-function dot(v){return'<span class="sdot s'+v+'">'+v+'</span>';}
-function lnk(url,text){return url?'<a href="'+url+'" target="_blank">'+text+'</a>':text;}
+function dot(v){var n=parseInt(v)||0;return'<span class="sdot s'+n+'">'+n+'</span>';}
+function lnk(url,text){return url&&url.startsWith('http')?'<a href="'+url+'" target="_blank">'+text+'</a>':text;}
 function matchU(v,f){if(!f)return true;return v&&v.toLowerCase().includes(f.toLowerCase().replace('&amp;','&'));}
 function matchS(v,f){if(!f)return true;if(f==='pub')return(v||'').toLowerCase()==='published';if(f==='prog')return(v||'').toLowerCase().includes('progress');return true;}
 function matchF(v,f){if(!f)return true;return v&&v.toLowerCase().includes(f);}
