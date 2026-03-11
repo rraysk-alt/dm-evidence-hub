@@ -1,11 +1,11 @@
 {
-  "n_ih": 43,
-  "n_ac": 37,
-  "n_total": 80,
-  "n_pub": 74,
+  "n_ih": 45,
+  "n_ac": 38,
+  "n_total": 83,
+  "n_pub": 77,
   "n_prog": 6,
-  "ih_pub": 40,
-  "ac_pub": 34,
+  "ih_pub": 42,
+  "ac_pub": 35,
   "ih_prog": 3,
   "ac_prog": 3,
   "fmt_l": [
@@ -14,7 +14,7 @@
     "White Paper"
   ],
   "fmt_v": [
-    18,
+    20,
     16,
     9
   ],
@@ -24,20 +24,20 @@
     "Product Accuracy"
   ],
   "usp_ih": [
-    31,
+    33,
     21,
     1
   ],
   "usp_ac": [
     14,
     17,
-    18
+    19
   ],
   "ih_tl": [
     "Braces",
     "Aligners",
-    "Patient xp",
     "All",
+    "Patient xp",
     "Observation",
     "Retention",
     "Phase 1",
@@ -50,7 +50,7 @@
   "ih_tv": [
     13,
     9,
-    6,
+    8,
     6,
     4,
     3,
@@ -80,7 +80,7 @@
   ],
   "ac_tv": [
     10,
-    6,
+    7,
     3,
     2,
     2,
@@ -104,7 +104,7 @@
   ],
   "type_v": [
     19,
-    11,
+    12,
     5,
     1,
     1
@@ -112,7 +112,7 @@
   "str_v": [
     0,
     5,
-    14,
+    15,
     17,
     1
   ],
@@ -121,7 +121,7 @@
     3,
     1,
     15,
-    15
+    16
   ],
   "scatter": [
     {
@@ -308,6 +308,11 @@
       "x": 4,
       "y": 5,
       "title": "SmartSTL FDA paper"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "title": "Predicting Orthodontic Root Movements with the Dental Monito"
     }
   ],
   "inhouse": [
@@ -740,6 +745,26 @@
       "status": "In progress",
       "region": "EMEA",
       "url": "https://docs.google.com/presentation/d/1xvIaaaAvlXCn7WgX_e5qDXHznC9U4WrE/edit?usp=sharing&ouid=106298299345348804009&rtpof=true&sd=true"
+    },
+    {
+      "title": "Dr. Estee Wang Case Study",
+      "author": "Estee Wang",
+      "usp": "Practice optimization & growth",
+      "topic": "All",
+      "format": "Data-driven white paper",
+      "status": "Published",
+      "region": "NAM",
+      "url": "https://drive.google.com/file/d/1qKH8dJqKCujcAZjjB0Bk3qS49aAGJVWh/view?usp=sharing"
+    },
+    {
+      "title": "Dr. Damon W. DeArment and Dr. Daniel J. Lill White Paper",
+      "author": "Dr. Damon W. DeArment and Dr. Daniel J. Lill",
+      "usp": "Practice optimization & growth",
+      "topic": "All",
+      "format": "Data-driven white paper",
+      "status": "Published",
+      "region": "NAM",
+      "url": "https://drive.google.com/file/d/1a7sN2Cnsk4AMpQY8eTUjBwurfcUr3GS6/view?usp=sharing"
     }
   ],
   "academic": [
@@ -1186,6 +1211,18 @@
       "strength": 4,
       "sentiment": 5,
       "url": ""
+    },
+    {
+      "title": "Predicting Orthodontic Root Movements with the Dental Monitoring System: A Preliminary Study",
+      "journal": "Seminars in Orthodontics",
+      "usp": "Product Accuracy",
+      "topic": "SmartSTL",
+      "type": "Retrospective / Observational Study",
+      "status": "Published",
+      "date": "2025",
+      "strength": 3,
+      "sentiment": 5,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1073874625001380"
     }
   ]
 }
