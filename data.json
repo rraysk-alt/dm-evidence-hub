@@ -1,11 +1,11 @@
 {
   "n_ih": 45,
-  "n_ac": 38,
-  "n_total": 83,
-  "n_pub": 77,
+  "n_ac": 39,
+  "n_total": 84,
+  "n_pub": 78,
   "n_prog": 6,
   "ih_pub": 42,
-  "ac_pub": 35,
+  "ac_pub": 36,
   "ih_prog": 3,
   "ac_prog": 3,
   "fmt_l": [
@@ -31,7 +31,7 @@
   "usp_ac": [
     14,
     17,
-    19
+    20
   ],
   "ih_tl": [
     "Braces",
@@ -66,27 +66,27 @@
     "SmartSTL",
     "Hygiene",
     "Measurement accuracy",
+    "AI accuracy",
     "Patient xp",
     "Perio",
     "Aw passivity",
     "Phase 1",
     "Engage",
     "Picture quality",
-    "AI accuracy",
     "Retention",
     "DMC",
     "Aligner unseats",
     "Braces"
   ],
   "ac_tv": [
-    10,
-    7,
+    11,
+    8,
     3,
     2,
     2,
     2,
     2,
-    1,
+    2,
     1,
     1,
     1,
@@ -100,18 +100,20 @@
     "Retrospective / Observational Study",
     "Randomized Controlled Trial (RCT)",
     "Lab / In-Vitro Study",
-    "Systematic Review"
+    "Systematic Review",
+    "retrospective / Observational Study"
   ],
   "type_v": [
     19,
     12,
     5,
     1,
+    1,
     1
   ],
   "str_v": [
     0,
-    5,
+    6,
     15,
     17,
     1
@@ -121,7 +123,7 @@
     3,
     1,
     15,
-    16
+    17
   ],
   "scatter": [
     {
@@ -313,6 +315,11 @@
       "x": 3,
       "y": 5,
       "title": "Predicting Orthodontic Root Movements with the Dental Monito"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "title": "Management of a Class III malocclusion combining MARPE with "
     }
   ],
   "inhouse": [
@@ -1223,6 +1230,18 @@
       "strength": 3,
       "sentiment": 5,
       "url": "https://www.sciencedirect.com/science/article/abs/pii/S1073874625001380"
+    },
+    {
+      "title": "Management of a Class III malocclusion combining MARPE with anterior nasomaxillary complex traction and clear aligners with telemonitoring support: Case report and workflow model",
+      "journal": "Seminars in Orthodontics",
+      "usp": "Product Accuracy",
+      "topic": "AI accuracy, Aligners, SmartSTL",
+      "type": "retrospective / Observational Study",
+      "status": "Published",
+      "date": "2026",
+      "strength": 2,
+      "sentiment": 5,
+      "url": "https://drive.google.com/file/d/144Tj2_lcp-eqdZfDvL0kfjo-E0RFN_ZA/view?usp=sharing"
     }
   ]
 }
