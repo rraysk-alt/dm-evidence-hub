@@ -275,7 +275,7 @@ function render(){
   document.getElementById('thead').innerHTML=h;
   if(!rows.length){document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="no-res">No records match your filters.</td></tr>';return;}
   rows.forEach(function(r){
-    var tih='<strong>'+lnk(r.url,trunc(r.title,70))+'</strong>';
+    var tih='<strong>'+lnk(r.url,trunc(r.title,70))+'</strong>'+(r.url2?'&nbsp;<a href="'+r.url2+'" target="_blank" style="font-size:11px;color:#00B4C6;font-weight:400">[Link 2]</a>':'');
     var tac='<strong>'+lnk(r.url,trunc(r.title,65))+'</strong>';
     var yr='<td style="font-weight:600;color:#475569;white-space:nowrap">'+(r.date||'—')+'</td>';
     var ct='<td><span class="bdg" style="background:#F1F5F9;color:#64748B;font-size:11px">'+(r.country||'—')+'</span></td>';
