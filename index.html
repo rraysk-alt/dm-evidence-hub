@@ -267,21 +267,24 @@ function render(){
   var rows=getRows();
   var cnt=document.getElementById('db-cnt');
   if(cnt)cnt.textContent=rows.length+' record'+(rows.length!==1?'s':'')+' shown';
+  rows=rows.slice().sort(function(a,b){return (parseInt(b.date)||0)-(parseInt(a.date)||0);});
   var h,b='';
-  if(tab==='inhouse')       h='<tr><th>Title</th><th>Author</th><th>Format</th><th>USP</th><th>Topic</th><th>Status</th><th>Region</th></tr>';
-  else if(tab==='academic') h='<tr><th>Title</th><th>Journal</th><th>Year</th><th>Study Type</th><th>USP</th><th>Topic</th><th>Strength &#9432;</th><th>Sentiment &#9432;</th><th>Status</th></tr>';
-  else                      h='<tr><th>Title</th><th>Source</th><th>Format / Type</th><th>USP</th><th>Topic</th><th>Status</th></tr>';
+  if(tab==='inhouse')       h='<tr><th>Title</th><th>Author</th><th>Year</th><th>Country</th><th>Format</th><th>USP</th><th>Topic</th><th>Status</th></tr>';
+  else if(tab==='academic') h='<tr><th>Title</th><th>Journal</th><th>Year</th><th>Country</th><th>Study Type</th><th>USP</th><th>Topic</th><th>Strength &#9432;</th><th>Sentiment &#9432;</th><th>Status</th></tr>';
+  else                      h='<tr><th>Title</th><th>Source</th><th>Year</th><th>Country</th><th>Format / Type</th><th>USP</th><th>Topic</th><th>Status</th></tr>';
   document.getElementById('thead').innerHTML=h;
-  if(!rows.length){document.getElementById('tbody').innerHTML='<tr><td colspan="9" class="no-res">No records match your filters.</td></tr>';return;}
+  if(!rows.length){document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="no-res">No records match your filters.</td></tr>';return;}
   rows.forEach(function(r){
     var tih='<strong>'+lnk(r.url,trunc(r.title,70))+'</strong>';
     var tac='<strong>'+lnk(r.url,trunc(r.title,65))+'</strong>';
+    var yr='<td style="font-weight:600;color:#475569;white-space:nowrap">'+(r.date||'—')+'</td>';
+    var ct='<td><span class="bdg" style="background:#F1F5F9;color:#64748B;font-size:11px">'+(r.country||'—')+'</span></td>';
     if(r._s==='ih'){
-      if(tab==='all') b+='<tr><td>'+tih+'</td><td><span style="color:#64748B;font-size:11px">&#127970; In-house</span></td><td>'+fBadge(r.format)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,38)+'</td><td>'+tTags(r.topic)+'</td><td>'+sBadge(r.status)+'</td></tr>';
-      else            b+='<tr><td>'+tih+'</td><td style="color:#475569">'+r.author+'</td><td>'+fBadge(r.format)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,38)+'</td><td>'+tTags(r.topic)+'</td><td>'+sBadge(r.status)+'</td><td><span class="bdg" style="background:#F1F5F9;color:#64748B">'+r.region+'</span></td></tr>';
+      if(tab==='all') b+='<tr><td>'+tih+'</td><td><span style="color:#64748B;font-size:11px">&#127970; In-house</span></td>'+yr+ct+'<td>'+fBadge(r.format)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,38)+'</td><td>'+tTags(r.topic)+'</td><td>'+sBadge(r.status)+'</td></tr>';
+      else            b+='<tr><td>'+tih+'</td><td style="color:#475569">'+r.author+'</td>'+yr+ct+'<td>'+fBadge(r.format)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,38)+'</td><td>'+tTags(r.topic)+'</td><td>'+sBadge(r.status)+'</td></tr>';
     }else{
-      if(tab==='all') b+='<tr><td>'+tac+'</td><td><span style="color:#64748B;font-size:11px">&#127891; Peer-reviewed</span></td><td style="font-size:11px;color:#475569">'+trunc(r.type,30)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,36)+'</td><td>'+tTags(r.topic)+'</td><td>'+sBadge(r.status)+'</td></tr>';
-      else            b+='<tr><td>'+tac+'</td><td style="font-size:11px;color:#475569">'+trunc(r.journal,45)+'</td><td style="font-weight:600;color:#475569;white-space:nowrap">'+r.date+'</td><td style="font-size:11px;color:#475569">'+trunc(r.type,28)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,33)+'</td><td>'+tTags(r.topic)+'</td><td>'+dot(r.strength)+'</td><td>'+dot(r.sentiment)+'</td><td>'+sBadge(r.status)+'</td></tr>';
+      if(tab==='all') b+='<tr><td>'+tac+'</td><td><span style="color:#64748B;font-size:11px">&#127891; Peer-reviewed</span></td>'+yr+ct+'<td style="font-size:11px;color:#475569">'+trunc(r.type,30)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,36)+'</td><td>'+tTags(r.topic)+'</td><td>'+sBadge(r.status)+'</td></tr>';
+      else            b+='<tr><td>'+tac+'</td><td style="font-size:11px;color:#475569">'+trunc(r.journal,45)+'</td>'+yr+ct+'<td style="font-size:11px;color:#475569">'+trunc(r.type,28)+'</td><td style="font-size:11px;color:#475569">'+trunc(r.usp,33)+'</td><td>'+tTags(r.topic)+'</td><td>'+dot(r.strength)+'</td><td>'+dot(r.sentiment)+'</td><td>'+sBadge(r.status)+'</td></tr>';
     }
   });
   document.getElementById('tbody').innerHTML=b;
