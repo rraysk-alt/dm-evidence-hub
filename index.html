@@ -252,12 +252,12 @@ function getRows(){
   var fm=document.getElementById('fFmt').value;
   var rows=[];
   if(tab!=='academic'){DATA.inhouse.forEach(function(r){
-    if(s&&!(r.title+' '+(r.author||'')+' '+(r.topic||'')).toLowerCase().includes(s))return;
+    if(s&&!(r.title+' '+(r.author||'')+' '+(r.topic||'')+' '+(r.country||'')+' '+(r.region||'')).toLowerCase().includes(s))return;
     if(!matchU(r.usp,u))return;if(!matchS(r.status,st))return;if(!matchF(r.format,fm))return;
     rows.push(Object.assign({_s:'ih'},r));
   });}
   if(tab!=='inhouse'){DATA.academic.forEach(function(r){
-    if(s&&!(r.title+' '+(r.journal||'')+' '+(r.topic||'')).toLowerCase().includes(s))return;
+    if(s&&!(r.title+' '+(r.journal||'')+' '+(r.topic||'')+' '+(r.country||'')).toLowerCase().includes(s))return;
     if(!matchU(r.usp,u))return;if(!matchS(r.status,st))return;if(!matchF(r.type,fm))return;
     rows.push(Object.assign({_s:'ac'},r));
   });}
@@ -276,7 +276,7 @@ function render(){
   if(!rows.length){document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="no-res">No records match your filters.</td></tr>';return;}
   rows.forEach(function(r){
     var tih='<strong>'+lnk(r.url,trunc(r.title,70))+'</strong>'+(r.url2?'&nbsp;<a href="'+r.url2+'" target="_blank" style="font-size:11px;color:#00B4C6;font-weight:400">[Link 2]</a>':'');
-    var tac='<strong>'+lnk(r.url,trunc(r.title,65))+'</strong>';
+    var tac='<strong>'+lnk(r.url,trunc(r.title,65))+'</strong>'+(r.url2?'&nbsp;<a href="'+r.url2+'" target="_blank" style="font-size:11px;color:#00B4C6;font-weight:400">[Link 2]</a>':'');
     var yr='<td style="font-weight:600;color:#475569;white-space:nowrap">'+(r.date||'—')+'</td>';
     var ct='<td><span class="bdg" style="background:#F1F5F9;color:#64748B;font-size:11px">'+(r.country||'—')+'</span></td>';
     if(r._s==='ih'){
