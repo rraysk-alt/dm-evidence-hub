@@ -1,11 +1,11 @@
 {
   "n_ih": 44,
-  "n_ac": 39,
-  "n_total": 83,
-  "n_pub": 78,
+  "n_ac": 40,
+  "n_total": 84,
+  "n_pub": 79,
   "n_prog": 5,
   "ih_pub": 42,
-  "ac_pub": 36,
+  "ac_pub": 37,
   "ih_prog": 2,
   "ac_prog": 3,
   "fmt_l": [
@@ -31,7 +31,7 @@
   "usp_ac": [
     14,
     17,
-    20
+    21
   ],
   "ih_tl": [
     "Braces",
@@ -64,9 +64,9 @@
   "ac_tl": [
     "Aligners",
     "SmartSTL",
+    "AI accuracy",
     "Hygiene",
     "Measurement accuracy",
-    "AI accuracy",
     "Patient xp",
     "Perio",
     "Aw passivity",
@@ -82,7 +82,7 @@
     11,
     8,
     3,
-    2,
+    3,
     2,
     2,
     2,
@@ -104,7 +104,7 @@
     "retrospective / Observational Study"
   ],
   "type_v": [
-    19,
+    20,
     12,
     5,
     1,
@@ -114,14 +114,14 @@
   "str_v": [
     0,
     6,
-    15,
+    16,
     17,
     1
   ],
   "sen_v": [
     3,
     3,
-    1,
+    2,
     15,
     17
   ],
@@ -320,6 +320,11 @@
       "x": 2,
       "y": 5,
       "title": "Management of a Class III malocclusion combining MARPE with "
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "title": "Evaluating the Artificial Intelligence Driven Monitoring Sys"
     }
   ],
   "inhouse": [
@@ -464,7 +469,7 @@
       "country": "Poland",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1ZZgsgg5FMaDVPUFgBEGGsM-YXugwBvm5/view?usp=sharing",
-      "url2": ""
+      "url2": "https://drive.google.com/file/d/1LUMecWTieiGyIP6oxpVFcZ7BCEKBlenF/view?usp=sharing"
     },
     {
       "title": "Aligner case study",
@@ -503,7 +508,7 @@
       "country": "Spain",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1ZDNTRmmWp1VY40S_HveXy2RivG2Zb4PC/view?usp=sharing",
-      "url2": ""
+      "url2": "https://drive.google.com/file/d/1XV8yJk6sMidrVSLBctzw0XewFDt0MI03/view?usp=sharing"
     },
     {
       "title": "Practice profitability & patient experience",
@@ -529,7 +534,7 @@
       "country": "Germany",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1roTX2mQ1nWxIsjdkfkEomtMIkFZQex5U/view?usp=sharing",
-      "url2": ""
+      "url2": "https://drive.google.com/file/d/1tEPBs4SKStiWYFYk3GLdgkhNcLzVmtbN/view?usp=sharing"
     },
     {
       "title": "Enhancing Efficiency in Dental Clinics through DM",
@@ -1441,6 +1446,20 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/144Tj2_lcp-eqdZfDvL0kfjo-E0RFN_ZA/view?usp=sharing",
+      "url2": ""
+    },
+    {
+      "title": "Evaluating the Artificial Intelligence Driven Monitoring System Notifications: Clear Aligner and Oral Hygiene Perspectives",
+      "journal": "Orthodontics & craniofacial research",
+      "usp": "Product Accuracy",
+      "topic": "AI accuracy",
+      "type": "Prospective Clinical Study (Non-RCT)",
+      "status": "Published",
+      "date": "2026",
+      "strength": 3,
+      "sentiment": 3,
+      "country": "Global",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41930378/",
       "url2": ""
     }
   ]
