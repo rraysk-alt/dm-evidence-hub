@@ -1,11 +1,11 @@
 {
   "n_ih": 44,
-  "n_ac": 40,
-  "n_total": 84,
-  "n_pub": 79,
+  "n_ac": 41,
+  "n_total": 85,
+  "n_pub": 80,
   "n_prog": 5,
   "ih_pub": 42,
-  "ac_pub": 37,
+  "ac_pub": 38,
   "ih_prog": 2,
   "ac_prog": 3,
   "fmt_l": [
@@ -30,7 +30,7 @@
   ],
   "usp_ac": [
     14,
-    17,
+    18,
     21
   ],
   "ih_tl": [
@@ -70,13 +70,13 @@
     "Patient xp",
     "Perio",
     "Aw passivity",
+    "Braces",
     "Phase 1",
     "Engage",
     "Picture quality",
     "Retention",
     "DMC",
-    "Aligner unseats",
-    "Braces"
+    "Aligner unseats"
   ],
   "ac_tv": [
     11,
@@ -87,7 +87,7 @@
     2,
     2,
     2,
-    1,
+    2,
     1,
     1,
     1,
@@ -106,7 +106,7 @@
   "type_v": [
     20,
     12,
-    5,
+    6,
     1,
     1,
     1
@@ -115,7 +115,7 @@
     0,
     6,
     16,
-    17,
+    18,
     1
   ],
   "sen_v": [
@@ -123,7 +123,7 @@
     3,
     2,
     15,
-    17
+    18
   ],
   "scatter": [
     {
@@ -325,6 +325,11 @@
       "x": 3,
       "y": 3,
       "title": "Evaluating the Artificial Intelligence Driven Monitoring Sys"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "title": "Randomized controlled trial comparing AI-assisted digital an"
     }
   ],
   "inhouse": [
@@ -1460,6 +1465,20 @@
       "sentiment": 3,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41930378/",
+      "url2": ""
+    },
+    {
+      "title": "Randomized controlled trial comparing AI-assisted digital and conventional orthodontics: Superior PAR reduction and occlusal outcomes",
+      "journal": "PLOS One",
+      "usp": "Clinical control",
+      "topic": "Braces",
+      "type": "Randomized Controlled Trial (RCT)",
+      "status": "Published",
+      "date": "2026",
+      "strength": 4,
+      "sentiment": 5,
+      "country": "Global",
+      "url": "https://drive.google.com/file/d/1a9JwbwT0MWAlF3bfdmmydWFqBcPms4kB/view?usp=sharing",
       "url2": ""
     }
   ]
