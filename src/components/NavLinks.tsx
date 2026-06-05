@@ -1,3 +1,5 @@
+import { SearchModal } from "@/components/SearchModal";
+
 const links = [
   { label: "Marketing Materials", href: "https://docs.google.com/presentation/d/174AIXWPeWtSaF4cDMsnNmzGXUt2Hw3nM1gB3-nej-FI/edit?usp=sharing" },
   { label: "Evidence Search Tool", href: "https://docs.google.com/forms/d/e/1FAIpQLSduFQlv2xWo0PIi_MqJ1bBXjybpZds4phT8tmjoqtg0TDiVUA/viewform" },
@@ -8,7 +10,7 @@ const links = [
 
 export function NavLinks() {
   return (
-    <div className="hidden md:flex items-center">
+    <div className="hidden md:flex items-center gap-1">
       {links.map((link, i) => (
         <a
           key={link.href}
@@ -24,6 +26,8 @@ export function NavLinks() {
           )}
         </a>
       ))}
+      <div className="w-px h-4 bg-gray-200 mx-1" />
+      <SearchModal />
     </div>
   );
 }
