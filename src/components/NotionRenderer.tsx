@@ -170,7 +170,16 @@ function BlockRenderer({ block }: { block: Block }) {
       );
     }
 
-    case "bulleted_list_item":
+    case "bulleted_list_item": {
+      const hasText = content.rich_text?.length > 0;
+      // Empty bullet with only children (e.g. a video pasted under a bullet) — skip the orphan dot
+      if (!hasText && block.children) {
+        return (
+          <div className="my-2">
+            <NotionRenderer blocks={block.children} />
+          </div>
+        );
+      }
       return (
         <li className="text-gray-700 text-sm list-none flex items-start gap-2.5 py-1.5">
           <span className="w-2 h-2 rounded-full bg-[#009AAB] flex-shrink-0 mt-1.5" />
@@ -184,6 +193,7 @@ function BlockRenderer({ block }: { block: Block }) {
           </span>
         </li>
       );
+    }
 
     case "numbered_list_item":
       return (
@@ -297,6 +307,32 @@ function BlockRenderer({ block }: { block: Block }) {
     case "bookmark": {
       const url = content.url;
       if (!url) return null;
+      return (
+        <a href={url} target="_blank" rel="noopener noreferrer"
+           className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 my-3 text-[#009AAB] hover:bg-[#009AAB]/5 hover:border-[#009AAB]/30 truncate text-sm transition-all">
+          🔗 <span className="truncate">{url}</span>
+        </a>
+      );
+    }
+
+    case "link_preview": {
+      const url = content.url;
+      if (!url) return null;
+      const youtubeId = getYouTubeId(url);
+      if (youtubeId) {
+        return (
+          <figure className="my-6">
+            <div className="relative w-full rounded-xl overflow-hidden shadow-sm" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </figure>
+        );
+      }
       return (
         <a href={url} target="_blank" rel="noopener noreferrer"
            className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 my-3 text-[#009AAB] hover:bg-[#009AAB]/5 hover:border-[#009AAB]/30 truncate text-sm transition-all">
