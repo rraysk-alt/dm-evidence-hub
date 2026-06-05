@@ -40,9 +40,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="text-xs text-gray-500 leading-tight">Smarter Orthodontics</div>
               </div>
             </a>
-            <div className="hidden md:flex items-center gap-6 text-sm text-gray-700">
-              <a href="https://dental-monitoring.com/en/orthodontists/marketing-materials/" target="_blank" rel="noopener noreferrer" className="hover:text-[#009AAB] transition-colors">Marketing Materials</a>
-              <a href="/" className="hover:text-[#009AAB] transition-colors font-medium">Evidence Hub</a>
+            <div className="hidden md:flex items-center gap-4 text-sm text-gray-700">
+              <a href="https://docs.google.com/presentation/d/174AIXWPeWtSaF4cDMsnNmzGXUt2Hw3nM1gB3-nej-FI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#009AAB] transition-colors whitespace-nowrap">Marketing Materials</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSduFQlv2xWo0PIi_MqJ1bBXjybpZds4phT8tmjoqtg0TDiVUA/viewform" target="_blank" rel="noopener noreferrer" className="hover:text-[#009AAB] transition-colors whitespace-nowrap">Evidence Search Tool</a>
+              <a href="https://drive.google.com/file/d/1wDLcYpvDJEVuz4QOQTI43ORjtOkzhCyg/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#009AAB] transition-colors whitespace-nowrap">DM Ortho. Report</a>
+              <a href="https://rraysk-alt.github.io/dm-evidence-hub/" target="_blank" rel="noopener noreferrer" className="hover:text-[#009AAB] transition-colors whitespace-nowrap">Comprehensive DM Evidence Overview</a>
+              <a href="https://www.youtube.com/watch?v=qC8KvkrebPg&list=PLp10aZZZC0JkHpUoI83aqCW1z2JW3E8Jn" target="_blank" rel="noopener noreferrer" className="hover:text-[#009AAB] transition-colors whitespace-nowrap">DM Myths Playlist</a>
             </div>
           </div>
         </nav>
