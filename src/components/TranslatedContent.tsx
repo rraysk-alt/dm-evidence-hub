@@ -91,7 +91,7 @@ export function TranslatedContent({ blocks, pageId }: { blocks: Block[]; pageId:
     fetch("/api/translate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ texts, targetLang: lang }),
+      body: JSON.stringify({ texts, targetLang: lang, pageId }),
     })
       .then((r) => r.json())
       .then(({ translations }: { translations: string[] }) => {
