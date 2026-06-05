@@ -1,22 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useLanguage } from "@/context/LanguageContext";
+import { useState, useEffect, useCallback } from "react";
+import { useLanguage, LANGUAGES } from "@/context/LanguageContext";
 import { NotionRenderer } from "@/components/NotionRenderer";
 import type { Block } from "@/lib/notion";
 
-// ── Collect all unique plain_text strings from blocks ──────────────────────────
 function collectTexts(blocks: Block[]): string[] {
   const texts = new Set<string>();
   function walk(bs: Block[]) {
     for (const block of bs) {
       const content = (block as any)[block.type];
-      // Standard rich_text fields
       if (Array.isArray(content?.rich_text)) {
         for (const rt of content.rich_text) {
           if (rt.plain_text?.trim()) texts.add(rt.plain_text);
         }
       }
-      // Table row cells
       if (block.type === "table_row" && Array.isArray(content?.cells)) {
         for (const cell of content.cells) {
           for (const rt of cell) {
@@ -31,12 +28,10 @@ function collectTexts(blocks: Block[]): string[] {
   return [...texts];
 }
 
-// ── Deep-clone blocks applying translation map ─────────────────────────────────
 function applyTranslations(blocks: Block[], map: Record<string, string>): Block[] {
   return blocks.map((block) => {
     const content = (block as any)[block.type];
     const nb: Block = { ...block };
-
     if (Array.isArray(content?.rich_text)) {
       nb[block.type] = {
         ...content,
@@ -46,7 +41,6 @@ function applyTranslations(blocks: Block[], map: Record<string, string>): Block[
         })),
       };
     }
-
     if (block.type === "table_row" && Array.isArray(content?.cells)) {
       nb[block.type] = {
         ...content,
@@ -55,63 +49,80 @@ function applyTranslations(blocks: Block[], map: Record<string, string>): Block[
         ),
       };
     }
-
     if (block.children) nb.children = applyTranslations(block.children, map);
     return nb;
   });
 }
 
-// ── Component ──────────────────────────────────────────────────────────────────
+type Status = "idle" | "translating" | "done" | "error";
+
 export function TranslatedContent({ blocks, pageId }: { blocks: Block[]; pageId: string }) {
   const { lang } = useLanguage();
   const [displayBlocks, setDisplayBlocks] = useState(blocks);
-  const [translating, setTranslating] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  useEffect(() => {
-    if (lang === "en") {
-      setDisplayBlocks(blocks);
-      return;
-    }
+  const langLabel = LANGUAGES.find((l) => l.code === lang)?.name ?? lang.toUpperCase();
 
-    // Check session cache first
-    const cacheKey = `trans:${pageId}:${lang}`;
+  const translate = useCallback(async (targetLang: string) => {
+    if (targetLang === "en") { setDisplayBlocks(blocks); setStatus("idle"); return; }
+
+    // Check browser cache first
+    const cacheKey = `trans:${pageId}:${targetLang}`;
     try {
       const cached = sessionStorage.getItem(cacheKey);
-      if (cached) {
-        setDisplayBlocks(JSON.parse(cached));
-        return;
-      }
+      if (cached) { setDisplayBlocks(JSON.parse(cached)); setStatus("done"); return; }
     } catch {}
 
     const texts = collectTexts(blocks);
     if (!texts.length) return;
 
-    setTranslating(true);
+    setStatus("translating");
 
-    fetch("/api/translate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ texts, targetLang: lang, pageId }),
-    })
-      .then((r) => r.json())
-      .then(({ translations }: { translations: string[] }) => {
-        if (!translations?.length) return;
-        const map: Record<string, string> = {};
-        texts.forEach((t, i) => { map[t] = translations[i] ?? t; });
-        const translated = applyTranslations(blocks, map);
-        setDisplayBlocks(translated);
-        try { sessionStorage.setItem(cacheKey, JSON.stringify(translated)); } catch {}
-      })
-      .catch(() => setDisplayBlocks(blocks))
-      .finally(() => setTranslating(false));
-  }, [lang, blocks, pageId]);
+    try {
+      const res = await fetch("/api/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texts, targetLang, pageId }),
+      });
+
+      if (!res.ok) throw new Error("API error");
+
+      const { translations } = await res.json();
+      if (!translations?.length) throw new Error("Empty response");
+
+      const map: Record<string, string> = {};
+      texts.forEach((t, i) => { map[t] = translations[i] ?? t; });
+
+      const translated = applyTranslations(blocks, map);
+      setDisplayBlocks(translated);
+      setStatus("done");
+      try { sessionStorage.setItem(cacheKey, JSON.stringify(translated)); } catch {}
+    } catch {
+      setStatus("error");
+      setDisplayBlocks(blocks); // show original on failure
+    }
+  }, [blocks, pageId]);
+
+  useEffect(() => { translate(lang); }, [lang, translate]);
 
   return (
-    <div className="relative">
-      {translating && (
-        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
-          <div className="w-3 h-3 border-2 border-[#009AAB] border-t-transparent rounded-full animate-spin" />
-          Translating…
+    <div>
+      {/* Status bar */}
+      {status === "translating" && (
+        <div className="flex items-center gap-2 text-xs text-[#009AAB] mb-5 px-3 py-2 bg-[#009AAB]/5 rounded-lg border border-[#009AAB]/15">
+          <div className="w-3 h-3 border-2 border-[#009AAB] border-t-transparent rounded-full animate-spin flex-shrink-0" />
+          Translating to {langLabel}…
+        </div>
+      )}
+      {status === "error" && (
+        <div className="flex items-center justify-between text-xs text-red-500 mb-5 px-3 py-2 bg-red-50 rounded-lg border border-red-100">
+          <span>Translation failed — showing original</span>
+          <button
+            onClick={() => translate(lang)}
+            className="underline hover:no-underline ml-3"
+          >
+            Retry
+          </button>
         </div>
       )}
       <NotionRenderer blocks={displayBlocks} />
