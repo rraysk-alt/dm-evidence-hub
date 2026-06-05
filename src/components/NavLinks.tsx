@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { SearchModal } from "@/components/SearchModal";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 const links = [
   { label: "Marketing Materials", href: "https://docs.google.com/presentation/d/174AIXWPeWtSaF4cDMsnNmzGXUt2Hw3nM1gB3-nej-FI/edit?usp=sharing" },
@@ -51,6 +52,8 @@ export function NavLinks() {
         ))}
         <div className="w-px h-4 bg-gray-200 mx-1" />
         <SearchModal />
+        <div className="w-px h-4 bg-gray-200 mx-1" />
+        <LanguageSelector />
       </div>
 
       {/* Mobile: search + hamburger */}
@@ -83,12 +86,15 @@ export function NavLinks() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-[#009AAB]/5 hover:text-[#009AAB] border-b border-gray-50 last:border-0 transition-colors"
+              className="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-[#009AAB]/5 hover:text-[#009AAB] border-b border-gray-50 transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#009AAB] flex-shrink-0" />
               {link.label}
             </a>
           ))}
+          <div className="px-4 py-3">
+            <LanguageSelector />
+          </div>
         </div>
       )}
     </div>

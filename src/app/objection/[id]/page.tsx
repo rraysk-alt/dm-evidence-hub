@@ -1,5 +1,5 @@
 import { getObjectionById, getPageBlocks, getObjections } from "@/lib/notion";
-import { NotionRenderer } from "@/components/NotionRenderer";
+import { TranslatedContent } from "@/components/TranslatedContent";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -52,9 +52,9 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         </h1>
       </div>
 
-      {/* Content — all blocks, nothing removed */}
+      {/* Content — translated on demand */}
       <div className="space-y-1">
-        <NotionRenderer blocks={blocks} />
+        <TranslatedContent blocks={blocks} pageId={id} />
       </div>
     </div>
   );

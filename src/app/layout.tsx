@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import Script from "next/script";
 import { NavLinks } from "@/components/NavLinks";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className={`${geist.className} bg-[#f6f6f6] min-h-screen`}>
+        <LanguageProvider>
         <nav className="bg-[#f6f6f6] border-b border-gray-200 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
             <a href="/" className="flex items-center gap-2">
@@ -56,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <p className="text-xs text-gray-500">Smarter Orthodontics</p>
           </div>
         </footer>
+        </LanguageProvider>
       </body>
     </html>
   );
