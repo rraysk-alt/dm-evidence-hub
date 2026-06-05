@@ -2,6 +2,19 @@ import type { Block } from "@/lib/notion";
 
 type RichText = { plain_text: string; href?: string | null; annotations?: any };
 
+function getYouTubeId(url: string): string | null {
+  const patterns = [
+    /youtu\.be\/([^?&]+)/,
+    /youtube\.com\/watch\?v=([^&]+)/,
+    /youtube\.com\/embed\/([^?&]+)/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+
 function renderRichText(texts: RichText[]) {
   return texts.map((t, i) => {
     let node: React.ReactNode = t.plain_text;
@@ -184,6 +197,23 @@ function BlockRenderer({ block }: { block: Block }) {
     case "video": {
       const url = content.type === "external" ? content.external.url : content.file?.url;
       if (!url) return null;
+      const caption = content.caption?.map((t: RichText) => t.plain_text).join("") ?? "";
+      const youtubeId = getYouTubeId(url);
+      if (youtubeId) {
+        return (
+          <figure className="my-6">
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                className="absolute inset-0 w-full h-full rounded-lg shadow-sm"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            {caption && <figcaption className="text-sm text-gray-500 mt-2 text-center">{caption}</figcaption>}
+          </figure>
+        );
+      }
       return (
         <div className="my-6">
           <video controls className="rounded-lg max-w-full shadow-sm w-full">
