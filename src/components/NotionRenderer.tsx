@@ -49,6 +49,19 @@ function BlockRenderer({ block }: { block: Block }) {
 
   switch (type) {
     case "heading_1":
+      if (content.is_toggleable) {
+        return (
+          <details className="mt-6 group" open>
+            <summary className="cursor-pointer list-none flex items-center gap-2 pb-2 border-b-2 border-[#009AAB]">
+              <span className="text-[#009AAB] text-sm transition-transform group-open:rotate-90 select-none">▶</span>
+              <h1 className="text-2xl font-bold text-gray-900">{renderRichText(content.rich_text)}</h1>
+            </summary>
+            <div className="mt-3">
+              {block.children && <NotionRenderer blocks={block.children} />}
+            </div>
+          </details>
+        );
+      }
       return (
         <>
           <h1 className="text-2xl font-bold mt-8 mb-3 text-gray-900 border-b-2 border-[#009AAB] pb-2">
@@ -58,6 +71,19 @@ function BlockRenderer({ block }: { block: Block }) {
         </>
       );
     case "heading_2":
+      if (content.is_toggleable || block.has_children) {
+        return (
+          <details className="mt-4 group border border-gray-200 rounded-lg overflow-hidden">
+            <summary className="cursor-pointer list-none flex items-center gap-2 px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors">
+              <span className="text-[#009AAB] text-xs transition-transform group-open:rotate-90 select-none">▶</span>
+              <h2 className="text-base font-semibold text-gray-800">{renderRichText(content.rich_text)}</h2>
+            </summary>
+            <div className="px-4 pb-4 pt-2">
+              {block.children && <NotionRenderer blocks={block.children} />}
+            </div>
+          </details>
+        );
+      }
       return (
         <>
           <h2 className="text-xl font-semibold mt-6 mb-2 text-gray-800">
@@ -67,6 +93,19 @@ function BlockRenderer({ block }: { block: Block }) {
         </>
       );
     case "heading_3":
+      if (content.is_toggleable || block.has_children) {
+        return (
+          <details className="mt-3 group">
+            <summary className="cursor-pointer list-none flex items-center gap-2 py-1">
+              <span className="text-[#009AAB] text-xs transition-transform group-open:rotate-90 select-none">▶</span>
+              <h3 className="text-sm font-semibold text-gray-700">{renderRichText(content.rich_text)}</h3>
+            </summary>
+            <div className="ml-4 mt-1">
+              {block.children && <NotionRenderer blocks={block.children} />}
+            </div>
+          </details>
+        );
+      }
       return (
         <>
           <h3 className="text-lg font-semibold mt-4 mb-1 text-gray-700">
