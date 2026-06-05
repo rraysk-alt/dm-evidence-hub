@@ -7,23 +7,36 @@ export default async function Home() {
   const objections = await getObjections();
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">
-        Sales Objections – Evidence Hub
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+    <div className="max-w-7xl mx-auto px-6 py-10">
+      {/* Hero */}
+      <div className="mb-10">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="inline-block w-8 h-0.5 bg-[#009AAB] rounded-full" />
+          <span className="text-xs font-semibold text-[#009AAB] uppercase tracking-widest">Sales Enablement</span>
+        </div>
+        <h1 className="text-4xl font-bold text-gray-900 mb-3 leading-tight">
+          Sales Objections<br />Evidence Hub
+        </h1>
+        <p className="text-gray-500 text-base max-w-lg">
+          Evidence-backed responses to the most common objections. Click any category to explore data, studies, and testimonials.
+        </p>
+      </div>
+
+      {/* Cards grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {objections.map((obj) => (
           <Link
             key={obj.id}
             href={`/objection/${obj.id}`}
-            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 group"
+            className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 group cursor-pointer"
           >
-            <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+            {/* Image */}
+            <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
               {obj.coverImage ? (
                 <img
                   src={obj.coverImage}
                   alt={obj.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-[#009AAB]/10">
@@ -32,9 +45,21 @@ export default async function Home() {
                   </svg>
                 </div>
               )}
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-[#009AAB]/0 group-hover:bg-[#009AAB]/10 transition-colors duration-300" />
             </div>
-            <div className="p-4">
-              <p className="text-sm font-semibold text-gray-800 leading-snug">{obj.title}</p>
+
+            {/* Text */}
+            <div className="p-4 flex flex-col gap-2">
+              <p className="text-sm font-semibold text-gray-800 leading-snug line-clamp-2 group-hover:text-[#009AAB] transition-colors">
+                {obj.title}
+              </p>
+              <span className="inline-flex items-center gap-1 text-xs text-[#009AAB] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                View evidence
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </div>
           </Link>
         ))}

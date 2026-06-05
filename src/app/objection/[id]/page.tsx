@@ -3,7 +3,7 @@ import { NotionRenderer } from "@/components/NotionRenderer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const revalidate = 1800; // 30 min — Notion S3 URLs expire after ~1hr
+export const revalidate = 1800;
 
 export async function generateStaticParams() {
   const objections = await getObjections();
@@ -19,29 +19,44 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
 
   if (!objection) notFound();
 
-  // Skip the first image block — we show it as the hero
   const heroImage = blocks.find((b) => b.type === "image");
   const contentBlocks = blocks.filter((b) => b !== heroImage);
+  const heroUrl = (() => {
+    const content = (heroImage as any)?.image;
+    return content?.type === "external" ? content.external.url : content?.file?.url ?? null;
+  })();
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-8">
-      <Link href="/" className="inline-flex items-center gap-1 text-sm text-[#009AAB] hover:underline mb-6">
-        ← Back to Evidence Hub
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
+
+      {/* Back button */}
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#009AAB] transition-colors mb-6 group"
+      >
+        <span className="w-7 h-7 rounded-full bg-white border border-gray-200 flex items-center justify-center group-hover:border-[#009AAB] group-hover:bg-[#009AAB]/5 transition-all shadow-sm">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        Back to Evidence Hub
       </Link>
 
-      {heroImage && (() => {
-        const content = (heroImage as any).image;
-        const url = content?.type === "external" ? content.external.url : content?.file?.url;
-        return url ? (
-          <div className="rounded-xl overflow-hidden mb-8 max-h-64 bg-gray-100">
-            <img src={url} alt={objection.title} className="w-full h-64 object-cover" />
-          </div>
-        ) : null;
-      })()}
+      {/* Hero image */}
+      {heroUrl && (
+        <div className="rounded-2xl overflow-hidden mb-6 bg-gray-100 relative" style={{ height: "260px" }}>
+          <img src={heroUrl} alt={objection.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </div>
+      )}
 
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">{objection.title}</h1>
+      {/* Title */}
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 leading-tight">
+        {objection.title}
+      </h1>
 
-      <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+      {/* Content — no wrapping white card */}
+      <div className="space-y-1">
         <NotionRenderer blocks={contentBlocks} />
       </div>
     </div>

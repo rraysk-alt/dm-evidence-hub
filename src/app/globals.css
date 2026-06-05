@@ -11,3 +11,24 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
   color-scheme: light only;
 }
+
+/* Smooth toggle animation */
+details .toggle-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+details[open] .toggle-content {
+  grid-template-rows: 1fr;
+}
+.toggle-content > div {
+  overflow: hidden;
+}
+
+/* Rotate toggle arrow */
+details summary .toggle-arrow {
+  transition: transform 0.25s ease;
+}
+details[open] summary .toggle-arrow {
+  transform: rotate(90deg);
+}
