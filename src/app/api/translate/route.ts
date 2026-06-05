@@ -55,11 +55,14 @@ export async function POST(req: NextRequest) {
         { role: "user", content: document },
       ],
       temperature: 0.1,
-      max_tokens: 2500,
     });
 
     // ── Parse [1] line\n[2] line\n... ──────────────────────────────────────
-    const output = response.choices[0].message.content ?? "";
+    const choice = response.choices[0];
+    if (choice.finish_reason === "length") {
+      console.warn("[translate] response truncated — increase batch cap or reduce page content");
+    }
+    const output = choice.message.content ?? "";
     const translated = new Array(toTranslate.length).fill("");
 
     for (const line of output.split("\n")) {

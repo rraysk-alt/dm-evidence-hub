@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useLanguage, LANGUAGES } from "@/context/LanguageContext";
 import { NotionRenderer } from "@/components/NotionRenderer";
 import type { Block } from "@/lib/notion";
@@ -62,6 +62,7 @@ export function TranslatedContent({ blocks, pageId }: { blocks: Block[]; pageId:
   const [status, setStatus] = useState<Status>("idle");
 
   const langLabel = LANGUAGES.find((l) => l.code === lang)?.name ?? lang.toUpperCase();
+  const abortRef = useRef<AbortController | null>(null);
 
   const translate = useCallback(async (targetLang: string) => {
     if (targetLang === "en") { setDisplayBlocks(blocks); setStatus("idle"); return; }
@@ -76,6 +77,11 @@ export function TranslatedContent({ blocks, pageId }: { blocks: Block[]; pageId:
     const texts = collectTexts(blocks);
     if (!texts.length) return;
 
+    // Cancel any previous in-flight request (e.g. user switched languages fast)
+    abortRef.current?.abort();
+    abortRef.current = new AbortController();
+    const signal = abortRef.current.signal;
+
     setStatus("translating");
 
     try {
@@ -83,6 +89,7 @@ export function TranslatedContent({ blocks, pageId }: { blocks: Block[]; pageId:
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ texts, targetLang, pageId }),
+        signal,
       });
 
       if (!res.ok) throw new Error("API error");
@@ -97,9 +104,10 @@ export function TranslatedContent({ blocks, pageId }: { blocks: Block[]; pageId:
       setDisplayBlocks(translated);
       setStatus("done");
       try { sessionStorage.setItem(cacheKey, JSON.stringify(translated)); } catch {}
-    } catch {
+    } catch (err: any) {
+      if (err?.name === "AbortError") return; // language changed — ignore this result
       setStatus("error");
-      setDisplayBlocks(blocks); // show original on failure
+      setDisplayBlocks(blocks);
     }
   }, [blocks, pageId]);
 
