@@ -41,6 +41,18 @@ function extractTitle(page: any): string {
   return "Untitled";
 }
 
+async function getFirstImageBlock(pageId: string): Promise<string | null> {
+  const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=5`, {
+    headers,
+    next: { revalidate: 1800 },
+  });
+  const data = await res.json();
+  const imgBlock = (data.results ?? []).find((b: any) => b.type === "image");
+  if (!imgBlock) return null;
+  const img = imgBlock.image;
+  return img?.type === "external" ? img.external.url : img?.file?.url ?? null;
+}
+
 export async function getObjections(): Promise<ObjectionPage[]> {
   const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
     method: "POST",
@@ -51,20 +63,22 @@ export async function getObjections(): Promise<ObjectionPage[]> {
   const data = await res.json();
   const pages = data.results ?? [];
 
-  // Single API call — cover image comes from the Notion page cover only.
-  // No per-page fallback calls (eliminates the N+1 slowdown on homepage load).
-  return pages.map((page: any) => {
-    const props = page.properties;
-    return {
-      id: page.id,
-      title: extractTitle(page),
-      coverImage: extractCoverImage(page),
-      status: props["Status"]?.select?.name ?? null,
-      scope: props["Scope"]?.select?.name ?? null,
-      usp: props["Objection USP"]?.select?.name ?? null,
-      regions: props["Primary Region"]?.multi_select?.map((s: any) => s.name) ?? [],
-    };
-  });
+  const objections = await Promise.all(
+    pages.map(async (page: any) => {
+      const props = page.properties;
+      const coverImage = extractCoverImage(page) ?? await getFirstImageBlock(page.id);
+      return {
+        id: page.id,
+        title: extractTitle(page),
+        coverImage,
+        status: props["Status"]?.select?.name ?? null,
+        scope: props["Scope"]?.select?.name ?? null,
+        usp: props["Objection USP"]?.select?.name ?? null,
+        regions: props["Primary Region"]?.multi_select?.map((s: any) => s.name) ?? [],
+      };
+    })
+  );
+  return objections;
 }
 
 export async function getObjectionById(id: string): Promise<ObjectionPage | null> {
