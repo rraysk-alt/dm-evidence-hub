@@ -38,18 +38,19 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         Back to Evidence Hub
       </Link>
 
-      {/* Hero image — from Notion page cover only */}
-      {heroUrl && (
-        <div className="rounded-2xl overflow-hidden mb-6 bg-gray-100 relative" style={{ height: "260px" }}>
-          <img src={heroUrl} alt={objection.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-        </div>
-      )}
-
-      {/* Title */}
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 leading-tight">
-        {objection.title}
-      </h1>
+      {/* Compact header: small thumbnail + title side by side */}
+      <div className="flex items-start gap-4 mb-8">
+        {heroUrl && (
+          <img
+            src={heroUrl}
+            alt={objection.title}
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover flex-shrink-0 shadow-sm border border-gray-100"
+          />
+        )}
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+          {objection.title}
+        </h1>
+      </div>
 
       {/* Content — all blocks, nothing removed */}
       <div className="space-y-1">

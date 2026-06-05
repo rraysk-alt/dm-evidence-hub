@@ -172,19 +172,14 @@ function BlockRenderer({ block }: { block: Block }) {
 
     case "bulleted_list_item":
       return (
-        <li className="text-gray-700 text-sm list-none flex items-start gap-2.5 py-1.5 border-b border-gray-50 last:border-0">
+        <li className="text-gray-700 text-sm list-none flex items-start gap-2.5 py-1.5">
           <span className="w-2 h-2 rounded-full bg-[#009AAB] flex-shrink-0 mt-1.5" />
           <span className="flex-1">
             {renderRichText(content.rich_text)}
             {block.children && (
-              <ul className="mt-2 space-y-1 pl-1">
-                {block.children.map((child) => (
-                  <li key={child.id} className="text-gray-500 text-xs list-none flex items-start gap-2">
-                    <span className="w-1 h-1 rounded-full bg-gray-300 flex-shrink-0 mt-1.5" />
-                    <span>{renderRichText((child as any)[(child as any).type]?.rich_text ?? [])}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-2 pl-1">
+                <NotionRenderer blocks={block.children} />
+              </div>
             )}
           </span>
         </li>
