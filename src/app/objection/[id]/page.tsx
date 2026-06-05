@@ -3,7 +3,7 @@ import { NotionRenderer } from "@/components/NotionRenderer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 1800; // 30 min — Notion S3 URLs expire after ~1hr
 
 export async function generateStaticParams() {
   const objections = await getObjections();

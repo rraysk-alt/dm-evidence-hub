@@ -44,7 +44,7 @@ function extractTitle(page: any): string {
 async function getFirstImageBlock(pageId: string): Promise<string | null> {
   const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=5`, {
     headers,
-    cache: "no-store",
+    next: { revalidate: 1800 },
   });
   const data = await res.json();
   const imgBlock = (data.results ?? []).find((b: any) => b.type === "image");
@@ -58,7 +58,7 @@ export async function getObjections(): Promise<ObjectionPage[]> {
     method: "POST",
     headers,
     body: JSON.stringify({}),
-    cache: "no-store",
+    next: { revalidate: 1800 },
   });
   const data = await res.json();
   const pages = data.results ?? [];
@@ -84,7 +84,7 @@ export async function getObjections(): Promise<ObjectionPage[]> {
 export async function getObjectionById(id: string): Promise<ObjectionPage | null> {
   const res = await fetch(`https://api.notion.com/v1/pages/${id}`, {
     headers,
-    cache: "no-store",
+    next: { revalidate: 1800 },
   });
   if (!res.ok) return null;
   const page = await res.json();
@@ -107,7 +107,7 @@ export async function getPageBlocks(pageId: string): Promise<Block[]> {
 async function fetchBlockChildren(blockId: string): Promise<Block[]> {
   const res = await fetch(`https://api.notion.com/v1/blocks/${blockId}/children?page_size=100`, {
     headers,
-    cache: "no-store",
+    next: { revalidate: 1800 },
   });
   const data = await res.json();
   const blocks: Block[] = data.results ?? [];
