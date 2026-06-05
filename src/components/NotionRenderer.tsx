@@ -64,7 +64,7 @@ function BlockRenderer({ block }: { block: Block }) {
     case "heading_1":
       if (content.is_toggleable) {
         return (
-          <details className="mt-6 group" open>
+          <details className="mt-6 group">
             <summary className="cursor-pointer list-none flex items-center gap-2 pb-2 border-b-2 border-[#009AAB]">
               <span className="text-[#009AAB] text-sm transition-transform group-open:rotate-90 select-none">▶</span>
               <h1 className="text-2xl font-bold text-gray-900">{renderRichText(content.rich_text)}</h1>
