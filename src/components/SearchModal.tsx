@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
-type Result = { id: string; title: string };
+type Result = { id: string; title: string; snippet?: string };
 
 export function SearchModal() {
   const [open, setOpen] = useState(false);
@@ -12,13 +12,9 @@ export function SearchModal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  // Open on keyboard shortcut cmd+k
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setOpen(true);
-      }
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); setOpen(true); }
       if (e.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", handler);
@@ -31,7 +27,7 @@ export function SearchModal() {
   }, [open]);
 
   const search = useCallback(async (q: string) => {
-    if (!q.trim()) { setResults([]); return; }
+    if (q.trim().length < 2) { setResults([]); return; }
     setLoading(true);
     try {
       const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`);
@@ -42,15 +38,13 @@ export function SearchModal() {
     }
   }, []);
 
+  // Longer debounce (600ms) — gives user time to finish typing before OpenAI call
   useEffect(() => {
-    const t = setTimeout(() => search(query), 300);
+    const t = setTimeout(() => search(query), 600);
     return () => clearTimeout(t);
   }, [query, search]);
 
-  const go = (id: string) => {
-    router.push(`/objection/${id}`);
-    setOpen(false);
-  };
+  const go = (id: string) => { router.push(`/objection/${id}`); setOpen(false); };
 
   return (
     <>
@@ -72,36 +66,54 @@ export function SearchModal() {
           onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
         >
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
+
             {/* Input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
-              <span className="text-lg">🔍</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-gray-400 flex-shrink-0">
+                <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
               <input
                 ref={inputRef}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search evidence hub..."
-                className="flex-1 text-base outline-none text-gray-800 placeholder-gray-400"
+                placeholder="Ask anything about the evidence…"
+                className="flex-1 text-sm outline-none text-gray-800 placeholder-gray-400"
               />
               {loading && (
-                <div className="w-4 h-4 border-2 border-[#009AAB] border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-[#009AAB] border-t-transparent rounded-full animate-spin flex-shrink-0" />
               )}
-              <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-gray-600 text-sm">
+              <kbd
+                onClick={() => setOpen(false)}
+                className="text-xs text-gray-400 border border-gray-200 rounded px-1.5 py-0.5 cursor-pointer hover:text-gray-600"
+              >
                 ESC
-              </button>
+              </kbd>
             </div>
 
             {/* Results */}
             {results.length > 0 && (
-              <ul className="py-2 max-h-72 overflow-y-auto">
+              <ul className="py-1.5 max-h-80 overflow-y-auto divide-y divide-gray-50">
                 {results.map((r) => (
                   <li key={r.id}>
                     <button
                       onClick={() => go(r.id)}
-                      className="w-full text-left px-4 py-3 hover:bg-[#009AAB]/5 flex items-center gap-3 group transition-colors"
+                      className="w-full text-left px-4 py-3 hover:bg-[#009AAB]/5 flex items-start gap-3 group transition-colors"
                     >
-                      <span className="text-[#009AAB] text-sm">→</span>
-                      <span className="text-sm text-gray-800 group-hover:text-[#009AAB] transition-colors">
-                        {r.title}
+                      <span className="text-[#009AAB] mt-0.5 flex-shrink-0">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                      <span className="flex-1 min-w-0">
+                        <span className="text-sm font-medium text-gray-800 group-hover:text-[#009AAB] transition-colors block">
+                          {r.title}
+                        </span>
+                        {r.snippet && (
+                          <span className="text-xs text-gray-400 mt-0.5 block leading-relaxed">
+                            {r.snippet}
+                          </span>
+                        )}
                       </span>
                     </button>
                   </li>
@@ -109,14 +121,29 @@ export function SearchModal() {
               </ul>
             )}
 
-            {query && !loading && results.length === 0 && (
-              <p className="px-4 py-6 text-sm text-gray-400 text-center">No results for "{query}"</p>
+            {query.length >= 2 && !loading && results.length === 0 && (
+              <p className="px-4 py-6 text-sm text-gray-400 text-center">
+                No results for &ldquo;{query}&rdquo;
+              </p>
             )}
 
-            {!query && (
-              <p className="px-4 py-4 text-xs text-gray-400 text-center">
-                Type to search across all objection pages
-              </p>
+            {query.length < 2 && (
+              <div className="px-4 py-5 text-center">
+                <p className="text-xs text-gray-400">
+                  Ask a question or search by keyword
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 mt-3">
+                  {["chair time savings", "AI accuracy", "patient compliance", "ROI evidence"].map((hint) => (
+                    <button
+                      key={hint}
+                      onClick={() => setQuery(hint)}
+                      className="text-xs px-3 py-1.5 rounded-full bg-gray-100 text-gray-500 hover:bg-[#009AAB]/10 hover:text-[#009AAB] transition-colors"
+                    >
+                      {hint}
+                    </button>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
         </div>
