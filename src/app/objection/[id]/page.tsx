@@ -19,12 +19,8 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
 
   if (!objection) notFound();
 
-  const heroImage = blocks.find((b) => b.type === "image");
-  const contentBlocks = blocks.filter((b) => b !== heroImage);
-  const heroUrl = (() => {
-    const content = (heroImage as any)?.image;
-    return content?.type === "external" ? content.external.url : content?.file?.url ?? null;
-  })();
+  // Use the Notion page cover as hero — never steal content image blocks
+  const heroUrl = objection.coverImage;
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
@@ -42,7 +38,7 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         Back to Evidence Hub
       </Link>
 
-      {/* Hero image */}
+      {/* Hero image — from Notion page cover only */}
       {heroUrl && (
         <div className="rounded-2xl overflow-hidden mb-6 bg-gray-100 relative" style={{ height: "260px" }}>
           <img src={heroUrl} alt={objection.title} className="w-full h-full object-cover" />
@@ -55,9 +51,9 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         {objection.title}
       </h1>
 
-      {/* Content — no wrapping white card */}
+      {/* Content — all blocks, nothing removed */}
       <div className="space-y-1">
-        <NotionRenderer blocks={contentBlocks} />
+        <NotionRenderer blocks={blocks} />
       </div>
     </div>
   );

@@ -181,7 +181,7 @@ function BlockRenderer({ block }: { block: Block }) {
                 {block.children.map((child) => (
                   <li key={child.id} className="text-gray-500 text-xs list-none flex items-start gap-2">
                     <span className="w-1 h-1 rounded-full bg-gray-300 flex-shrink-0 mt-1.5" />
-                    <span>{((child as any)[(child as any).type]?.rich_text ?? []).map((t: RichText, i: number) => <span key={i}>{t.plain_text}</span>)}</span>
+                    <span>{renderRichText((child as any)[(child as any).type]?.rich_text ?? [])}</span>
                   </li>
                 ))}
               </ul>
@@ -273,7 +273,32 @@ function BlockRenderer({ block }: { block: Block }) {
       );
     }
 
-    case "embed":
+    case "embed": {
+      const url = content.url;
+      if (!url) return null;
+      const youtubeId = getYouTubeId(url);
+      if (youtubeId) {
+        return (
+          <figure className="my-6">
+            <div className="relative w-full rounded-xl overflow-hidden shadow-sm" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </figure>
+        );
+      }
+      return (
+        <a href={url} target="_blank" rel="noopener noreferrer"
+           className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 my-3 text-[#009AAB] hover:bg-[#009AAB]/5 hover:border-[#009AAB]/30 truncate text-sm transition-all">
+          🔗 <span className="truncate">{url}</span>
+        </a>
+      );
+    }
+
     case "bookmark": {
       const url = content.url;
       if (!url) return null;
