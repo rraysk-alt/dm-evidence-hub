@@ -35,11 +35,6 @@ export default async function Home() {
             </div>
             <div className="p-4">
               <p className="text-sm font-semibold text-gray-800 leading-snug">{obj.title}</p>
-              {obj.usp && (
-                <span className="inline-block mt-2 text-xs bg-[#009AAB]/10 text-[#009AAB] rounded-full px-2 py-0.5 font-medium">
-                  {obj.usp}
-                </span>
-              )}
             </div>
           </Link>
         ))}
