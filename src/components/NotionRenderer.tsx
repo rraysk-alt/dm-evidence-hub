@@ -137,21 +137,55 @@ function BlockRenderer({ block }: { block: Block }) {
         </div>
       );
 
-    case "paragraph":
+    case "paragraph": {
       if (!content.rich_text?.length) return <div className="h-3" />;
+      const texts: RichText[] = content.rich_text;
+      const allBold = texts.length > 0 && texts.every((t: RichText) => t.annotations?.bold);
+      const firstChar = texts[0]?.plain_text?.trim()[0];
+      const isCitation = firstChar === "(" && texts.some((t: RichText) => t.href || t.annotations?.italic);
+
+      // All-bold paragraph → mini section header
+      if (allBold) {
+        return (
+          <div className="flex items-center gap-2 mt-6 mb-3">
+            <span className="w-1 h-4 rounded-full bg-[#009AAB] flex-shrink-0" />
+            <p className="text-sm font-semibold text-gray-800">{renderRichText(texts)}</p>
+          </div>
+        );
+      }
+
+      // Citation paragraph → footnote style
+      if (isCitation) {
+        return (
+          <p className="text-xs text-gray-400 leading-relaxed mt-1 mb-2 pl-3 border-l-2 border-gray-200 italic">
+            {renderRichText(texts)}
+          </p>
+        );
+      }
+
       return (
         <p className="text-gray-600 leading-relaxed my-2 text-sm">
-          {renderRichText(content.rich_text)}
+          {renderRichText(texts)}
         </p>
       );
+    }
 
     case "bulleted_list_item":
       return (
-        <li className="text-gray-600 text-sm ml-4 my-1.5 list-none flex items-start gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#009AAB] flex-shrink-0 mt-1.5" />
-          <span>
+        <li className="text-gray-700 text-sm list-none flex items-start gap-2.5 py-1.5 border-b border-gray-50 last:border-0">
+          <span className="w-2 h-2 rounded-full bg-[#009AAB] flex-shrink-0 mt-1.5" />
+          <span className="flex-1">
             {renderRichText(content.rich_text)}
-            {block.children && <ul className="ml-2 mt-1"><NotionRenderer blocks={block.children} /></ul>}
+            {block.children && (
+              <ul className="mt-2 space-y-1 pl-1">
+                {block.children.map((child) => (
+                  <li key={child.id} className="text-gray-500 text-xs list-none flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-gray-300 flex-shrink-0 mt-1.5" />
+                    <span>{((child as any)[(child as any).type]?.rich_text ?? []).map((t: RichText, i: number) => <span key={i}>{t.plain_text}</span>)}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </span>
         </li>
       );
