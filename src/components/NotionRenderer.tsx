@@ -208,7 +208,7 @@ function BlockRenderer({ block }: { block: Block }) {
       if (!url) return null;
       return (
         <figure className="my-6">
-          <img src={url} alt={caption} className="rounded-xl max-w-full shadow-sm w-full object-cover" />
+          <img src={url} alt={caption} loading="lazy" decoding="async" className="rounded-xl max-w-full shadow-sm w-full object-cover" />
           {caption && <figcaption className="text-xs text-gray-400 mt-2 text-center">{caption}</figcaption>}
         </figure>
       );

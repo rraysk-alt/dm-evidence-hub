@@ -1,6 +1,7 @@
 import { getObjectionById, getPageBlocks, getObjections } from "@/lib/notion";
 import { TranslatedContent } from "@/components/TranslatedContent";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export const revalidate = 1800;
@@ -41,9 +42,11 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
       {/* Compact header: small thumbnail + title side by side */}
       <div className="flex items-start gap-4 mb-8">
         {heroUrl && (
-          <img
+          <Image
             src={heroUrl}
             alt={objection.title}
+            width={80}
+            height={80}
             className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover flex-shrink-0 shadow-sm border border-gray-100"
           />
         )}

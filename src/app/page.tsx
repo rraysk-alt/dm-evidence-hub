@@ -1,5 +1,6 @@
 import { getObjections } from "@/lib/notion";
 import Link from "next/link";
+import Image from "next/image";
 
 export const revalidate = 1800;
 
@@ -33,10 +34,12 @@ export default async function Home() {
             {/* Image */}
             <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
               {obj.coverImage ? (
-                <img
+                <Image
                   src={obj.coverImage}
                   alt={obj.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-[#009AAB]/10">
