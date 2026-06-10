@@ -27,10 +27,81 @@ function renderRichText(texts: RichText[]) {
   });
 }
 
+function ComparisonTable({ rows, withoutIdx, withIdx }: { rows: Block[]; withoutIdx: number; withIdx: number }) {
+  const dataRows = rows.slice(1);
+  const headerCells = (rows[0] as any).table_row?.cells ?? [];
+  const colCount = headerCells.length;
+  // If 3 cols, col 0 is the metric label; if 2 cols, no metric col
+  const hasMetricCol = colCount >= 3;
+  const metricIdx = hasMetricCol ? (withoutIdx > 0 && withIdx > 0 ? 0 : -1) : -1;
+
+  const withoutLabel = headerCells[withoutIdx]?.map((t: RichText) => t.plain_text).join("") || "Without DM";
+  const withLabel = headerCells[withIdx]?.map((t: RichText) => t.plain_text).join("") || "With DM";
+
+  return (
+    <div className="my-6 rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+      {/* Header row */}
+      <div
+        style={{ gridTemplateColumns: hasMetricCol ? "2fr 1.5fr 1.5fr" : "1fr 1fr" }}
+        className="grid text-sm font-semibold"
+      >
+        {hasMetricCol && (
+          <div className="bg-gray-800 text-white px-4 py-3 text-xs uppercase tracking-wide">Metric</div>
+        )}
+        <div className="bg-gray-100 text-gray-500 px-4 py-3 flex items-center gap-2 text-xs uppercase tracking-wide border-l border-gray-200">
+          <span className="w-4 h-4 rounded-full bg-gray-300 flex items-center justify-center text-white text-[10px] leading-none flex-shrink-0">✕</span>
+          {withoutLabel}
+        </div>
+        <div className="bg-[#009AAB] text-white px-4 py-3 flex items-center gap-2 text-xs uppercase tracking-wide border-l border-[#009AAB]">
+          <span className="w-4 h-4 rounded-full bg-white/30 flex items-center justify-center text-white text-[10px] leading-none flex-shrink-0">✓</span>
+          {withLabel}
+        </div>
+      </div>
+
+      {/* Data rows */}
+      {dataRows.map((row, ri) => {
+        const cells = (row as any).table_row?.cells ?? [];
+        const isEven = ri % 2 === 0;
+        return (
+          <div
+            key={row.id}
+            style={{ gridTemplateColumns: hasMetricCol ? "2fr 1.5fr 1.5fr" : "1fr 1fr" }}
+            className={`grid text-sm border-t border-gray-100 ${isEven ? "bg-white" : "bg-gray-50/50"}`}
+          >
+            {hasMetricCol && metricIdx >= 0 && (
+              <div className="px-4 py-3 font-medium text-gray-800 text-sm">
+                {renderRichText(cells[metricIdx] ?? [])}
+              </div>
+            )}
+            <div className="px-4 py-3 text-gray-500 border-l border-gray-100 text-sm">
+              {renderRichText(cells[withoutIdx] ?? [])}
+            </div>
+            <div className="px-4 py-3 text-[#007a89] font-medium border-l border-[#009AAB]/15 bg-[#009AAB]/3 text-sm">
+              {renderRichText(cells[withIdx] ?? [])}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function TableBlock({ block }: { block: Block }) {
   const rows = block.children ?? [];
   if (!rows.length) return null;
   const hasHeader = (block as any).table?.has_column_header;
+
+  // Detect comparison table (columns containing "without"/"before" and "with"/"after")
+  if (hasHeader && rows.length > 1) {
+    const headerCells: RichText[][] = (rows[0] as any).table_row?.cells ?? [];
+    const headerTexts = headerCells.map((cell) => cell.map((t) => t.plain_text).join("").toLowerCase());
+    const withoutIdx = headerTexts.findIndex((t) => t.includes("without") || t.includes("before"));
+    const withIdx = headerTexts.findIndex((t) => (t.includes("with") && !t.includes("without")) || t.includes("after"));
+    if (withoutIdx !== -1 && withIdx !== -1) {
+      return <ComparisonTable rows={rows} withoutIdx={withoutIdx} withIdx={withIdx} />;
+    }
+  }
+
   return (
     <div className="overflow-x-auto my-5 rounded-xl border border-gray-200 shadow-sm">
       <table className="min-w-full text-sm">
@@ -144,12 +215,11 @@ function BlockRenderer({ block }: { block: Block }) {
       const firstChar = texts[0]?.plain_text?.trim()[0];
       const isCitation = firstChar === "(" && texts.some((t: RichText) => t.href || t.annotations?.italic);
 
-      // All-bold paragraph → mini section header
+      // All-bold paragraph → section header (same prominence as heading_2)
       if (allBold) {
         return (
-          <div className="flex items-center gap-2 mt-6 mb-3">
-            <span className="w-1 h-4 rounded-full bg-[#009AAB] flex-shrink-0" />
-            <p className="text-sm font-semibold text-gray-800">{renderRichText(texts)}</p>
+          <div className="mt-5 mb-2">
+            <h3 className="text-lg font-semibold text-gray-800">{renderRichText(texts)}</h3>
           </div>
         );
       }
