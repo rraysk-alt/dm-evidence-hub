@@ -1,5 +1,6 @@
 import { getObjectionById, getObjectionContent, getAllIds } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx";
 import { TranslationWrapper } from "@/components/TranslationWrapper";
 import { StatsBanner } from "@/components/StatsBanner";
@@ -58,7 +59,11 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
       {/* MDX Content — wrapped for client-side translation */}
       <div className="space-y-1">
         <TranslationWrapper pageId={id}>
-          <MDXRemote source={content} components={mdxComponents} />
+          <MDXRemote
+            source={content}
+            components={mdxComponents}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </TranslationWrapper>
       </div>
     </div>
