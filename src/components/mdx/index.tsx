@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { Toggle } from "./Toggle";
 import { Callout } from "./Callout";
 import { YouTube } from "./YouTube";
-import type { MDXComponents } from "mdx/types";
+
+type MDXComponents = Record<string, React.ComponentType<any>>;
 
 export const mdxComponents: MDXComponents = {
   Toggle,
