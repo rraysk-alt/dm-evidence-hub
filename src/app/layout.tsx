@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import Script from "next/script";
 import { NavLinks } from "@/components/NavLinks";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </nav>
         <main>{children}</main>
+        <ScrollToTop />
         <footer className="bg-[#f6f6f6] border-t border-gray-200 mt-16 py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-2">
             <div className="flex items-center gap-2">
