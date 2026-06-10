@@ -2,6 +2,7 @@ import { getObjectionById, getObjectionContent, getAllIds } from "@/lib/content"
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx";
 import { TranslationWrapper } from "@/components/TranslationWrapper";
+import { StatsBanner } from "@/components/StatsBanner";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -50,6 +51,9 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
           {objection.title}
         </h1>
       </div>
+
+      {/* Stats banner */}
+      {objection.stats && <StatsBanner stats={objection.stats} />}
 
       {/* MDX Content — wrapped for client-side translation */}
       <div className="space-y-1">
