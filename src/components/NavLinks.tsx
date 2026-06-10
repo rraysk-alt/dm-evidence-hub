@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { SearchModal } from "@/components/SearchModal";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { useLanguage, LANGUAGES, type Lang } from "@/context/LanguageContext";
 
 const links = [
   { label: "Marketing Materials", href: "https://docs.google.com/presentation/d/174AIXWPeWtSaF4cDMsnNmzGXUt2Hw3nM1gB3-nej-FI/edit?usp=sharing" },
@@ -15,6 +16,7 @@ export function NavLinks() {
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const resourcesRef = useRef<HTMLDivElement>(null);
+  const { lang, setLang } = useLanguage();
 
   // Close resources dropdown on outside click
   useEffect(() => {
@@ -124,8 +126,21 @@ export function NavLinks() {
               {link.label}
             </a>
           ))}
-          <div className="px-4 py-3 border-t border-gray-50">
-            <LanguageSelector />
+          <div className="px-4 py-3 border-t border-gray-50 flex flex-wrap gap-1.5">
+            {LANGUAGES.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => { setLang(l.code as Lang); setMobileOpen(false); }}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg transition-all ${
+                  lang === l.code
+                    ? "bg-[#009AAB]/10 text-[#009AAB] font-semibold border border-[#009AAB]/20"
+                    : "text-gray-500 hover:bg-gray-100 border border-transparent"
+                }`}
+              >
+                <span>{l.flag}</span>
+                <span>{l.name}</span>
+              </button>
+            ))}
           </div>
         </div>
       )}
