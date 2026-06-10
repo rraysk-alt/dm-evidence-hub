@@ -1,27 +1,22 @@
-import { getObjectionById, getPageBlocks, getObjections } from "@/lib/notion";
-import { TranslatedContent } from "@/components/TranslatedContent";
+import { getObjectionById, getObjectionContent, getAllIds } from "@/lib/content";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxComponents } from "@/components/mdx";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export const revalidate = 1800;
+export const revalidate = false; // static
 
 export async function generateStaticParams() {
-  const objections = await getObjections();
-  return objections.map((o) => ({ id: o.id }));
+  return getAllIds().map((id) => ({ id }));
 }
 
 export default async function ObjectionPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const [objection, blocks] = await Promise.all([
-    getObjectionById(id),
-    getPageBlocks(id),
-  ]);
+  const objection = getObjectionById(id);
+  const content = getObjectionContent(id);
 
-  if (!objection) notFound();
-
-  // Use the Notion page cover as hero — never steal content image blocks
-  const heroUrl = objection.coverImage;
+  if (!objection || content === null) notFound();
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
@@ -39,11 +34,11 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         Back to Evidence Hub
       </Link>
 
-      {/* Compact header: small thumbnail + title side by side */}
+      {/* Compact header */}
       <div className="flex items-start gap-4 mb-8">
-        {heroUrl && (
+        {objection.coverImage && (
           <Image
-            src={heroUrl}
+            src={objection.coverImage}
             alt={objection.title}
             width={80}
             height={80}
@@ -55,9 +50,9 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         </h1>
       </div>
 
-      {/* Content — translated on demand */}
+      {/* MDX Content */}
       <div className="space-y-1">
-        <TranslatedContent blocks={blocks} pageId={id} />
+        <MDXRemote source={content} components={mdxComponents} />
       </div>
     </div>
   );

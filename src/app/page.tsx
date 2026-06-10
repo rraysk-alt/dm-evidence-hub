@@ -1,11 +1,11 @@
-import { getObjections } from "@/lib/notion";
+import { getObjections } from "@/lib/content";
 import Link from "next/link";
 import Image from "next/image";
 
-export const revalidate = 1800;
+export const revalidate = false; // static — content is in the repo
 
 export default async function Home() {
-  const objections = await getObjections();
+  const objections = getObjections();
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
@@ -48,7 +48,6 @@ export default async function Home() {
                   </svg>
                 </div>
               )}
-              {/* Hover overlay */}
               <div className="absolute inset-0 bg-[#009AAB]/0 group-hover:bg-[#009AAB]/10 transition-colors duration-300" />
             </div>
 
