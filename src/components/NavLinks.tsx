@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SearchModal } from "@/components/SearchModal";
 import { LanguageSelector } from "@/components/LanguageSelector";
 
@@ -12,15 +12,28 @@ const links = [
 ];
 
 export function NavLinks() {
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
+  // Close resources dropdown on outside click
+  useEffect(() => {
+    if (!resourcesOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (!resourcesRef.current?.contains(e.target as Node)) setResourcesOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [resourcesOpen]);
+
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handler = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
 
-  // Close menu on outside click
+  // Close mobile menu on outside click
   useEffect(() => {
     if (!mobileOpen) return;
     const handler = (e: MouseEvent) => {
@@ -32,27 +45,46 @@ export function NavLinks() {
   }, [mobileOpen]);
 
   return (
-    <div data-nav className="relative">
+    <div data-nav className="relative flex items-center gap-2">
       {/* Desktop nav */}
-      <div className="hidden md:flex items-center gap-1">
-        {links.map((link, i) => (
-          <a
-            key={link.href}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative px-3 py-2 text-sm text-gray-600 hover:text-[#009AAB] transition-colors whitespace-nowrap group"
+      <div className="hidden md:flex items-center gap-2">
+        {/* Resources dropdown */}
+        <div ref={resourcesRef} className="relative">
+          <button
+            onClick={() => setResourcesOpen(!resourcesOpen)}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-[#009AAB] bg-white border border-gray-200 rounded-lg hover:border-[#009AAB]/40 transition-all font-medium"
           >
-            {link.label}
-            <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#009AAB] scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
-            {i < links.length - 1 && (
-              <span className="absolute right-0 top-1/2 -translate-y-1/2 h-4 w-px bg-gray-200" />
-            )}
-          </a>
-        ))}
-        <div className="w-px h-4 bg-gray-200 mx-1" />
+            Resources
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={`transition-transform ${resourcesOpen ? "rotate-180" : ""}`}>
+              <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {resourcesOpen && (
+            <div className="absolute right-0 top-full mt-1.5 bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden z-50 min-w-[210px]">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setResourcesOpen(false)}
+                  className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#009AAB]/5 hover:text-[#009AAB] transition-colors border-b border-gray-50 last:border-0"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#009AAB]/40 flex-shrink-0" />
+                  {link.label}
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="ml-auto text-gray-300">
+                    <path d="M2 2h6v6M2 8l6-6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="w-px h-4 bg-gray-200" />
         <SearchModal />
-        <div className="w-px h-4 bg-gray-200 mx-1" />
+        <div className="w-px h-4 bg-gray-200" />
         <LanguageSelector />
       </div>
 
@@ -92,7 +124,7 @@ export function NavLinks() {
               {link.label}
             </a>
           ))}
-          <div className="px-4 py-3">
+          <div className="px-4 py-3 border-t border-gray-50">
             <LanguageSelector />
           </div>
         </div>
