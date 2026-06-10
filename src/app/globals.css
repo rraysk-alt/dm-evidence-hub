@@ -12,6 +12,10 @@ html, body {
   color-scheme: light only;
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Smooth toggle animation */
 details .toggle-content {
   display: grid;
