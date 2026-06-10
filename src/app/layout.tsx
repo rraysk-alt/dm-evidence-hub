@@ -9,7 +9,18 @@ const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sales Objections – Evidence Hub",
-  description: "Evidence-based responses to common DentalMonitoring sales objections.",
+  description: "Evidence-backed responses to the most common DentalMonitoring sales objections — clinical data, peer-reviewed studies, and real-world ROI in one place.",
+  openGraph: {
+    title: "Sales Objections – Evidence Hub",
+    description: "Evidence-backed responses to the most common DentalMonitoring sales objections — clinical data, peer-reviewed studies, and real-world ROI in one place.",
+    siteName: "DentalMonitoring Evidence Hub",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sales Objections – Evidence Hub",
+    description: "Evidence-backed responses to the most common DentalMonitoring sales objections.",
+  },
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
