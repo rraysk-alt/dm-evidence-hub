@@ -8,6 +8,7 @@ const LANG_NAMES: Record<string, string> = {
   es: "Spanish",
   de: "German",
   pt: "Portuguese",
+  ja: "Japanese",
 };
 
 // ── Server-side cache: pageId:lang → original→translated map ──────────────────
