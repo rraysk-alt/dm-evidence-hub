@@ -1,4 +1,5 @@
 import { getObjections } from "@/lib/content";
+import { TranslationWrapper } from "@/components/TranslationWrapper";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,6 +9,7 @@ export default async function Home() {
   const objections = getObjections();
 
   return (
+    <TranslationWrapper pageId="home">
     <div className="max-w-7xl mx-auto px-6 py-10">
       {/* Hero */}
       <div className="mb-10">
@@ -67,5 +69,6 @@ export default async function Home() {
         ))}
       </div>
     </div>
+    </TranslationWrapper>
   );
 }

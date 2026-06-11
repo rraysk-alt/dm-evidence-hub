@@ -37,35 +37,35 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
         Back to Evidence Hub
       </Link>
 
-      {/* Compact header */}
-      <div className="flex items-start gap-4 mb-8">
-        {objection.coverImage && (
-          <Image
-            src={objection.coverImage}
-            alt={objection.title}
-            width={80}
-            height={80}
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover flex-shrink-0 shadow-sm border border-gray-100"
-          />
-        )}
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
-          {objection.title}
-        </h1>
-      </div>
+      <TranslationWrapper pageId={id}>
+        {/* Compact header */}
+        <div className="flex items-start gap-4 mb-8">
+          {objection.coverImage && (
+            <Image
+              src={objection.coverImage}
+              alt={objection.title}
+              width={80}
+              height={80}
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover flex-shrink-0 shadow-sm border border-gray-100"
+            />
+          )}
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+            {objection.title}
+          </h1>
+        </div>
 
-      {/* Stats banner */}
-      {objection.stats && <StatsBanner stats={objection.stats} />}
+        {/* Stats banner */}
+        {objection.stats && <StatsBanner stats={objection.stats} />}
 
-      {/* MDX Content — wrapped for client-side translation */}
-      <div className="space-y-1">
-        <TranslationWrapper pageId={id}>
+        {/* MDX Content */}
+        <div className="space-y-1">
           <MDXRemote
             source={content}
             components={mdxComponents}
             options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
-        </TranslationWrapper>
-      </div>
+        </div>
+      </TranslationWrapper>
     </div>
   );
 }
