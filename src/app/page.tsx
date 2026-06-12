@@ -71,7 +71,7 @@ export default async function Home() {
     </div>
 
     {/* Dr. Swann quote banner */}
-    <div className="bg-white mt-16">
+    <div className="mt-16">
       <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-12">
         <Image
           src="/dr-swann.png"
