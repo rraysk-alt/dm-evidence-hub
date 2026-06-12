@@ -6,6 +6,7 @@ import { NavLinks } from "@/components/NavLinks";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { EvidenceChat } from "@/components/EvidenceChat";
+import { AskBar } from "@/components/AskBar";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -48,9 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LanguageProvider>
         <nav className="bg-[#f6f6f6] border-b border-gray-200 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-            <a href="/">
+            <a href="/" className="shrink-0">
               <Image src="/logo.png" alt="DentalMonitoring – Smarter Orthodontics" width={180} height={33} className="h-8 w-auto" priority />
             </a>
+            <AskBar />
             <NavLinks />
           </div>
         </nav>

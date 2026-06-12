@@ -11,6 +11,12 @@ const WEBHOOK_URL =
 const WELCOME =
   "I'm the DM Evidence AI ChatBot, I can answer any question on DM's studies, fire away!";
 
+const STARTERS = [
+  "What studies do we have on chairtime reduction?",
+  "What's the strongest evidence on AI accuracy?",
+  "Which studies cover patient compliance?",
+];
+
 type FollowUp = { num: string; label: string };
 
 type Msg = {
@@ -110,6 +116,7 @@ export function EvidenceChat() {
   const [busy, setBusy] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const sendRef = useRef<(text: string) => void>(() => {});
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -118,6 +125,17 @@ export function EvidenceChat() {
   useEffect(() => {
     if (open) inputRef.current?.focus();
   }, [open]);
+
+  // Let the nav AskBar open the chat and submit a question.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      setOpen(true);
+      const q = (e as CustomEvent<{ q?: string }>).detail?.q;
+      if (q) sendRef.current(q);
+    };
+    window.addEventListener("dm-chat:ask", handler);
+    return () => window.removeEventListener("dm-chat:ask", handler);
+  }, []);
 
   async function send(text: string) {
     const trimmed = text.trim();
@@ -148,6 +166,7 @@ export function EvidenceChat() {
       setBusy(false);
     }
   }
+  sendRef.current = send;
 
   return (
     <>
@@ -155,16 +174,23 @@ export function EvidenceChat() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Close evidence chat" : "Open evidence chat"}
-        className="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#009BAD] text-white shadow-lg transition hover:bg-[#007987] hover:shadow-xl"
+        className={
+          open
+            ? "fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#009BAD] text-white shadow-lg transition hover:bg-[#007987] hover:shadow-xl"
+            : "fixed bottom-6 right-6 z-[60] flex items-center gap-2.5 rounded-full bg-[#009BAD] py-3.5 pl-5 pr-6 text-white shadow-lg transition hover:bg-[#007987] hover:shadow-xl"
+        }
       >
         {open ? (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M6 6l12 12M18 6L6 18" />
           </svg>
         ) : (
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.05.87 3.92 2.3 5.33-.18 1.18-.65 2.4-1.55 3.35-.18.19-.05.5.21.49 1.84-.07 3.43-.76 4.61-1.5 1.05.34 2.2.53 3.43.53 4.97 0 9-3.58 9-8s-4.03-8-9-8z" />
-          </svg>
+          <>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
+              <path d="M12 3C7.03 3 3 6.58 3 11c0 2.05.87 3.92 2.3 5.33-.18 1.18-.65 2.4-1.55 3.35-.18.19-.05.5.21.49 1.84-.07 3.43-.76 4.61-1.5 1.05.34 2.2.53 3.43.53 4.97 0 9-3.58 9-8s-4.03-8-9-8z" />
+            </svg>
+            <span className="text-[14px] font-semibold whitespace-nowrap">Ask the Evidence Bot</span>
+          </>
         )}
       </button>
 
@@ -219,6 +245,22 @@ export function EvidenceChat() {
                   )}
                 </div>
               )
+            )}
+            {messages.length === 1 && !busy && (
+              <div className="flex flex-col items-start gap-1.5 pl-1 pt-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wide text-gray-400">
+                  Try asking
+                </span>
+                {STARTERS.map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => send(s)}
+                    className="rounded-full border border-[#009BAD] bg-white px-3.5 py-1.5 text-left text-[12.5px] font-medium text-[#007987] transition hover:bg-[#009BAD] hover:text-white"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
             )}
             {busy && (
               <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-gray-200 bg-white px-4 py-3 shadow-sm w-fit">
