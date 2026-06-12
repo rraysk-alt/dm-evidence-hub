@@ -71,8 +71,8 @@ export default async function Home() {
     </div>
 
     {/* Dr. Swann — fun footnote */}
-    <div className="max-w-7xl mx-auto px-6 pt-10 pb-6 flex items-end gap-8 border-t border-gray-200 mt-4">
-      <Image src="/dr-swann.png" alt="Dr. Swann" width={320} height={370} className="w-72 flex-shrink-0 self-end" />
+    <div className="max-w-7xl mx-auto px-6 pt-10 pb-6 flex items-end justify-center gap-8 border-t border-gray-200 mt-4">
+      <Image src="/dr-swann.png" alt="Dr. Swann" width={240} height={278} className="w-56 flex-shrink-0 self-end" />
       <div className="pb-4">
         <p className="text-gray-700 text-2xl font-bold italic leading-snug">
           &ldquo;If you can&apos;t say anything peer-reviewed about your work, then don&apos;t say anything at all!&rdquo;
