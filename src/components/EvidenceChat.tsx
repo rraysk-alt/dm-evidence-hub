@@ -111,6 +111,7 @@ const mdComponents = {
 
 export function EvidenceChat() {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([{ role: "bot", text: WELCOME }]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -194,18 +195,53 @@ export function EvidenceChat() {
         )}
       </button>
 
-      {/* Panel */}
+      {/* Panel: full-screen on mobile, floating card on desktop, expandable */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-[60] flex h-[640px] max-h-[75vh] w-[420px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl">
+        <div
+          className={`fixed z-[70] flex flex-col overflow-hidden border border-gray-200 bg-white shadow-2xl inset-0 h-[100dvh] w-full rounded-none sm:inset-auto sm:bottom-24 sm:right-6 sm:rounded-2xl ${
+            expanded
+              ? "sm:h-[85vh] sm:max-h-[85vh] sm:w-[min(780px,calc(100vw-3rem))]"
+              : "sm:h-[640px] sm:max-h-[75vh] sm:w-[420px] sm:max-w-[calc(100vw-2rem)]"
+          }`}
+        >
           {/* Header */}
-          <div className="border-b-[3px] border-[#009BAD] bg-white px-4 py-3">
-            <Image src="/logo.png" alt="DentalMonitoring" width={150} height={28} className="h-6 w-auto" />
-            <p className="mt-1.5 text-[15px] font-bold text-[#009BAD]">
-              The DM Evidence AI ChatBot
-            </p>
-            <p className="text-[12px] text-gray-500">
-              Evidence-based answers from the evidence library
-            </p>
+          <div className="flex items-start justify-between border-b-[3px] border-[#009BAD] bg-white px-4 py-3">
+            <div>
+              <Image src="/logo.png" alt="DentalMonitoring" width={150} height={28} className="h-6 w-auto" />
+              <p className="mt-1.5 text-[15px] font-bold text-[#009BAD]">
+                The DM Evidence AI ChatBot
+              </p>
+              <p className="text-[12px] text-gray-500">
+                Evidence-based answers from the evidence library
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setExpanded((x) => !x)}
+                aria-label={expanded ? "Shrink chat" : "Expand chat"}
+                title={expanded ? "Shrink" : "Expand"}
+                className="hidden h-8 w-8 items-center justify-center rounded-full text-gray-400 transition hover:bg-[#E6F5FA] hover:text-[#009BAD] sm:flex"
+              >
+                {expanded ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 15H4v5M15 9h5V4M15 9l6-6M9 15l-6 6" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 4h5v5M9 20H4v-5M20 4l-6 6M4 20l6-6" />
+                  </svg>
+                )}
+              </button>
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close chat"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition hover:bg-[#E6F5FA] hover:text-[#009BAD]"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Messages */}
@@ -277,14 +313,14 @@ export function EvidenceChat() {
               e.preventDefault();
               send(input);
             }}
-            className="flex items-center gap-2 border-t border-gray-200 bg-white px-3 py-3"
+            className="flex items-center gap-2 border-t border-gray-200 bg-white px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
           >
             <input
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about any DM study..."
-              className="flex-1 rounded-full border border-gray-300 px-4 py-2.5 text-[13.5px] outline-none transition focus:border-[#009BAD] focus:ring-2 focus:ring-[#C9E8F4]"
+              className="flex-1 rounded-full border border-gray-300 px-4 py-2.5 text-[16px] sm:text-[13.5px] outline-none transition focus:border-[#009BAD] focus:ring-2 focus:ring-[#C9E8F4]"
             />
             <button
               type="submit"
