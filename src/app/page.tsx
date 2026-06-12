@@ -25,23 +25,6 @@ export default async function Home() {
         </p>
       </div>
 
-      {/* Dr. Swann quote */}
-      <div className="flex items-center gap-5 bg-white border border-gray-100 rounded-2xl px-6 py-5 mb-10 shadow-sm max-w-2xl">
-        <Image
-          src="/dr-swann.png"
-          alt="Dr. Swann"
-          width={72}
-          height={72}
-          className="w-16 h-16 rounded-full object-cover object-top flex-shrink-0 border-2 border-[#009AAB]/20"
-        />
-        <div>
-          <p className="text-gray-700 text-sm italic leading-relaxed">
-            &ldquo;If you can&apos;t say anything peer-reviewed about your work, then don&apos;t say anything at all!&rdquo;
-          </p>
-          <p className="text-[#009AAB] text-xs font-semibold mt-1.5">— Dr. Swann</p>
-        </div>
-      </div>
-
       {/* Cards grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {objections.map((obj) => (
@@ -84,6 +67,25 @@ export default async function Home() {
             </div>
           </Link>
         ))}
+      </div>
+    </div>
+
+    {/* Dr. Swann quote banner */}
+    <div className="bg-white mt-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-12">
+        <Image
+          src="/dr-swann.png"
+          alt="Dr. Swann"
+          width={320}
+          height={380}
+          className="w-64 md:w-80 object-cover flex-shrink-0 rounded-2xl"
+        />
+        <div>
+          <p className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+            &ldquo;If you can&apos;t say anything peer-reviewed about your work, then don&apos;t say anything at all!&rdquo;
+          </p>
+          <p className="text-[#009AAB] text-xl font-semibold mt-6">— Dr. Swann</p>
+        </div>
       </div>
     </div>
     </TranslationWrapper>
