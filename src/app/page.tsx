@@ -26,15 +26,6 @@ export default async function Home() {
         </p>
       </div>
 
-      {/* Library stats */}
-      <StatsBanner
-        stats={[
-          { value: "86", label: "Studies in the evidence library", note: "peer-reviewed & in-house" },
-          { value: "Live", label: "Auto-synced with the study library", note: "new studies ingested automatically" },
-          { value: "24/7", label: "AI ChatBot on every page", note: "cited answers in any language" },
-        ]}
-      />
-
       {/* Cards grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {objections.map((obj) => (
