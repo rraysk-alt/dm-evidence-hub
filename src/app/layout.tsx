@@ -5,6 +5,7 @@ import Image from "next/image";
 import { NavLinks } from "@/components/NavLinks";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { EvidenceChat } from "@/components/EvidenceChat";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </nav>
         <main>{children}</main>
         <ScrollToTop />
+        <EvidenceChat />
         <footer className="bg-[#f6f6f6] border-t border-gray-200 mt-16 py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-2">
             <Image src="/logo.png" alt="DentalMonitoring – Smarter Orthodontics" width={140} height={26} className="h-7 w-auto opacity-70" />
