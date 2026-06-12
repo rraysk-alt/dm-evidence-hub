@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import Script from "next/script";
+import Image from "next/image";
 import { NavLinks } from "@/components/NavLinks";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -46,14 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LanguageProvider>
         <nav className="bg-[#f6f6f6] border-b border-gray-200 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2">
-              <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-                <polygon points="8,6 36,20 8,34" fill="#009AAB" />
-              </svg>
-              <div>
-                <div className="font-bold text-gray-900 text-sm leading-tight">DentalMonitoring</div>
-                <div className="text-xs text-gray-500 leading-tight">Smarter Orthodontics</div>
-              </div>
+            <a href="/">
+              <Image src="/logo.png" alt="DentalMonitoring – Smarter Orthodontics" width={180} height={33} className="h-8 w-auto" priority />
             </a>
             <NavLinks />
           </div>
@@ -62,13 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollToTop />
         <footer className="bg-[#f6f6f6] border-t border-gray-200 mt-16 py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-2">
-            <div className="flex items-center gap-2">
-              <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
-                <polygon points="8,6 36,20 8,34" fill="#009AAB" />
-              </svg>
-              <span className="font-semibold text-gray-800 text-sm">DentalMonitoring</span>
-            </div>
-            <p className="text-xs text-gray-500">Smarter Orthodontics</p>
+            <Image src="/logo.png" alt="DentalMonitoring – Smarter Orthodontics" width={140} height={26} className="h-7 w-auto opacity-70" />
           </div>
         </footer>
         </LanguageProvider>
