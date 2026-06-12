@@ -1,4 +1,5 @@
 import { getObjections } from "@/lib/content";
+import { StatsBanner } from "@/components/StatsBanner";
 import { TranslationWrapper } from "@/components/TranslationWrapper";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,6 +25,15 @@ export default async function Home() {
           Evidence-backed responses to the most common objections. Click any category to explore data, studies, and testimonials.
         </p>
       </div>
+
+      {/* Library stats */}
+      <StatsBanner
+        stats={[
+          { value: "86", label: "Studies in the evidence library", note: "peer-reviewed & in-house" },
+          { value: "Live", label: "Auto-synced with the study library", note: "new studies ingested automatically" },
+          { value: "24/7", label: "AI ChatBot on every page", note: "cited answers in any language" },
+        ]}
+      />
 
       {/* Cards grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
