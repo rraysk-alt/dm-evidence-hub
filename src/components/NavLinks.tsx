@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { SearchModal } from "@/components/SearchModal";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { useLanguage, LANGUAGES, type Lang } from "@/context/LanguageContext";
 
@@ -85,14 +84,11 @@ export function NavLinks() {
         </div>
 
         <div className="w-px h-4 bg-gray-200" />
-        <SearchModal />
-        <div className="w-px h-4 bg-gray-200" />
         <LanguageSelector />
       </div>
 
       {/* Mobile: search + hamburger */}
       <div className="flex md:hidden items-center gap-1">
-        <SearchModal />
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="p-2 rounded-md text-gray-600 hover:bg-gray-200/60 transition-colors"
