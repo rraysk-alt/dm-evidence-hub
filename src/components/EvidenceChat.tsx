@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { usePostHog } from "posthog-js/react";
 
 const WEBHOOK_URL =
   "https://marketing-nam.app.n8n.cloud/webhook/d105c3ad-3488-438c-b405-b856c90ce80e/chat";
@@ -118,6 +119,7 @@ export function EvidenceChat() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const sendRef = useRef<(text: string) => void>(() => {});
+  const posthog = usePostHog();
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -144,6 +146,7 @@ export function EvidenceChat() {
     setMessages((m) => [...m, { role: "user", text: trimmed }]);
     setInput("");
     setBusy(true);
+    posthog?.capture("chat_question_asked", { question: trimmed, sessionId: getSessionId() });
     try {
       const res = await fetch(WEBHOOK_URL, {
         method: "POST",
