@@ -63,6 +63,108 @@ function getSessionId(): string {
   return id;
 }
 
+/** Copy a DOM node as BOTH rich HTML and plain text, so it pastes as a real
+ * formatted table / clickable links into Gmail/Word, or clean text into Slack. */
+async function copyRich(node: HTMLElement): Promise<boolean> {
+  const html = node.innerHTML;
+  const text = node.innerText;
+  try {
+    if (typeof ClipboardItem !== "undefined" && navigator.clipboard?.write) {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/html": new Blob([html], { type: "text/html" }),
+          "text/plain": new Blob([text], { type: "text/plain" }),
+        }),
+      ]);
+      return true;
+    }
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
+
+const IconCopy = (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="9" y="9" width="11" height="11" rx="2" />
+    <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+  </svg>
+);
+const IconCheck = (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 6L9 17l-5-5" />
+  </svg>
+);
+
+function CopyButton({
+  targetRef,
+  variant = "icon",
+  label = "Copy",
+  className = "",
+  onCopied,
+}: {
+  targetRef: React.RefObject<HTMLDivElement | null>;
+  variant?: "icon" | "text";
+  label?: string;
+  className?: string;
+  onCopied?: () => void;
+}) {
+  const [copied, setCopied] = useState(false);
+  async function handle() {
+    const node = targetRef.current;
+    if (!node) return;
+    if (await copyRich(node)) {
+      setCopied(true);
+      onCopied?.();
+      setTimeout(() => setCopied(false), 1500);
+    }
+  }
+  if (variant === "text") {
+    return (
+      <button
+        type="button"
+        onClick={handle}
+        className={`inline-flex items-center gap-1 text-[11px] font-medium transition ${copied ? "text-[#009BAD]" : "text-gray-400 hover:text-[#009BAD]"} ${className}`}
+      >
+        {copied ? IconCheck : IconCopy}
+        {copied ? "Copied" : label}
+      </button>
+    );
+  }
+  return (
+    <button
+      type="button"
+      onClick={handle}
+      aria-label={copied ? "Copied" : label}
+      title={copied ? "Copied" : label}
+      className={`inline-flex items-center gap-1 rounded-md border bg-white/95 px-1.5 py-1 text-[10px] font-medium shadow-sm backdrop-blur transition ${copied ? "border-[#84CFE8] text-[#009BAD]" : "border-gray-200 text-gray-500 hover:border-[#84CFE8] hover:text-[#009BAD]"} ${className}`}
+    >
+      {copied ? IconCheck : IconCopy}
+      {copied ? "Copied" : ""}
+    </button>
+  );
+}
+
+/** Wraps a markdown block (table / key-takeaway) with a hover copy button. */
+function CopyableBlock({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  return (
+    <div className={`group/cp relative ${className}`}>
+      <div ref={ref}>{children}</div>
+      <CopyButton
+        targetRef={ref}
+        className="absolute right-1.5 top-1.5 z-10 opacity-0 transition group-hover/cp:opacity-100 focus:opacity-100"
+      />
+    </div>
+  );
+}
+
 const mdComponents = {
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
@@ -88,15 +190,19 @@ const mdComponents = {
     <ol {...props} className="my-2 list-decimal pl-5 space-y-1" />
   ),
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote
-      {...props}
-      className="my-3 rounded-lg border-l-4 border-[#009BAD] bg-[#E6F5FA] px-4 py-3 not-italic [&>p]:my-0"
-    />
+    <CopyableBlock className="my-3">
+      <blockquote
+        {...props}
+        className="rounded-lg border-l-4 border-[#009BAD] bg-[#E6F5FA] px-4 py-3 pr-10 not-italic [&>p]:my-0"
+      />
+    </CopyableBlock>
   ),
   table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <div className="my-3 overflow-x-auto rounded-lg border border-[#C9E8F4]">
-      <table {...props} className="w-full border-collapse text-[12.5px]" />
-    </div>
+    <CopyableBlock className="my-3">
+      <div className="overflow-x-auto rounded-lg border border-[#C9E8F4]">
+        <table {...props} className="w-full border-collapse text-[12.5px]" />
+      </div>
+    </CopyableBlock>
   ),
   th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <th
@@ -109,6 +215,57 @@ const mdComponents = {
   ),
   hr: () => <hr className="my-4 border-t border-[#C9E8F4]" />,
 };
+
+function BotMessage({
+  msg,
+  busy,
+  copyable,
+  onFollowUp,
+  onCopied,
+}: {
+  msg: Msg;
+  busy: boolean;
+  copyable: boolean;
+  onFollowUp: (label: string) => void;
+  onCopied: () => void;
+}) {
+  const bodyRef = useRef<HTMLDivElement>(null);
+  return (
+    <div className="flex flex-col items-start gap-2">
+      <div className="max-w-[95%] rounded-2xl rounded-bl-md border border-gray-200 bg-white px-4 py-3 text-[13.5px] text-[#333337] shadow-sm">
+        <div ref={bodyRef}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+            {msg.text}
+          </ReactMarkdown>
+        </div>
+        {copyable && (
+          <div className="mt-2 flex justify-end border-t border-gray-100 pt-1.5">
+            <CopyButton targetRef={bodyRef} variant="text" label="Copy answer" onCopied={onCopied} />
+          </div>
+        )}
+      </div>
+      {msg.followUps && msg.followUps.length > 0 && (
+        <div className="flex flex-col items-start gap-1.5 pl-1">
+          {msg.followUpTitle && (
+            <span className="text-[11px] font-semibold uppercase tracking-wide text-gray-400">
+              {msg.followUpTitle}
+            </span>
+          )}
+          {msg.followUps.map((f) => (
+            <button
+              key={f.num}
+              onClick={() => onFollowUp(f.label)}
+              disabled={busy}
+              className="rounded-full border border-[#009BAD] bg-white px-3.5 py-1.5 text-left text-[12.5px] font-medium text-[#007987] transition hover:bg-[#009BAD] hover:text-white disabled:opacity-50"
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function EvidenceChat() {
   const [open, setOpen] = useState(false);
@@ -257,32 +414,14 @@ export function EvidenceChat() {
                   </div>
                 </div>
               ) : (
-                <div key={i} className="flex flex-col items-start gap-2">
-                  <div className="max-w-[95%] rounded-2xl rounded-bl-md border border-gray-200 bg-white px-4 py-3 text-[13.5px] text-[#333337] shadow-sm">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-                      {msg.text}
-                    </ReactMarkdown>
-                  </div>
-                  {msg.followUps && msg.followUps.length > 0 && (
-                    <div className="flex flex-col items-start gap-1.5 pl-1">
-                      {msg.followUpTitle && (
-                        <span className="text-[11px] font-semibold uppercase tracking-wide text-gray-400">
-                          {msg.followUpTitle}
-                        </span>
-                      )}
-                      {msg.followUps.map((f) => (
-                        <button
-                          key={f.num}
-                          onClick={() => send(f.label)}
-                          disabled={busy}
-                          className="rounded-full border border-[#009BAD] bg-white px-3.5 py-1.5 text-left text-[12.5px] font-medium text-[#007987] transition hover:bg-[#009BAD] hover:text-white disabled:opacity-50"
-                        >
-                          {f.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <BotMessage
+                  key={i}
+                  msg={msg}
+                  busy={busy}
+                  copyable={msg.text !== WELCOME}
+                  onFollowUp={send}
+                  onCopied={() => posthog?.capture("chat_answer_copied", { sessionId: getSessionId() })}
+                />
               )
             )}
             {messages.length === 1 && !busy && (
