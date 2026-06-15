@@ -10,7 +10,7 @@ const WEBHOOK_URL =
   "https://marketing-nam.app.n8n.cloud/webhook/d105c3ad-3488-438c-b405-b856c90ce80e/chat";
 
 const WELCOME =
-  "I'm the DM Evidence AI ChatBot, I can answer any question on DM's studies, fire away!";
+  "I'm the DM Evidence AI ChatBot — I can answer any question on DM's studies, in any language. Try me!";
 
 const STARTERS = [
   "What studies do we have on chairtime reduction?",
