@@ -1,20 +1,20 @@
 {
-  "n_ih": 44,
+  "n_ih": 45,
   "n_ac": 41,
-  "n_total": 85,
-  "n_pub": 80,
-  "n_prog": 5,
-  "ih_pub": 42,
-  "ac_pub": 38,
+  "n_total": 86,
+  "n_pub": 82,
+  "n_prog": 4,
+  "ih_pub": 43,
+  "ac_pub": 39,
   "ih_prog": 2,
-  "ac_prog": 3,
+  "ac_prog": 2,
   "fmt_l": [
     "Data-driven white paper",
     "Case study",
     "White Paper"
   ],
   "fmt_v": [
-    20,
+    21,
     16,
     8
   ],
@@ -24,7 +24,7 @@
     "Product Accuracy"
   ],
   "usp_ih": [
-    32,
+    33,
     20,
     1
   ],
@@ -49,7 +49,7 @@
   ],
   "ih_tv": [
     13,
-    9,
+    10,
     8,
     6,
     3,
@@ -304,7 +304,7 @@
     {
       "x": 4,
       "y": 5,
-      "title": "Occlusion FDA paper"
+      "title": "Quantitative evaluation of an artificial intelligence–driven"
     },
     {
       "x": 4,
@@ -904,6 +904,19 @@
       "date": "2024",
       "url": "https://drive.google.com/file/d/1a7sN2Cnsk4AMpQY8eTUjBwurfcUr3GS6/view?usp=sharing",
       "url2": ""
+    },
+    {
+      "title": "What the Data Revealed: A solution for improving tracking loss using DentalMonitoring",
+      "author": "Dr. Fujiyama",
+      "usp": "Practice optimization & growth",
+      "topic": "Aligners",
+      "format": "Data-driven white paper",
+      "status": "Published",
+      "region": "ASIA",
+      "country": "Japan",
+      "date": "",
+      "url": "https://drive.google.com/file/d/1ZY76SCwpFUtdXlURUMs1EfQPEoV-4nSn/view?usp=sharing",
+      "url2": ""
     }
   ],
   "academic": [
@@ -1398,17 +1411,17 @@
       "url2": ""
     },
     {
-      "title": "Occlusion FDA paper",
-      "journal": "AJO",
+      "title": "Quantitative evaluation of an artificial intelligence–driven remote monitoring system for occlusion assessment using patient-captured images",
+      "journal": "The Angle Orthodontist",
       "usp": "Product Accuracy",
       "topic": "Occlusion",
       "type": "Prospective Clinical Study (Non-RCT)",
-      "status": "In Progress",
+      "status": "Published",
       "date": "",
       "strength": 4,
       "sentiment": 5,
       "country": "Global",
-      "url": "",
+      "url": "https://drive.google.com/file/d/1I70fR73r86qC49sfB2LpA_WB_QTl2ENb/view?usp=sharing",
       "url2": ""
     },
     {
