@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useSession } from "next-auth/react";
 import { usePostHog } from "posthog-js/react";
 
 const WEBHOOK_URL =
@@ -276,6 +277,7 @@ export function EvidenceChat() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const sendRef = useRef<(text: string) => void>(() => {});
+  const { status } = useSession();
   const posthog = usePostHog();
 
   useEffect(() => {
@@ -303,7 +305,6 @@ export function EvidenceChat() {
     setMessages((m) => [...m, { role: "user", text: trimmed }]);
     setInput("");
     setBusy(true);
-    posthog?.capture("chat_question_asked", { question: trimmed, sessionId: getSessionId() });
     try {
       const res = await fetch(WEBHOOK_URL, {
         method: "POST",
@@ -328,6 +329,9 @@ export function EvidenceChat() {
     }
   }
   sendRef.current = send;
+
+  // Bot is for signed-in DM reps only — hide it on the sign-in screen / when logged out.
+  if (status !== "authenticated") return null;
 
   return (
     <>
