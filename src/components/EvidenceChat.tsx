@@ -288,6 +288,15 @@ export function EvidenceChat() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  // Introduce the bot by auto-opening it once, on a rep's first authenticated visit.
+  useEffect(() => {
+    if (status !== "authenticated") return;
+    if (typeof window === "undefined") return;
+    if (localStorage.getItem("dm-evidence-chat-introduced")) return;
+    localStorage.setItem("dm-evidence-chat-introduced", "1");
+    setOpen(true);
+  }, [status]);
+
   // Let the nav AskBar open the chat and submit a question.
   useEffect(() => {
     const handler = (e: Event) => {

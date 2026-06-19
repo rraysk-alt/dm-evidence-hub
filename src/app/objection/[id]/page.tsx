@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx";
 import { TranslationWrapper } from "@/components/TranslationWrapper";
 import { StatsBanner } from "@/components/StatsBanner";
+import { AskAboutThis } from "@/components/AskAboutThis";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -56,6 +57,9 @@ export default async function ObjectionPage({ params }: { params: Promise<{ id: 
 
         {/* Stats banner */}
         {objection.stats && <StatsBanner stats={objection.stats} />}
+
+        {/* Contextual nudge to the Evidence Bot */}
+        <AskAboutThis title={objection.title} />
 
         {/* MDX Content */}
         <div className="space-y-1">
