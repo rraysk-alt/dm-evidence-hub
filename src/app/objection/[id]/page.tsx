@@ -15,6 +15,13 @@ export async function generateStaticParams() {
   return getAllIds().map((id) => ({ id }));
 }
 
+// Per-page browser title (and a readable title for analytics) instead of the generic site title.
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const objection = getObjectionById(id);
+  return { title: objection ? objection.title : "Evidence Hub" };
+}
+
 export default async function ObjectionPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const objection = getObjectionById(id);
