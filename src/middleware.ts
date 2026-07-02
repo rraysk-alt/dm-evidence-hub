@@ -4,5 +4,5 @@ export { auth as middleware } from "@/auth";
 // internals, and static files (anything with a file extension, e.g. /logo.png).
 // Unauthenticated requests are redirected to /signin by the `authorized` callback.
 export const config = {
-  matcher: ["/((?!api/auth|_next/static|_next/image|signin|.*\\..*).*)"],
+  matcher: ["/((?!api/auth|ingest|_next/static|_next/image|signin|.*\\..*).*)"],
 };
