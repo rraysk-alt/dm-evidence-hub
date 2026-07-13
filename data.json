@@ -1,22 +1,24 @@
 {
-  "n_ih": 45,
+  "n_ih": 46,
   "n_ac": 41,
-  "n_total": 86,
-  "n_pub": 82,
+  "n_total": 87,
+  "n_pub": 83,
   "n_prog": 4,
-  "ih_pub": 43,
+  "ih_pub": 44,
   "ac_pub": 39,
   "ih_prog": 2,
   "ac_prog": 2,
   "fmt_l": [
     "Data-driven white paper",
     "Case study",
-    "White Paper"
+    "White Paper",
+    "Peer-reviewed study"
   ],
   "fmt_v": [
     21,
     16,
-    8
+    8,
+    1
   ],
   "usp_l": [
     "Practice Optimization & Growth",
@@ -26,7 +28,7 @@
   "usp_ih": [
     33,
     20,
-    1
+    2
   ],
   "usp_ac": [
     14,
@@ -39,11 +41,11 @@
     "All",
     "Patient xp",
     "Observation",
+    "AI Accuracy",
     "Phase 1",
     "Retention",
     "Aligners & Braces",
     "Engage",
-    "AI Accuracy",
     "Hygiene",
     "DMC satisfaction"
   ],
@@ -57,7 +59,7 @@
     2,
     2,
     2,
-    1,
+    2,
     1,
     1
   ],
@@ -916,6 +918,19 @@
       "country": "Japan",
       "date": "",
       "url": "https://drive.google.com/file/d/1ZY76SCwpFUtdXlURUMs1EfQPEoV-4nSn/view?usp=sharing",
+      "url2": ""
+    },
+    {
+      "title": "The use of teleorthodontics and artificial intelligence for orthodontic triage and screening in a publicly funded healthcare system: A crossover randomized controlled trial",
+      "author": "Milosevic et al.",
+      "usp": "Product accuracy",
+      "topic": "AI Accuracy",
+      "format": "Peer-reviewed study",
+      "status": "Published",
+      "region": "Global",
+      "country": "Global",
+      "date": "",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42400943/",
       "url2": ""
     }
   ],
