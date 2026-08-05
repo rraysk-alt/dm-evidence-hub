@@ -11,20 +11,24 @@ const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = "/ingest";
 const POSTHOG_UI_HOST = "https://eu.posthog.com";
 
+// Initialise at module scope, not in an effect: React runs child effects before
+// parent ones, so <PageViews/> would capture against an uninitialised client and
+// PostHog would silently drop it. (Dev hid this — StrictMode's double-invoke made
+// the second pass succeed — while production, which runs effects once, lost every
+// $pageview.)
+if (typeof window !== "undefined" && POSTHOG_KEY && !posthog.__loaded) {
+  posthog.init(POSTHOG_KEY, {
+    api_host: POSTHOG_HOST,
+    ui_host: POSTHOG_UI_HOST, // PostHog app lives here (for toolbar/links); data still goes via /ingest
+    person_profiles: "identified_only", // only create person records for signed-in reps
+    // We capture pageviews ourselves per route change (see <PageViews/>); the
+    // "2025-05-24" defaults' "history_change" mode fired no $pageview at all.
+    capture_pageview: false,
+    capture_pageleave: true,
+  });
+}
+
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    if (!POSTHOG_KEY || posthog.__loaded) return;
-    posthog.init(POSTHOG_KEY, {
-      api_host: POSTHOG_HOST,
-      ui_host: POSTHOG_UI_HOST, // PostHog app lives here (for toolbar/links); data still goes via /ingest
-      person_profiles: "identified_only", // only create person records for signed-in reps
-      // Capture the pageview ourselves on each route change (see <PageViews/>).
-      // The "2025-05-24" defaults put this in "history_change" mode, which fired
-      // no $pageview at all here — leaving the leaderboard (a $pageview metric) empty.
-      capture_pageview: false,
-      capture_pageleave: true,
-    });
-  }, []);
 
   // If no key is configured (e.g. local dev), render children without analytics.
   if (!POSTHOG_KEY) return <>{children}</>;
