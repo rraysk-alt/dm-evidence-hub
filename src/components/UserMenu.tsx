@@ -1,5 +1,6 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
+import posthog from "posthog-js";
 
 export function UserMenu() {
   const { data: session, status } = useSession();
@@ -23,7 +24,12 @@ export function UserMenu() {
       </span>
       <button
         type="button"
-        onClick={() => signOut({ callbackUrl: "/signin" })}
+        onClick={() => {
+          // Drop the rep's identity here rather than on every unauthenticated
+          // render, which churned distinct_ids on each sign-in page load.
+          if (posthog.__loaded) posthog.reset();
+          signOut({ callbackUrl: "/signin" });
+        }}
         title="Sign out"
         className="p-1.5 rounded-lg text-gray-400 hover:text-[#009AAB] hover:bg-[#009AAB]/5 transition-colors"
         aria-label="Sign out"

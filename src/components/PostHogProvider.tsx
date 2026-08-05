@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
@@ -16,8 +17,12 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
       ui_host: POSTHOG_UI_HOST, // PostHog app lives here (for toolbar/links); data still goes via /ingest
-      defaults: "2025-05-24", // automatic pageview + pageleave + SPA navigation capture
       person_profiles: "identified_only", // only create person records for signed-in reps
+      // Capture the pageview ourselves on each route change (see <PageViews/>).
+      // The "2025-05-24" defaults put this in "history_change" mode, which fired
+      // no $pageview at all here — leaving the leaderboard (a $pageview metric) empty.
+      capture_pageview: false,
+      capture_pageleave: true,
     });
   }, []);
 
@@ -27,9 +32,23 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   return (
     <PHProvider client={posthog}>
       <Identify />
+      <PageViews />
       {children}
     </PHProvider>
   );
+}
+
+// Explicit $pageview on first load and on every App Router navigation.
+function PageViews() {
+  const ph = usePostHog();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (!ph || !pathname) return;
+    ph.capture("$pageview", { $current_url: window.location.href });
+  }, [ph, pathname]);
+
+  return null;
 }
 
 // Ties every event to the signed-in rep (distinct_id = their DM email) so the
@@ -46,8 +65,6 @@ function Identify() {
         email: session.user.email,
         name: session.user.name ?? undefined,
       });
-    } else if (status === "unauthenticated") {
-      ph.reset();
     }
   }, [ph, status, session?.user?.email, session?.user?.name]);
 
