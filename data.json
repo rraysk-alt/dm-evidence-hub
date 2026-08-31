@@ -1,11 +1,11 @@
 {
   "n_ih": 46,
-  "n_ac": 41,
-  "n_total": 87,
-  "n_pub": 83,
+  "n_ac": 43,
+  "n_total": 89,
+  "n_pub": 85,
   "n_prog": 4,
   "ih_pub": 44,
-  "ac_pub": 39,
+  "ac_pub": 41,
   "ih_prog": 2,
   "ac_prog": 2,
   "fmt_l": [
@@ -32,8 +32,8 @@
   ],
   "usp_ac": [
     14,
-    18,
-    21
+    19,
+    22
   ],
   "ih_tl": [
     "Braces",
@@ -66,31 +66,31 @@
   "ac_tl": [
     "Aligners",
     "SmartSTL",
-    "AI accuracy",
     "Hygiene",
+    "AI accuracy",
+    "Braces",
     "Measurement accuracy",
     "Patient xp",
     "Perio",
     "Aw passivity",
-    "Braces",
+    "Aligner unseats",
     "Phase 1",
     "Engage",
     "Picture quality",
     "Retention",
-    "DMC",
-    "Aligner unseats"
+    "DMC"
   ],
   "ac_tv": [
-    11,
+    13,
     8,
-    3,
-    3,
+    5,
+    4,
+    4,
     2,
     2,
     2,
     2,
     2,
-    1,
     1,
     1,
     1,
@@ -101,15 +101,15 @@
     "Prospective Clinical Study (Non-RCT)",
     "Retrospective / Observational Study",
     "Randomized Controlled Trial (RCT)",
+    "retrospective / Observational Study",
     "Lab / In-Vitro Study",
-    "Systematic Review",
-    "retrospective / Observational Study"
+    "Systematic Review"
   ],
   "type_v": [
     20,
     12,
     6,
-    1,
+    3,
     1,
     1
   ],
@@ -117,14 +117,14 @@
     0,
     6,
     16,
-    18,
+    20,
     1
   ],
   "sen_v": [
     3,
     3,
     2,
-    15,
+    17,
     18
   ],
   "scatter": [
@@ -332,6 +332,16 @@
       "x": 4,
       "y": 5,
       "title": "Randomized controlled trial comparing AI-assisted digital an"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "title": "Tooth-level spatial distribution of AI-detected oral hygiene"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "title": "Evaluating the Artificial Intelligence Driven Monitoring Sys"
     }
   ],
   "inhouse": [
@@ -1507,6 +1517,34 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1a9JwbwT0MWAlF3bfdmmydWFqBcPms4kB/view?usp=sharing",
+      "url2": ""
+    },
+    {
+      "title": "Tooth-level spatial distribution of AI-detected oral hygiene insufficiency in fixed appliance versus clear aligner patients: A large-scale analysis using the dental monitoring™ platform.",
+      "journal": "Journal of the World federation of orthodontists",
+      "usp": "Clinical control",
+      "topic": "Aligners, Hygiene, Braces",
+      "type": "retrospective / Observational Study",
+      "status": "Published",
+      "date": "2026",
+      "strength": 4,
+      "sentiment": 4,
+      "country": "Global",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42613255/",
+      "url2": ""
+    },
+    {
+      "title": "Evaluating the Artificial Intelligence Driven Monitoring System Notifications: Clear Aligner and Oral Hygiene Perspectives",
+      "journal": "Orthodontics & Craniofacial Research",
+      "usp": "Product Accuracy",
+      "topic": "AI accuracy, Hygiene, Aligners, Braces, Aligner unseats",
+      "type": "retrospective / Observational Study",
+      "status": "Published",
+      "date": "2026",
+      "strength": 4,
+      "sentiment": 4,
+      "country": "Global",
+      "url": "https://drive.google.com/file/d/1n8EKZurIfPY6sFGMk6YLrFi6M65qXN0R/view?usp=sharing",
       "url2": ""
     }
   ]
