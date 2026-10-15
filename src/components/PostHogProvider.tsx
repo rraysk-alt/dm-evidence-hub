@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import posthog from "posthog-js";
@@ -46,11 +46,21 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
 function PageViews() {
   const ph = usePostHog();
   const pathname = usePathname();
+  const { status } = useSession();
+  const lastCaptured = useRef<string | null>(null);
 
   useEffect(() => {
     if (!ph || !pathname) return;
+    // Hold until the session resolves. <Identify/> is rendered above us, so its
+    // effect runs first and attaches the rep — capturing earlier would send the
+    // first pageview of every visit anonymously, and `identified_only` never
+    // back-links those, which is what left ~11% of landing views unattributed.
+    if (status === "loading") return;
+    // Guard against a session refetch re-firing this for the same route.
+    if (lastCaptured.current === pathname) return;
+    lastCaptured.current = pathname;
     ph.capture("$pageview", { $current_url: window.location.href });
-  }, [ph, pathname]);
+  }, [ph, pathname, status]);
 
   return null;
 }
