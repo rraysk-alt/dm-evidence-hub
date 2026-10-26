@@ -86,7 +86,7 @@ td a:hover{color:#00B4C6!important;border-bottom-color:#00B4C6}
     </div>
   </div>
   <div>
-    <div class="update-badge" id="update-badge">&#128197; Last updated: March 2026</div>
+    <div class="update-badge" id="update-badge">&#128197; Last updated: &#8212;</div>
     <div class="internal-note">For internal use only</div>
   </div>
 </div>
@@ -157,17 +157,18 @@ function _updateDynamic(d){
   });
   var ks3=document.getElementById('ks3');if(ks3)ks3.textContent=d.ih_pub+' in-house \u00b7 '+d.ac_pub+' academic';
   var ks4=document.getElementById('ks4');if(ks4)ks4.textContent=d.ih_prog+' in-house \u00b7 '+d.ac_prog+' academic';
-  var pct=d.n_ac>0?Math.round((d.sen_v[3]+d.sen_v[4])/d.n_ac*100):0;
-  var neg=d.n_ac>0?Math.round((d.sen_v[0]+d.sen_v[1])/d.n_ac*100):0;
+  var nRated=d.sen_v.reduce(function(a,v){return a+v;},0);
+  var pct=nRated>0?Math.round((d.sen_v[3]+d.sen_v[4])/nRated*100):0;
+  var neg=nRated>0?Math.round((d.sen_v[0]+d.sen_v[1])/nRated*100):0;
   var strSum=d.str_v.reduce(function(a,v,i){return a+(i+1)*v;},0);
   var strCount=d.str_v.reduce(function(a,v){return a+v;},0);
   var avg=strCount>0?(strSum/strCount).toFixed(1):'0.0';
-  var qb0=document.getElementById('qb0');if(qb0)qb0.innerHTML='\u2705 '+pct+'% positive for DM ('+(d.sen_v[3]+d.sen_v[4])+' / '+d.n_ac+' studies)';
-  var qb1=document.getElementById('qb1');if(qb1)qb1.innerHTML='\u26a0\ufe0f '+neg+'% mixed or negative ('+(d.sen_v[0]+d.sen_v[1])+' / '+d.n_ac+' studies)';
+  var qb0=document.getElementById('qb0');if(qb0)qb0.innerHTML='\u2705 '+pct+'% positive for DM ('+(d.sen_v[3]+d.sen_v[4])+' / '+nRated+' published studies)';
+  var qb1=document.getElementById('qb1');if(qb1)qb1.innerHTML='\u26a0\ufe0f '+neg+'% mixed or negative ('+(d.sen_v[0]+d.sen_v[1])+' / '+nRated+' published studies)';
   var qb2=document.getElementById('qb2');if(qb2)qb2.innerHTML='\ud83d\udcca Avg. evidence strength: '+avg+' / 5';
   ['tb0','tb1','tb2'].forEach(function(id,i){var el=document.getElementById(id);if(el)el.textContent=[d.n_total,d.n_ih,d.n_ac][i];});
   var ub=document.getElementById('update-badge');
-  if(ub){var now=new Date();ub.innerHTML='\ud83d\udcc5 Last updated: '+now.toLocaleString('en-GB',{month:'long',year:'numeric'});}
+  if(ub&&d.updated){ub.innerHTML='\ud83d\udcc5 Data updated: '+new Date(d.updated+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 }
 
 function setH(id,n,minH,tight){var el=document.getElementById(id);if(el)el.setAttribute('height',Math.max(minH,n*(tight?13:28)+16));}
