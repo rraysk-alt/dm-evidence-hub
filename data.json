@@ -1,11 +1,11 @@
 {
   "updated": "2026-10-26",
-  "n_ih": 48,
+  "n_ih": 46,
   "n_ac": 43,
-  "n_total": 91,
-  "n_pub": 87,
+  "n_total": 89,
+  "n_pub": 85,
   "n_prog": 4,
-  "ih_pub": 46,
+  "ih_pub": 44,
   "ac_pub": 41,
   "ih_prog": 2,
   "ac_prog": 2,
@@ -15,9 +15,9 @@
     "White Paper"
   ],
   "fmt_v": [
-    23,
+    22,
     16,
-    9
+    8
   ],
   "usp_l": [
     "Practice Optimization & Growth",
@@ -25,8 +25,8 @@
     "Product Accuracy"
   ],
   "usp_ih": [
-    35,
-    22,
+    33,
+    21,
     1
   ],
   "usp_ac": [
@@ -52,14 +52,14 @@
     "Oral hygiene & perio"
   ],
   "ih_tv": [
-    20,
     19,
-    16,
-    12,
+    18,
+    15,
     11,
-    9,
-    7,
-    7,
+    11,
+    8,
+    6,
+    6,
     4,
     4,
     3,
@@ -617,21 +617,6 @@
       "n_pts": ""
     },
     {
-      "title": "Why and how I implemented DM",
-      "author": "",
-      "usp": "Practice optimization & growth",
-      "topic": "All treatments, Team & workflow",
-      "format": "White Paper",
-      "status": "Published",
-      "region": "EMEA",
-      "country": "Germany",
-      "date": "2024",
-      "url": "https://drive.google.com/file/d/1RP4UkIZ8odQTm7s5_-j5_2zE-xGrwK_8/view?usp=sharing",
-      "url2": "",
-      "metrics": "",
-      "n_pts": ""
-    },
-    {
       "title": "Retention monitoring",
       "author": "Weronika Wierusz",
       "usp": "Clinical Control, Practice optimization & growth",
@@ -690,21 +675,6 @@
       "url2": "https://drive.google.com/file/d/1BL2WNRaTSYm6hR6IF_exE9Y083gTuQER/view?usp=sharing",
       "metrics": "",
       "n_pts": ""
-    },
-    {
-      "title": "DM impact on practice efficiency for braces & aligners",
-      "author": "Audrey Chokron",
-      "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Aligners, Braces, Visits & chair time, Emergencies & breakages, Treatment outcomes",
-      "format": "Data-driven white paper",
-      "status": "Published",
-      "region": "EMEA",
-      "country": "France",
-      "date": "2024",
-      "url": "https://docs.google.com/document/d/1yKfGr5wNvGeo-TjyuvDHXUlJR8eIaWElTwuE2_lVc-A/edit?usp=sharing",
-      "url2": "https://docs.google.com/document/d/1WcVsTQJ8ZAjV1zha3jMfX6TD76Yc6qH2xegYT40oeaE/edit?usp=sharing",
-      "metrics": "braces: · -28% appts · -37% emergencies · aligners: · -30% appts · -14% emergencies · - 38% refinements",
-      "n_pts": "braces: 25 · aligners: 24"
     },
     {
       "title": "Engage",
@@ -1803,12 +1773,12 @@
   "cov_treat": [
     {
       "t": "Aligners",
-      "ih": 16,
+      "ih": 15,
       "ac": 17
     },
     {
       "t": "Braces",
-      "ih": 19,
+      "ih": 18,
       "ac": 7
     },
     {
@@ -1828,24 +1798,24 @@
     },
     {
       "t": "All treatments",
-      "ih": 12,
+      "ih": 11,
       "ac": 1
     }
   ],
   "cov_theme": [
     {
       "t": "Visits & chair time",
-      "ih": 20,
+      "ih": 19,
       "ac": 8
     },
     {
       "t": "Emergencies & breakages",
-      "ih": 9,
+      "ih": 8,
       "ac": 1
     },
     {
       "t": "Treatment outcomes",
-      "ih": 7,
+      "ih": 6,
       "ac": 9
     },
     {
@@ -1875,7 +1845,7 @@
     },
     {
       "t": "Team & workflow",
-      "ih": 7,
+      "ih": 6,
       "ac": 2
     },
     {
@@ -2018,7 +1988,7 @@
     "ANZ"
   ],
   "reg_v": [
-    29,
+    27,
     8,
     5,
     4,
