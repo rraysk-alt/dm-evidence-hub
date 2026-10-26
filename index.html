@@ -296,7 +296,7 @@ function switchTab(t){
   render();
 }
 
-fetch('./data.json')
+fetch('./data.json?v='+Date.now(),{cache:'no-store'})
   .then(function(r){return r.json();})
   .then(function(d){_updateDynamic(d);_initCharts(d);})
   .catch(function(e){console.error('data.json failed:',e);});
