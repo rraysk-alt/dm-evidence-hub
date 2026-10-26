@@ -1,11 +1,12 @@
 {
+  "updated": "2026-10-26",
   "n_ih": 46,
-  "n_ac": 43,
-  "n_total": 89,
-  "n_pub": 85,
+  "n_ac": 42,
+  "n_total": 88,
+  "n_pub": 84,
   "n_prog": 4,
   "ih_pub": 44,
-  "ac_pub": 41,
+  "ac_pub": 40,
   "ih_prog": 2,
   "ac_prog": 2,
   "fmt_l": [
@@ -33,7 +34,7 @@
   "usp_ac": [
     14,
     19,
-    22
+    21
   ],
   "ih_tl": [
     "Braces",
@@ -44,18 +45,16 @@
     "AI Accuracy",
     "Phase 1",
     "Retention",
-    "Aligners & Braces",
     "Engage",
     "Hygiene",
     "DMC satisfaction"
   ],
   "ih_tv": [
-    13,
-    10,
+    15,
+    12,
     8,
     6,
     3,
-    2,
     2,
     2,
     2,
@@ -67,30 +66,30 @@
     "Aligners",
     "SmartSTL",
     "Hygiene",
-    "AI accuracy",
+    "AI Accuracy",
     "Braces",
     "Measurement accuracy",
     "Patient xp",
     "Perio",
     "Aw passivity",
-    "Aligner unseats",
     "Phase 1",
     "Engage",
     "Picture quality",
     "Retention",
-    "DMC"
+    "DMC",
+    "Aligner unseats"
   ],
   "ac_tv": [
-    13,
+    12,
     8,
-    5,
     4,
-    4,
+    3,
+    3,
     2,
     2,
     2,
     2,
-    2,
+    1,
     1,
     1,
     1,
@@ -101,15 +100,13 @@
     "Prospective Clinical Study (Non-RCT)",
     "Retrospective / Observational Study",
     "Randomized Controlled Trial (RCT)",
-    "retrospective / Observational Study",
     "Lab / In-Vitro Study",
     "Systematic Review"
   ],
   "type_v": [
     20,
-    12,
+    14,
     6,
-    3,
     1,
     1
   ],
@@ -117,15 +114,15 @@
     0,
     6,
     16,
-    20,
+    17,
     1
   ],
   "sen_v": [
     3,
     3,
     2,
-    17,
-    18
+    16,
+    16
   ],
   "scatter": [
     {
@@ -301,17 +298,7 @@
     {
       "x": 4,
       "y": 5,
-      "title": "AW passivity FDA paper"
-    },
-    {
-      "x": 4,
-      "y": 5,
       "title": "Quantitative evaluation of an artificial intelligence–driven"
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "title": "SmartSTL FDA paper"
     },
     {
       "x": 3,
@@ -337,11 +324,6 @@
       "x": 4,
       "y": 4,
       "title": "Tooth-level spatial distribution of AI-detected oral hygiene"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "title": "Evaluating the Artificial Intelligence Driven Monitoring Sys"
     }
   ],
   "inhouse": [
@@ -648,7 +630,7 @@
       "title": "DM impact on practice efficiency for braces & aligners",
       "author": "Audrey Chokron",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Aligners & Braces",
+      "topic": "Aligners, Braces",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
@@ -817,7 +799,7 @@
       "title": "Braces + aligners",
       "author": "Katarzyna Łoza-Sołtyk",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners & Braces",
+      "topic": "Aligners, Braces",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
@@ -1047,7 +1029,7 @@
       "title": "Clinical evaluation of Artificial Intelligence Driven Remote Monitoring technology for assessment of patient oral hygiene during orthodontic treatment",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Product Accuracy",
-      "topic": "AI accuracy",
+      "topic": "AI Accuracy",
       "type": "Prospective Clinical Study (Non-RCT)",
       "status": "Published",
       "date": "2024",
@@ -1362,7 +1344,7 @@
       "strength": 4,
       "sentiment": 5,
       "country": "Global",
-      "url": "",
+      "url": "https://link.springer.com/article/10.1186/s12903-025-07580-0?utm_source=researchgate.net&utm_medium=article",
       "url2": ""
     },
     {
@@ -1481,8 +1463,8 @@
       "title": "Management of a Class III malocclusion combining MARPE with anterior nasomaxillary complex traction and clear aligners with telemonitoring support: Case report and workflow model",
       "journal": "Seminars in Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "AI accuracy, Aligners, SmartSTL",
-      "type": "retrospective / Observational Study",
+      "topic": "AI Accuracy, Aligners, SmartSTL",
+      "type": "Retrospective / Observational Study",
       "status": "Published",
       "date": "2026",
       "strength": 2,
@@ -1495,7 +1477,7 @@
       "title": "Evaluating the Artificial Intelligence Driven Monitoring System Notifications: Clear Aligner and Oral Hygiene Perspectives",
       "journal": "Orthodontics & craniofacial research",
       "usp": "Product Accuracy",
-      "topic": "AI accuracy",
+      "topic": "AI Accuracy",
       "type": "Prospective Clinical Study (Non-RCT)",
       "status": "Published",
       "date": "2026",
@@ -1524,28 +1506,14 @@
       "journal": "Journal of the World federation of orthodontists",
       "usp": "Clinical control",
       "topic": "Aligners, Hygiene, Braces",
-      "type": "retrospective / Observational Study",
+      "type": "Retrospective / Observational Study",
       "status": "Published",
       "date": "2026",
       "strength": 4,
       "sentiment": 4,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42613255/",
-      "url2": ""
-    },
-    {
-      "title": "Evaluating the Artificial Intelligence Driven Monitoring System Notifications: Clear Aligner and Oral Hygiene Perspectives",
-      "journal": "Orthodontics & Craniofacial Research",
-      "usp": "Product Accuracy",
-      "topic": "AI accuracy, Hygiene, Aligners, Braces, Aligner unseats",
-      "type": "retrospective / Observational Study",
-      "status": "Published",
-      "date": "2026",
-      "strength": 4,
-      "sentiment": 4,
-      "country": "Global",
-      "url": "https://drive.google.com/file/d/1n8EKZurIfPY6sFGMk6YLrFi6M65qXN0R/view?usp=sharing",
-      "url2": ""
+      "url2": "https://drive.google.com/file/d/1TtV9GdzEO6_0Rv2yEYyYCYO7lwUxkOuE/view?usp=sharing"
     }
   ]
 }
