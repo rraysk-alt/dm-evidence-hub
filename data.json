@@ -35,61 +35,69 @@
     22
   ],
   "ih_tl": [
+    "Visits & chair time",
     "Braces",
     "Aligners",
-    "All",
-    "Patient xp",
+    "All treatments",
+    "Clinical case management",
+    "Emergencies & breakages",
+    "Team & workflow",
+    "Treatment outcomes",
+    "Patient experience",
     "Observation",
+    "Practice growth & engagement",
     "Phase 1",
+    "Screening & triage",
     "Retention",
-    "Engage",
-    "AI Accuracy",
-    "Hygiene",
-    "DMC satisfaction"
+    "AI accuracy"
   ],
   "ih_tv": [
+    20,
+    18,
     15,
-    13,
-    9,
-    6,
-    3,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1
-  ],
-  "ac_tl": [
-    "Aligners",
-    "SmartSTL",
-    "Hygiene",
-    "AI Accuracy",
-    "Braces",
-    "Measurement accuracy",
-    "Patient xp",
-    "Perio",
-    "Aw passivity",
-    "Aligner unseats",
-    "Phase 1",
-    "Engage",
-    "Picture quality",
-    "Retention",
-    "DMC"
-  ],
-  "ac_tv": [
-    13,
+    12,
+    11,
     8,
-    5,
+    7,
+    7,
+    4,
     4,
     3,
     2,
     2,
     2,
+    1
+  ],
+  "ac_tl": [
+    "Aligners",
+    "AI accuracy",
+    "SmartSTL & 3D models",
+    "Treatment outcomes",
+    "Oral hygiene & perio",
+    "Visits & chair time",
+    "Braces",
+    "Patient experience",
+    "Phase 1",
+    "Screening & triage",
+    "Team & workflow",
+    "Clinical case management",
+    "Retention",
+    "Emergencies & breakages",
+    "All treatments"
+  ],
+  "ac_tv": [
+    17,
+    13,
+    9,
+    9,
+    8,
+    8,
+    7,
+    6,
+    3,
     2,
     2,
-    1,
-    1,
+    2,
     1,
     1,
     1
@@ -342,612 +350,706 @@
       "title": "The patient experience study",
       "author": "Rayan Skafi",
       "usp": "Practice optimization & growth",
-      "topic": "Patient xp",
+      "topic": "All treatments, Patient experience",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "Global",
       "country": "Global",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1lLadMLKL0cZZZ72eiCXhkCpTZzI8T7q5/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "86% globally satisfied with  their DM experience",
+      "n_pts": "2248"
     },
     {
       "title": "Managing emergencies with braces treatments & DM",
       "author": "Paolo Manzo",
       "usp": "Practice optimization & growth",
-      "topic": "Braces",
+      "topic": "Braces, Emergencies & breakages, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Italy",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1FTU7C5oFTvNIjaxCVBRBQchLLLN_0br8/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "braces: · - 24.5% appts · - 80.8% unscheduled emergencies",
+      "n_pts": "10"
     },
     {
       "title": "Managing emergencies with aligners & DM",
       "author": "Camilla Molinari",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners, Patient xp",
+      "topic": "Aligners, Emergencies & breakages, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Italy",
       "date": "2023",
       "url": "https://drive.google.com/file/d/11iNDieXmt8wBj5oz4NcIYwHh7wCpp-x9/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "aligners - 48% appts · emergencies -88,2%",
+      "n_pts": "19"
     },
     {
       "title": "Braces case study",
       "author": "Murtuza Hasnaini",
       "usp": "Practice optimization & growth",
-      "topic": "Braces",
+      "topic": "Braces, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1l5tDFQWdNRdEabpsAS57cGv_hk1_5zqk/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Aligner - Surgical case",
       "author": "Baptiste Tricard",
       "usp": "Clinical Control",
-      "topic": "Aligners",
+      "topic": "Aligners, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2023",
       "url": "https://drive.google.com/file/d/15KmJvU0QlZw3r9wr8obIi2lvM0p2lhcy/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Dynamic aligner change",
       "author": "Owen Crotty",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners",
+      "topic": "Aligners, Visits & chair time",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1n-io9XG50R6YVEHdCfdl4vX9Vv8-29fZ/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "AI White paper",
       "author": "Thomas Pelissard",
       "usp": "Product accuracy",
-      "topic": "AI Accuracy",
+      "topic": "All treatments, AI accuracy",
       "format": "White Paper",
       "status": "Published",
       "region": "Global",
       "country": "Global",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1rhydXP7a4MONZF_rDFEqL-hWVvb5k_7V/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Braces case study",
       "author": "Peter Csiki",
       "usp": "Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "Hungary",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1FI7SaLTyRERQMYjS7IWsdVh_k3F0aKMW/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Invisalign first",
       "author": "Cyrille Fouquet",
       "usp": "Clinical Control",
-      "topic": "Aligners",
+      "topic": "Aligners, Phase 1, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1TGDhrnQ7873lyCSbv24EFPlYCCBod5r8/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/16DPZ6q_G8mdx7sHdzKZhD5UdEzAislXP/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/16DPZ6q_G8mdx7sHdzKZhD5UdEzAislXP/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "DM Insights brackets debond rate",
       "author": "Anshu Sood",
       "usp": "Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Emergencies & breakages",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1qxGOfEjhXzWC8-Wyr6I-4atGC6T-DaN3/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "School project - Observation monitoring",
       "author": "Martyna Henschke",
       "usp": "Clinical Control",
-      "topic": "Phase 1",
+      "topic": "Observation, Screening & triage",
       "format": "White Paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Poland",
       "date": "2023",
       "url": "https://drive.google.com/file/d/1ZZgsgg5FMaDVPUFgBEGGsM-YXugwBvm5/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1LUMecWTieiGyIP6oxpVFcZ7BCEKBlenF/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1LUMecWTieiGyIP6oxpVFcZ7BCEKBlenF/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Aligner case study",
       "author": "Audrey Chokron",
       "usp": "Clinical Control",
-      "topic": "Aligners",
+      "topic": "Aligners, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1wgCZdKEf37srkybDD1QVOxYytcr9np7i/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1Hf48iWKEKTQEwmjK9z3SACLENeEyimvi/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1Hf48iWKEKTQEwmjK9z3SACLENeEyimvi/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Braces case study",
       "author": "Jean Guilloux",
       "usp": "Clinical Control, Practice optimization & growth",
-      "topic": "Braces",
+      "topic": "Braces, Emergencies & breakages, Visits & chair time",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1sg8tny4o2_U4RcX14VV4oQfTIH5ndKpS/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1jAV48tDPKG2fDEZfzQyJCJc2zzRK0Uca/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1jAV48tDPKG2fDEZfzQyJCJc2zzRK0Uca/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Aligner case study",
       "author": "Elvira Antolin",
       "usp": "Clinical Control, Practice optimization & growth",
-      "topic": "Aligners",
+      "topic": "Aligners, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "Spain",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1ZDNTRmmWp1VY40S_HveXy2RivG2Zb4PC/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1XV8yJk6sMidrVSLBctzw0XewFDt0MI03/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1XV8yJk6sMidrVSLBctzw0XewFDt0MI03/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Practice profitability & patient experience",
       "author": "Claire Nightingale",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners, Patient xp",
+      "topic": "Aligners, Visits & chair time, Patient experience",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1cPK2jljzrhjh7NMNxHYoyEMKDqOV27jT/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "Aligners: -32% appts",
+      "n_pts": "93"
     },
     {
       "title": "The Orthodontic digital workflow with DM",
       "author": "Janka Kochel",
       "usp": "Practice optimization & growth",
-      "topic": "All, Patient xp",
+      "topic": "Aligners, Braces, Visits & chair time, Patient experience, Team & workflow",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Germany",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1roTX2mQ1nWxIsjdkfkEomtMIkFZQex5U/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1tEPBs4SKStiWYFYk3GLdgkhNcLzVmtbN/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1tEPBs4SKStiWYFYk3GLdgkhNcLzVmtbN/view?usp=sharing",
+      "metrics": "braces - 41% appts · aligners -67% appts",
+      "n_pts": "braces 63 · aligners 105"
     },
     {
       "title": "Enhancing Efficiency in Dental Clinics through DM",
       "author": "Katarzyna Łoza-Sołtyk",
       "usp": "Practice optimization & growth",
-      "topic": "All, Patient xp",
+      "topic": "Braces, Visits & chair time, Team & workflow",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Poland",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1-GO4uQ-xMcpNOotUyDbv8D8PwTpcSKQz/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "-30% braces",
+      "n_pts": "20"
     },
     {
       "title": "Aligner case study",
       "author": "Monica Reinach",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners",
+      "topic": "Aligners, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1VhiXi4gvrRneto7vS8Inx3z7PcMKFxY7/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Why and how I implemented DM",
       "author": "",
       "usp": "Practice optimization & growth",
-      "topic": "All",
+      "topic": "All treatments, Team & workflow",
       "format": "White Paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Germany",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1RP4UkIZ8odQTm7s5_-j5_2zE-xGrwK_8/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Retention monitoring",
       "author": "Weronika Wierusz",
       "usp": "Clinical Control, Practice optimization & growth",
-      "topic": "Retention",
+      "topic": "Retention, Team & workflow",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Poland",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1hEmhYKV4ZOh_vRLryzSzDVOhEOs02EgM/view",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "NHS Study on fixed appliances",
       "author": "Monica Reinach",
       "usp": "Practice optimization & growth",
-      "topic": "Braces",
+      "topic": "Braces, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1Dkb4E37hOUeiYML2IOZ5cQ-bg6fDKWYM/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "braces: - 21.4% appointments",
+      "n_pts": "19"
     },
     {
       "title": "Aligner case study",
       "author": "Arimoto",
       "usp": "Clinical Control, Practice optimization & growth",
-      "topic": "Aligners",
+      "topic": "Aligners, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "ANZ",
       "country": "Japan",
       "date": "2024",
       "url": "https://drive.google.com/file/d/134WL3tprgD7b1P9p2ESo8kfbU7O_kqi-/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1gZHOyBWQRAWDPOFTUEZUBluX8tzOiE_Z/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1gZHOyBWQRAWDPOFTUEZUBluX8tzOiE_Z/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Braces case study",
       "author": "Kaoru Asada",
       "usp": "Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "ASIA",
       "country": "Japan",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1sgGQa8s9PnTgZyorpjsw478MNwv3YY_D/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1BL2WNRaTSYm6hR6IF_exE9Y083gTuQER/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1BL2WNRaTSYm6hR6IF_exE9Y083gTuQER/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "DM impact on practice efficiency for braces & aligners",
       "author": "Audrey Chokron",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Aligners, Braces",
+      "topic": "Aligners, Braces, Visits & chair time, Emergencies & breakages, Treatment outcomes",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2024",
       "url": "https://docs.google.com/document/d/1yKfGr5wNvGeo-TjyuvDHXUlJR8eIaWElTwuE2_lVc-A/edit?usp=sharing",
-      "url2": "https://docs.google.com/document/d/1WcVsTQJ8ZAjV1zha3jMfX6TD76Yc6qH2xegYT40oeaE/edit?usp=sharing"
+      "url2": "https://docs.google.com/document/d/1WcVsTQJ8ZAjV1zha3jMfX6TD76Yc6qH2xegYT40oeaE/edit?usp=sharing",
+      "metrics": "braces: · -28% appts · -37% emergencies · aligners: · -30% appts · -14% emergencies · - 38% refinements",
+      "n_pts": "braces: 25 · aligners: 24"
     },
     {
       "title": "Engage",
       "author": "Matthew Claire",
       "usp": "Practice optimization & growth",
-      "topic": "Engage",
+      "topic": "All treatments, Practice growth & engagement",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "UKI",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1bFtCYqjNDwPyaXHIVw01WdnCTk0pwhGS/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Patient experience study",
       "author": "Chris Orloff",
       "usp": "Practice optimization & growth",
-      "topic": "Patient xp",
+      "topic": "All treatments, Patient experience",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "ANZ",
       "country": "Australia",
       "date": "2024",
       "url": "",
-      "url2": ""
+      "url2": "",
+      "metrics": "convenience: 83.8% · flexibility: 86.9% · communication: 70.6%",
+      "n_pts": "294"
     },
     {
       "title": "AAO Paper",
       "author": "DM",
       "usp": "Practice optimization & growth",
-      "topic": "Engage",
+      "topic": "All treatments, Practice growth & engagement",
       "format": "White Paper",
       "status": "Published",
       "region": "Global",
       "country": "Global",
       "date": "2024",
       "url": "",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "OrthoUP Braces study",
       "author": "Rayan Skafi, Thibaut & co",
       "usp": "Practice optimization & growth",
-      "topic": "Braces, Hygiene",
+      "topic": "Braces, Visits & chair time, Emergencies & breakages, Oral hygiene & perio",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1tTXncnKROy_wutR-xnUNHTL4zSVt8KY6/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "braces: · -25.36% appts · -27.77% chairtime · -32.49% emergencies",
+      "n_pts": "42"
     },
     {
       "title": "Clinical control & Quality of treatment",
       "author": "Dr. Ivancova",
       "usp": "Clinical Control",
-      "topic": "All",
+      "topic": "All treatments, Treatment outcomes",
       "format": "White Paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Slovakia",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1-HKAnLeKiAfv6u0ADy86gP_G5mik_QFt/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1IKkY40jUfzpEJrvdRdrwwFXcwN0_WdH8/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1IKkY40jUfzpEJrvdRdrwwFXcwN0_WdH8/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "AW passivity case study",
       "author": "Barry Benton",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Visits & chair time, Treatment outcomes",
       "format": "Case study",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1dqnTzhftk0x18DrxGpZ9BIn-H0Rp_oFO/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Phase 1 appliances (RME + Carriere)",
       "author": "Mike Ragan",
       "usp": "Practice optimization & growth",
-      "topic": "Phase 1",
+      "topic": "Phase 1, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1UAzZnAxRruBCjMNyOV_vbmHjkf9qPa5F/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Increasing the practice efficiency (aligners & braces)",
       "author": "Cornelia Maier",
       "usp": "Practice optimization & growth",
-      "topic": "All",
+      "topic": "Aligners, Braces, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Germany",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1zYM-n79IkZ0BlYtC_TlJrP4kqIsvFcLC/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "braces: -37% appts · aligner: -58% appts · removable tt: -35% appts",
+      "n_pts": "braces: 72 · aligners: 116"
     },
     {
       "title": "Dr. Uji braces case study",
       "author": "Uji",
       "usp": "Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Clinical case management",
       "format": "Case study",
       "status": "Published",
       "region": "ASIA",
       "country": "Japan",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1fp2-jr5KWTCEPnCrLuRfg-x2KFkzBpAi/view?usp=sharing",
-      "url2": "https://drive.google.com/file/d/1CGikLWuiNhxh8sUE1NDcCRe7ckJzkL9z/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1CGikLWuiNhxh8sUE1NDcCRe7ckJzkL9z/view?usp=sharing",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Braces Case study Boulanger",
       "author": "Dr. Sylvie Boulanger",
       "usp": "Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Clinical case management, Emergencies & breakages",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "France",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1rjvry-kOgZvArrFt2XQa3o8nFFU2qcI6/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "DMC happiness study",
       "author": "Rayan Skafi",
       "usp": "Practice optimization & growth",
-      "topic": "DMC satisfaction",
+      "topic": "All treatments, Team & workflow",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "Global",
       "country": "Global",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1EtkzYq4EhGsyX10PRPeBqiKb20kbXZW8/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "LightForce + DM Study",
       "author": "Jacquelyn Schieck",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Braces",
+      "topic": "Braces, Visits & chair time, Treatment outcomes",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2025",
       "url": "https://drive.google.com/file/d/1EtkzYq4EhGsyX10PRPeBqiKb20kbXZW8/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Braces + aligners",
       "author": "Katarzyna Łoza-Sołtyk",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners, Braces",
+      "topic": "Aligners, Braces, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "EMEA",
       "country": "Poland",
       "date": "2025",
       "url": "",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Observation case study",
       "author": "Wibke Lindemann",
       "usp": "Clinical Control",
-      "topic": "Observation",
+      "topic": "Observation, Screening & triage",
       "format": "Case study",
       "status": "Published",
       "region": "EMEA",
       "country": "Germany",
       "date": "2025",
       "url": "https://drive.google.com/file/d/14GFrkxg8VJiPg7paAGl30GV3nF4Fbvx4/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "DM vs other remote monitoring solutions",
       "author": "Rayan Skafi, Claire Nightingale",
       "usp": "Practice optimization & growth",
-      "topic": "All",
+      "topic": "All treatments",
       "format": "White Paper",
       "status": "In progress",
       "region": "EMEA",
       "country": "UKI",
       "date": "2026",
       "url": "",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Observation White Paper",
       "author": "Dan Bills",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Observation",
+      "topic": "Observation, Visits & chair time",
       "format": "White Paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2026",
       "url": "https://drive.google.com/file/d/1C2gmnOvqvKejcaEAw6p-wLmVMVyU23tv/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Ed Davis Obs & retention paper",
       "author": "Ed Davis",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Observation, Retention",
+      "topic": "Observation, Retention, Practice growth & engagement",
       "format": "White Paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2026",
       "url": "https://drive.google.com/file/d/1RU1ThSOBCTaPy3ISNWQW1hqkXYyq6N0y/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Dr Chokron Braces data",
       "author": "Audrey Chokron",
       "usp": "Practice optimization & growth",
-      "topic": "Braces",
+      "topic": "Braces, Visits & chair time, Treatment outcomes, Emergencies & breakages",
       "format": "Data-driven white paper",
       "status": "In progress",
       "region": "EMEA",
       "country": "France",
       "date": "2026",
       "url": "https://docs.google.com/presentation/d/1xvIaaaAvlXCn7WgX_e5qDXHznC9U4WrE/edit?usp=sharing&ouid=106298299345348804009&rtpof=true&sd=true",
-      "url2": ""
+      "url2": "",
+      "metrics": "braces: -17.2% appts · -10% trt duration · -26% emergencies · -62% no-shows",
+      "n_pts": "77"
     },
     {
       "title": "Dr. Estee Wang Case Study",
       "author": "Estee Wang",
       "usp": "Practice optimization & growth",
-      "topic": "All",
+      "topic": "All treatments, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1qKH8dJqKCujcAZjjB0Bk3qS49aAGJVWh/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "Dr. Damon W. DeArment and Dr. Daniel J. Lill White Paper",
       "author": "Dr. Damon W. DeArment and Dr. Daniel J. Lill",
       "usp": "Practice optimization & growth",
-      "topic": "All",
+      "topic": "All treatments, Visits & chair time",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2024",
       "url": "https://drive.google.com/file/d/1a7sN2Cnsk4AMpQY8eTUjBwurfcUr3GS6/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "What the Data Revealed: A solution for improving tracking loss using DentalMonitoring",
       "author": "Dr. Fujiyama",
       "usp": "Practice optimization & growth",
-      "topic": "Aligners",
+      "topic": "Aligners, Treatment outcomes",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "ASIA",
       "country": "Japan",
       "date": "2026",
       "url": "https://drive.google.com/file/d/1ZY76SCwpFUtdXlURUMs1EfQPEoV-4nSn/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     },
     {
       "title": "55% Reduction in Refinement: Treatment Plan Accuracy Changes Outcomes",
       "author": "Masakazu Yamada",
       "usp": "Practice optimization & growth, Clinical Control",
-      "topic": "Aligners",
+      "topic": "Aligners, Treatment outcomes, Visits & chair time, Team & workflow",
       "format": "Data-driven white paper",
       "status": "Published",
       "region": "ASIA",
       "country": "Japan",
       "date": "2026",
       "url": "https://drive.google.com/file/d/18zeaqlkOSNOTJKdTPG23R2MrWO69w9Tq/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "Total visits -58% · Check-ups -83% · Refinements -55% · Emergency visits +31%",
+      "n_pts": ""
     },
     {
       "title": "The Power of Pre-Gaming: How Dental Monitoring Redefines Clinic Flow",
       "author": "Zach Varble",
       "usp": "Practice optimization & growth",
-      "topic": "All",
+      "topic": "All treatments, Team & workflow",
       "format": "White Paper",
       "status": "Published",
       "region": "NAM",
       "country": "USA",
       "date": "2026",
       "url": "https://drive.google.com/file/d/1DA4qy8CW84z1L4kqfwSivCBGpqXmUUwO/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "metrics": "",
+      "n_pts": ""
     }
   ],
   "academic": [
@@ -955,7 +1057,7 @@
       "title": "Accuracy of a smartphone-based orthodontic treatment-monitoring application: A pilot study",
       "journal": "Angle Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "Measurement accuracy",
+      "topic": "AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2019",
@@ -963,13 +1065,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8111833/",
-      "url2": ""
+      "url2": "",
+      "summary": "- DM can provide accurate assessment of linear teeth movement (Intercanine & intermolare measurements) => less than 0.2 mm differences - There is no difference in image quality when the DM scans are taken by patients vs by the clinician",
+      "sample": "",
+      "limits": "Small cohorts sizes · Limited to linear measurements"
     },
     {
       "title": "Accuracy of Dental Monitoring 3D digital dental models using photograph and video mode",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "SmartSTL & 3D models",
       "type": "Lab / In-Vitro Study",
       "status": "Published",
       "date": "2019",
@@ -977,13 +1082,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1tYftvWk7nSVmnZIKjbY8iT69BEzG8SCx/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "3D digital dental models generated by DM are as accurate as IOS",
+      "sample": "",
+      "limits": "In-vitro study, on typodonts, in a controlled · environment (lightboxes), not many scans"
     },
     {
       "title": "In-vivo evaluation of Artificial Intelligence Driven Remote Monitoring technology for tracking tooth movement and reconstruction of 3-dimensional digital models during orthodontic treatment",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "SmartSTL & 3D models",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2023",
@@ -991,13 +1099,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/17AWW6YnTFiwYPpuO11mpZTtRh6FQOeFS/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "no clinically significant difference between the reconstructed digital models generated by the iTero IOS and the remotely reconstructed digital dental models generated by the DM application.",
+      "sample": "",
+      "limits": "Moderate sample size, not a full treatment"
     },
     {
       "title": "The Assessment of Rapid Palatal Expansion Using a Remote Monitoring Software",
       "journal": "Journal of the World Federation of Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "Phase 1",
+      "topic": "Phase 1, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2019",
@@ -1005,13 +1116,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1AvIoIofB7kYDaA0SFxAkWdcmK1ivdLJW/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "- DM can accurately assess the correction of posterior crossbite with no significant difference compared to digital models.",
+      "sample": "",
+      "limits": "Small sample size · high rate of dropout"
     },
     {
       "title": "Diagnostic accuracy of artiﬁcial intelligence for dental and occlusal parameters using standardized clinical photographs",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Product Accuracy",
-      "topic": "Engage",
+      "topic": "Screening & triage, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1019,13 +1133,16 @@
       "sentiment": 2,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1-Td20hccGi1TAzAjvDJRIIcnOPTBbU3W/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "1. The overall agreement of SmileMate to a clinician’s assessment was fair. 2. Overall model sensitivity was found to be 72% and speciﬁcity 54%. 3. There was a significant gain in time (1 minute vs 6 minutes)",
+      "sample": "35 patients",
+      "limits": ""
     },
     {
       "title": "Assessing an AI-driven remote monitoring system for reliable clinical photo acquisition and patient usability",
       "journal": "Journal of the World Federation of Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "Picture quality",
+      "topic": "AI accuracy, Patient experience",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1033,13 +1150,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41006147/",
-      "url2": ""
+      "url2": "",
+      "summary": "\"This srtudy assessed the accuracy/validity of the photosets generated by the DM scans , and the usability of DM for various patient types (teens, children, adults, adults with disabilities) 📊 Investigation methodology: 183 patients across 10 U.S. sites. 1,040 assessments analyzed for visual assessment. 1,248 results generated across 5 clinical parameters. 📈 Key Results: 98.9% agreement between assessment on the DM scan generated photosets and live clinical evaluations. High usability across all types of patients—no need for prior experience or training.\"",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Accuracy of DentalMonitoring’s artificial intelligence in detecting the loss of aligners’ auxiliaries: a retrospective multi-centric study",
       "journal": "Seminars in Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "Aligners",
+      "topic": "Aligners, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1047,13 +1167,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://www.sciencedirect.com/science/article/pii/S1073874625001008",
-      "url2": ""
+      "url2": "",
+      "summary": "",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Clinical evaluation of Artificial Intelligence Driven Remote Monitoring technology for assessment of patient oral hygiene during orthodontic treatment",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Product Accuracy",
-      "topic": "AI Accuracy",
+      "topic": "Oral hygiene & perio, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2024",
@@ -1061,13 +1184,16 @@
       "sentiment": 2,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1zy4aFR41bj_ZTMoyqQrIhMjsTSYnKvs_/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "DM’s AI image analysis algorithm has low sensitivity, high specificity, and moderate accuracy when detecting Plaque & calculus, gingivitis, and recession",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Outcomes of clear aligner treatment with and without Dental Monitoring: A retrospective cohort study",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Visits & chair time, Treatment outcomes",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2021",
@@ -1075,13 +1201,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1ydIhxIzI-gnE1db3psILoCJdL2eXsZeg/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "- DM reduce the number of in-office visits by 3.5 visits (33.1%) with Invisalign treatment - No difference in the accuracy of predicted tooth movements between DM and control groups",
+      "sample": "90 patients in total",
+      "limits": ""
     },
     {
       "title": "Clinical outcomes and patient perspectives of Dental Monitoring® GoLive® with Invisalign®-a retrospective cohort study",
       "journal": "Progress in Orthdontics",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Visits & chair time, Patient experience",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2020",
@@ -1089,13 +1218,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/32537723/",
-      "url2": ""
+      "url2": "",
+      "summary": "- 23% reduction in in-office visits - 85% of patients were satisfied with DM - Most patients found DM easy to use and preferred having less office visits",
+      "sample": "155 patients",
+      "limits": ""
     },
     {
       "title": "Comparative assessment of treatment efficiency and patient experience between Dental Monitoring and conventional monitoring of clear aligner therapy: A single-center randomized controlled trial.",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Visits & chair time, Treatment outcomes, Patient experience",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2023",
@@ -1103,13 +1235,16 @@
       "sentiment": 1,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1eqwtViADV_6p95Nk8Cok4mcdHq3rpFGz/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "- 1.5 fewer appointments with DM - Treatment duraiton 1.9 months longer with DM - No difference in patient satisfaction between DM and control",
+      "sample": "56 patients",
+      "limits": ""
     },
     {
       "title": "The improvement of predictability in Clear Aligner treatment in conjunction with Digital Monitoring",
       "journal": "Annali di stomatologia",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Treatment outcomes, Visits & chair time",
       "type": "Single-Group / Feasibility Study",
       "status": "Published",
       "date": "2023",
@@ -1117,13 +1252,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://www.annalidistomatologia.eu/ads/article/view/239/211",
-      "url2": ""
+      "url2": "",
+      "summary": "- Reduction in number of appointments & trt time - DM improved the predictability of the treatment - DM was effective in monitoring different types of maloclsions - DM scans allowed accurate measurements, corresponding the in-office measurements",
+      "sample": "55 patients · 12 months of treatment",
+      "limits": ""
     },
     {
       "title": "Evaluating Dental Monitoring effectiveness compared with conventional monitoring of clear aligner therapy using the Peer Assessment Rating index",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Treatment outcomes",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2024",
@@ -1131,13 +1269,16 @@
       "sentiment": 1,
       "country": "Global",
       "url": "https://drive.google.com/file/d/19YZsdUPgUS1B-b8izo5yDUkX5pOLLsi-/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "both CM and DM showed significant improvements in the WPAR scores, with no statistically significant difference between the 2 groups.",
+      "sample": "51 patients",
+      "limits": ""
     },
     {
       "title": "Effectiveness of dental monitoring system in orthodontics: A systematic review",
       "journal": "Journal of Orthodontics",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Visits & chair time, Treatment outcomes",
       "type": "Systematic Review",
       "status": "Published",
       "date": "2023",
@@ -1145,13 +1286,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1a7Ng8ICl-0z_HVYnaGdfE8gfjREn538h/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "- DM decreased the number of visits by 1.68 to 3.5 visits - Potential improvement in aligner fit",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Remote digital monitoring during the retention phase of orthodontic treatment: A prospective feasibility study",
       "journal": "Korean journal of Orthodontics",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Retention",
+      "topic": "Retention, Treatment outcomes",
       "type": "Single-Group / Feasibility Study",
       "status": "Published",
       "date": "2022",
@@ -1159,13 +1303,16 @@
       "sentiment": 3,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/38935004/",
-      "url2": ""
+      "url2": "",
+      "summary": "- DM reduced the occurence of misfits of removable retainers",
+      "sample": "30 patients · 6 months obs period",
+      "limits": ""
     },
     {
       "title": "Individualizing Aligner Change Schedule: A Single-Blind, Randomized Controlled Trial",
       "journal": "Harvard Thesis",
       "usp": "Practice Optimization & Growth, Clinical control",
-      "topic": "Aligners",
+      "topic": "Aligners, Treatment outcomes",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2024",
@@ -1173,13 +1320,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://dash.lib.harvard.edu/handle/1/37378423",
-      "url2": ""
+      "url2": "",
+      "summary": "Patients with DM changed aligner every 4 to 5 days on average compared to the 7 and 14 days protocol.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Attitude towards Telemonitoring in Orthodontists and Orthodontic Patients",
       "journal": "Dental Journal",
       "usp": "Practice Optimization & Growth",
-      "topic": "Patient xp",
+      "topic": "Patient experience, Team & workflow",
       "type": "Survey / Large-Database Analysis",
       "status": "Published",
       "date": "2021",
@@ -1187,13 +1337,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8143570/",
-      "url2": ""
+      "url2": "",
+      "summary": "- All HCP judged remote monitoring as positive - 97.5% of pts judged DM positively: 81.25% considered it high-tech, 81.25% were interested in leveraging DM to reduce visits",
+      "sample": "survey administered to 80 HCP & 80 pts",
+      "limits": ""
     },
     {
       "title": "Remote monitoring and “Tele-orthodontics”: Concept, scope and applications",
       "journal": "Seminars in Orthodontics",
       "usp": "Practice Optimization & Growth",
-      "topic": "Patient xp",
+      "topic": "Aligners, Patient experience",
       "type": "Narrative Review / Opinion",
       "status": "Published",
       "date": "2018",
@@ -1201,13 +1354,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://www.sciencedirect.com/science/article/abs/pii/S1073874618300690",
-      "url2": ""
+      "url2": "",
+      "summary": "- 86% of the participants found the DM app “easy” or “very easy” to use and 84% of the patients found the DM app to be “beneficial” or “very beneficial” - The most oft-mentioned perceived benefits were “better communication” (47 times), “increased convenience” (44 times), “reduced number of appointments” (40 times), and “ease of use” (38 times).",
+      "sample": "74 Invisalign patients using DM · 85 Invisalign patients not using DM",
+      "limits": ""
     },
     {
       "title": "Artificial intelligence with counseling on the treatment outcomes and quality of life in periodontitis patients",
       "journal": "Journal of periodontics",
       "usp": "Clinical control",
-      "topic": "Perio",
+      "topic": "Oral hygiene & perio",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2024",
@@ -1215,13 +1371,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1U5dK0taiCtgZ1XMl878KoKWuLz0ZkKkx/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "significant reduction in pocket depth, clinical attachment level. Significant improvement in OHRQoL and plaque index.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Effects of artificial intelligence-assisted dental monitoring intervention in patients with periodontitis: A randomized controlled trial",
       "journal": "Journal of Clinical Periodontology",
       "usp": "Clinical control",
-      "topic": "Perio",
+      "topic": "Oral hygiene & perio",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2022",
@@ -1229,13 +1388,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1rhiRiI6nQMIahWuKtIMQA37EjmnOF6vu/view",
-      "url2": ""
+      "url2": "",
+      "summary": "",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Remote aligner supervision and STL generation with dental monitoring®: Clinical integration and case report",
       "journal": "Seminars in Orthodontics",
       "usp": "Clinical control, Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "Aligners, Clinical case management, SmartSTL & 3D models",
       "type": "Case Report",
       "status": "Published",
       "date": "2025",
@@ -1243,13 +1405,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1bCrlUJ96EwMfFU2JJqwa-9P1FacSkA27/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "Case report of a 23-year-old male with an anterior open bite treated with Spark aligners and buccal-shelf mini-screws, monitored with DentalMonitoring under custom protocols for aligner changes and hygiene. Of 59 scans, 88% were submitted on time; 16% showed a significant misfit (>0.5 mm), handled by extending wear 5 days and re-scanning or by clinician override; 36% triggered hygiene alerts with automated reinforcement messages. A remotely generated SmartSTL used for refinement planning superimposed accurately on a 3Shape intraoral scan. The authors report fewer in-office visits, high adherence and a light staff workload (hygienists ~10–15 min/day), with caveats: a single patient, relatively simple tooth movements, remote STL limited to Spark aligners and dependent on the patient's scanning skill. The lead author is a speaker for Ormco and DentalMonitoring.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Accuracy assessment of Smart stereolithography models generated by Dental Monitoring®: A pilot study",
       "journal": "Korean journal of Orthodontics",
       "usp": "Clinical control, Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "Aligners, SmartSTL & 3D models",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1257,13 +1422,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12460025/",
-      "url2": ""
+      "url2": "",
+      "summary": "Despite minor deviations, Smart STL files generated by DM demonstrated sufficient accuracy for use in aligner planning and refinement. These findings highlight the potential of DM-generated Smart STL files for subsequent aligner treatment.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Comparison Between Measurements Taken on AI-Generated and Conventional Digital Models: A Retrospective Study",
       "journal": "Applied Sciences",
       "usp": "Clinical control, Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "SmartSTL & 3D models",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1271,13 +1439,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://www.mdpi.com/2076-3417/15/15/8347",
-      "url2": ""
+      "url2": "",
+      "summary": "Transverse measurements were similar on AI-generated and conventional intra-oral .stl renderings. Statistical differences were found on posterior areas of both upper and lower dental arches, but are unlikely to be clinically significant.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Dental Monitoring Application: it is a valid innovation in the Orthodontics Practice?",
       "journal": "La Clinica terapeutica",
       "usp": "Clinical control, Practice Optimization & Growth",
-      "topic": "Aw passivity",
+      "topic": "Braces, Visits & chair time",
       "type": "Single-Group / Feasibility Study",
       "status": "Published",
       "date": "2020",
@@ -1285,13 +1456,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/32323716/",
-      "url2": ""
+      "url2": "",
+      "summary": "This clinical study evaluated the effectiveness of 0.014×0.025 CuNiTi wires in self-ligating orthodontic treatment over a 10-week period, monitored using the DentalMonitoring (DM) app. Thirty-five patients treated with the Damon System were scanned at baseline, 4, 8, and 10 weeks via DM. Results showed that the manufacturer’s estimated alignment time (≈8 weeks) underestimated real clinical efficiency. Using DM reduced in-office visits from three to two appointments over 10 weeks, leading to less chair time and lower material costs, while allowing more frequent and precise remote evaluations. Conclusion: Integrating DM with self-ligating systems enhances clinical efficiency and monitoring precision, offering measurable workflow benefits despite variability in patient compliance and sample size limitations.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Effectiveness of AI-driven remote monitoring technology in improving oral hygiene during orthodontic treatment",
       "journal": "Orthodontics and Craniofacial Research",
       "usp": "Clinical control",
-      "topic": "Hygiene",
+      "topic": "Braces, Oral hygiene & perio",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2023",
@@ -1299,13 +1473,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1szhXxC9GPT1Cr2SehdNg-8nCeFeQ6B4H/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "A prospective clinical study evaluated the effectiveness of Dental Monitoring™'s AI-driven remote monitoring technology (AIDRM) in improving oral hygiene during braces orthodontic treatment. Two groups were studied: a DM Group (n=24) monitored weekly with personalized notifications, and a Control Group (n=25) not monitored by DM. Oral hygiene was assessed using the Orthodontic Plaque Index (OPI) and Modified Gingival Index (MGI). The DM Group was followed for 13 months, and the Control Group for 5 months. Statistical analysis involved independent Student's t-tests for inter-group comparisons and paired Student's t-tests for intra-group time point differences. Key findings showed that the DM group consistently had lower OPI and MGI values than the control group at all time points, with statistically significant differences observed at 5 months for both indices. While both groups experienced an initial rapid worsening of oral hygiene, AIDRM with weekly scans and personalized notifications appeared to mitigate this decline over time, though a long-term continuous improvement was not observed due to potential patient burnout and decreased compliance with scan completion",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Effects of remote digital monitoring on oral hygiene of orthodontic patients: a prospective study",
       "journal": "BMC Oral Health",
       "usp": "Clinical control",
-      "topic": "Hygiene",
+      "topic": "Oral hygiene & perio",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2021",
@@ -1313,13 +1490,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://bmcoralhealth.biomedcentral.com/articles/10.1186/s12903-021-01793-9",
-      "url2": ""
+      "url2": "",
+      "summary": "Integration of DM during orthodontic treatment was effective in improving plaque control and reducing carious lesions onset",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "The New Role of the Dental Assistant and Nurse in the Age of Advanced Artificial Intelligence in Telehealth Orthodontic Care with Dental Monitoring: Preliminary Report",
       "journal": "Applied Sciences",
       "usp": "Practice Optimization & Growth",
-      "topic": "DMC",
+      "topic": "Team & workflow",
       "type": "Narrative Review / Opinion",
       "status": "Published",
       "date": "2023",
@@ -1327,13 +1507,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://www.mdpi.com/2076-3417/13/8/5212",
-      "url2": ""
+      "url2": "",
+      "summary": "The paper evaluates the benefits and drawbacks of daily automated assessments of orthodontic treatment progress, the impact of AI on personalized care, and the new role of a dental assistant. The paper concludes that AI will improve dental practice through more precise and personalized treatment, bringing new roles and responsibilities for trained medical professionals but raising new ethical and legal issues for dental practices.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Pilot case control evaluation of artificial intelligence assisted orthodontic monitoring and pediatric patient perception",
       "journal": "Scientific Reports",
       "usp": "Practice Optimization & Growth",
-      "topic": "Aligners",
+      "topic": "Aligners, Phase 1, Visits & chair time, Patient experience",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2025",
@@ -1341,13 +1524,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://www.nature.com/articles/s41598-025-24395-9",
-      "url2": ""
+      "url2": "",
+      "summary": "This Pilot case-control evaluation of Artificial Intelligence (AI) assisted orthodontic monitoring using Dental Monitoring (DM) software in children treated with Invisalign First demonstrated significant benefits, particularly in clinical efficiency and patient satisfaction. Key Positives: Treatment Efficiency: The DM group (N=20) had a significantly lower number of appointments (mean 21.65 ± 4.51) compared to the control group (mean 31.58 ± 8.07), representing a substantial 68.56% reduction in visits. Undiminished Outcomes: DM achieved this reduction in appointments without negatively impacting key clinical metrics, as there were no significant differences in treatment duration or number of refinements between the groups. High Patient Satisfaction: Children monitored with DM reported highly favorable perceptions: 100% were satisfied or very satisfied with the DM application overall and with communication with the orthodontist. 85% found the scanning process very easy or easy. 85% would recommend the experience. 55% felt much calmer knowing they were continuously monitored.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Assessment of artificial intelligence-based remote monitoring of clear aligner therapy: A prospective study.",
       "journal": "American Journal of Orthodontics and Dentofacial Orthopedics",
       "usp": "Product Accuracy",
-      "topic": "Aligners",
+      "topic": "Aligners, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2023",
@@ -1355,13 +1541,16 @@
       "sentiment": 1,
       "country": "Global",
       "url": "https://www.sciencedirect.com/science/article/abs/pii/S0889540623000768",
-      "url2": ""
+      "url2": "",
+      "summary": "• One in 5 repeated remote monitoring scans gave inconsistent GO/NO-GO instructions. • Repeated remote monitoring scans agreed on nontracking teeth 0% of the time. • Remote monitor gauge compatibility was poor (44.7%). • There were large discrepancies in patients receiving instructions to GO to the next aligner. • There were no differences in the greatest discrepancy between GO and NO-GO instructions.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Accuracy of dentalmonitoring’s artificial intelligence in detecting aligner tracking issues: a retrospective multi-centric study",
       "journal": "BMC Oral Health",
       "usp": "Product Accuracy",
-      "topic": "Aligner unseats",
+      "topic": "Aligners, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1369,13 +1558,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://link.springer.com/article/10.1186/s12903-025-07580-0",
-      "url2": ""
+      "url2": "",
+      "summary": "This multicenter retrospective comparative study evaluated the performance of DentalMonitoring artificial intelligence in detecting aligner tracking issues using 3,323 remote assessments from 623 orthodontic patients treated across multiple U.S. clinics. AI predictions were compared with a reference standard established through independent reviews by a panel of three orthodontic residents. Performance was assessed using both a binary model (seated vs. unseated aligner) and a three-level classification (seated, slight unseat, noticeable unseat). In the binary model, the AI achieved a sensitivity of 93.2% and specificity of 86.2%, with a positive predictive value of 89.2% and a negative predictive value of 94.4%. In the three-level model, detection of noticeable unseats showed a sensitivity of 91.1% and specificity of 90.5%, with a PPV of 66.1% and an NPV of 98.3%. The consistently high negative predictive values indicate strong reliability in ruling out clinically meaningful aligner misfit, suggesting that the system performs particularly well in minimizing false-negative assessments of unseated aligners.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Accuracy of DentalMonitoring’s artificial intelligence in detecting common orthodontic braces treatment related emergencies",
       "journal": "Scientific Reports",
       "usp": "Product Accuracy",
-      "topic": "Braces",
+      "topic": "Braces, AI accuracy, Emergencies & breakages",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1383,13 +1575,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://www.nature.com/articles/s41598-026-37329-w?utm_source=researchgate.net&utm_medium=article",
-      "url2": ""
+      "url2": "",
+      "summary": "This study aimed to evaluate the diagnostic performance of DentalMonitoring™ (DM) (Dental Monitoring SAS, Paris, France), an FDA-cleared AI-powered orthodontic remote monitoring software, in detecting three common orthodontic appliance issues: bracket debonding, open self-ligating clips, and tie loss. Datasets from 1,014 US-based patients were analyzed. Each DM image set was assessed by the AI algorithm and independently reviewed by a panel of three orthodontic experts, whose consensus served as the reference standard. A total of 659 evaluations were included for bracket debonding, 647 for self-ligating clip status, and 653 for tie presence. Sensitivity and specificity along with their 95% confidence intervals were calculated using a two-level evaluation basis (positive vs. negative) across the three clinical parameters. DM’s AI demonstrated high diagnostic performance, with sensitivity of 98.4% for bracket debonding, 91.1% for open self-ligating clips, and 93.3% for tie loss. Corresponding specificity values were 99.6%, 88.3%, and 96.5%, respectively. Current results indicate that DM’s AI analysis system has high accuracy in detecting bracket debonding, open self-ligating clips, and tie loss. DM can help significantly reduce the rate of these undetected clinical incidents, providing a better approach to managing emergencies and maintaining clinical control in orthodontic treatment.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Tele-orthodontics in real-world practice: A clinical audit of its impact on treatment efficiency and business performance",
       "journal": "Seminars in Orthodontics",
       "usp": "Practice Optimization & Growth",
-      "topic": "All",
+      "topic": "All treatments, Visits & chair time, Treatment outcomes",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2026",
@@ -1397,13 +1592,16 @@
       "sentiment": 2,
       "country": "Global",
       "url": "https://www.sciencedirect.com/science/article/abs/pii/S1073874626000198",
-      "url2": ""
+      "url2": "",
+      "summary": "DM was associated with longer observed treatment duration and fewer missed appointments, with no adjusted differences in total or emergency visits.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Characterizing orthodontic tooth movement in real time using dental monitoring scans: A pilot study",
       "journal": "Orthodontics and Craniofacial Research",
       "usp": "Product Accuracy",
-      "topic": "Measurement accuracy",
+      "topic": "Braces, SmartSTL & 3D models",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2023",
@@ -1411,13 +1609,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/37776068/",
-      "url2": ""
+      "url2": "",
+      "summary": "This prospective pilot study (n = 12) evaluated whether DentalMonitoring scans can track orthodontic tooth movement in short time intervals during maxillary canine retraction and assessed their accuracy compared with iTero scans. Patients submitted DM scans every 4–5 days over a 4–5 week period, and STL files were superimposed to measure tooth displacement in three spatial planes. Preliminary findings suggested that the greatest tooth movement occurred within the first few days after activation, followed by a slower constant rate. The study also reported promising agreement between DM photographic scans and intraoral scanner models, indicating that DM may enable near–real-time monitoring of orthodontic tooth movement. However, the small sample and pilot design limit the strength of conclusions.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Assessment of AI-based monitoring method in assessing oral hygiene during orthodontic treatment",
       "journal": "Journal of Orthodontic Science",
       "usp": "Clinical control",
-      "topic": "Hygiene",
+      "topic": "Oral hygiene & perio",
       "type": "Comparative Study (DM vs no DM)",
       "status": "Published",
       "date": "2025",
@@ -1425,13 +1626,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/40630780/",
-      "url2": ""
+      "url2": "",
+      "summary": "This prospective controlled clinical study (n = 40) evaluated whether AI-based remote monitoring with DentalMonitoring improves oral hygiene during orthodontic treatment. Patients were divided into a control group (standard care) and a test group using DM scans, and oral health was evaluated over 3 months using plaque index (OPI), gingival index (MGI), and white spot lesion assessments. The AI monitoring group showed significantly lower plaque accumulation, reduced gingival inflammation, and fewer white spot lesions compared with the control group. These findings suggest that remote monitoring may improve patient compliance and oral health during orthodontic treatment, although the small sample size and short follow-up limit the strength of the conclusions.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "AW passivity FDA paper",
       "journal": "TBD",
       "usp": "Product Accuracy",
-      "topic": "Aw passivity",
+      "topic": "Braces, AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "In Progress",
       "date": "",
@@ -1439,13 +1643,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "",
-      "url2": ""
+      "url2": "",
+      "summary": "",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Quantitative evaluation of an artificial intelligence–driven remote monitoring system for occlusion assessment using patient-captured images",
       "journal": "The Angle Orthodontist",
       "usp": "Product Accuracy",
-      "topic": "Occlusion",
+      "topic": "AI accuracy",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2026",
@@ -1453,13 +1660,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1I70fR73r86qC49sfB2LpA_WB_QTl2ENb/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "The evaluation of DM's AI model for remote orthodontic monitoring found high agreement with 3D reference standards for measuring midline deviation and overbite, with mean biases of -0.01 mm and -0.04 mm respectively. While overjet and canine classification also remained within clinically acceptable limits, they exhibited greater variability and modest directional biases, specifically a slight overestimation for overjet (+0.29 mm) and an underestimation for larger canine class deviations (-0.31 mm). These results indicate that while the AI model is highly accurate for specific parameters, its current performance variability for others suggests its most appropriate clinical role is for screening, triage, and follow-up rather than as a standalone diagnostic tool. Overall, the study supports the potential of AI-assisted image analysis for remote monitoring, provided that AI-generated measurements are interpreted alongside clinical judgment.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "SmartSTL FDA paper",
       "journal": "International Orth.",
       "usp": "Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "SmartSTL & 3D models",
       "type": "Accuracy / Validation Study",
       "status": "In Progress",
       "date": "",
@@ -1467,13 +1677,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "",
-      "url2": ""
+      "url2": "",
+      "summary": "",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Predicting Orthodontic Root Movements with the Dental Monitoring System: A Preliminary Study",
       "journal": "Seminars in Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "SmartSTL",
+      "topic": "SmartSTL & 3D models",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2025",
@@ -1481,13 +1694,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://www.sciencedirect.com/science/article/abs/pii/S1073874625001380",
-      "url2": ""
+      "url2": "",
+      "summary": "This retrospective/observational study utilized records from 20 patients at two time points (T0 and T1) to evaluate the accuracy of Dental Monitoring’s (DM) SmartSTL model in predicting root movements, validating its performance against the Materialise 3-Matic software. The results demonstrated high accuracy in 3D reconstruction, with mean surface deviations between the SmartSTL and the control DMSTL models being extremely small (around 0.05 mm on both arches), and, crucially, the overall average difference in root movement between the DM and 3-Matic methods was not statistically significant. Based on these findings, the study concludes that the developed SmartSTL model may reliably predict root movements greater than 0.50 mm, suggesting a strong potential for integrating this technology into routine orthodontic monitoring once further refinements, such as high-quality scans and AI-assisted improvements, are implemented.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Management of a Class III malocclusion combining MARPE with anterior nasomaxillary complex traction and clear aligners with telemonitoring support: Case report and workflow model",
       "journal": "Seminars in Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "AI Accuracy, Aligners, SmartSTL",
+      "topic": "Phase 1, Aligners, Clinical case management, SmartSTL & 3D models",
       "type": "Case Report",
       "status": "Published",
       "date": "2026",
@@ -1495,13 +1711,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/144Tj2_lcp-eqdZfDvL0kfjo-E0RFN_ZA/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "This study details a workflow model for managing late-adolescent Class III malocclusion using Miniscrew-assisted rapid palatal expansion (MARPE) and anterior nasomaxillary complex traction followed by clear aligner therapy. A key component of the clinical management is the integration of AI-assisted telemonitoring (specifically Dental Monitoring®) to remotely supervise jackscrew activation, monitor soft-tissue status, and triage clear aligner progress through a rule-based GO/NO-GO protocol. The research highlights that telemonitoring enables effective remote supervision and potentially reduces in-office visits without compromising treatment safety or outcomes, provided there is strong patient adherence and a streamlined team workflow. Key performance indicators discussed include scan compliance, hygiene alerts for biofilm and gingivitis, and the accuracy of remote STL capture for refinement planning",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Evaluating the Artificial Intelligence Driven Monitoring System Notifications: Clear Aligner and Oral Hygiene Perspectives",
       "journal": "Orthodontics & Craniofacial Research",
       "usp": "Product Accuracy",
-      "topic": "AI Accuracy, Hygiene, Aligners, Aligner unseats",
+      "topic": "Aligners, AI accuracy, Oral hygiene & perio",
       "type": "Accuracy / Validation Study",
       "status": "Published",
       "date": "2026",
@@ -1509,13 +1728,16 @@
       "sentiment": 3,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41930378/",
-      "url2": "https://drive.google.com/file/d/1n8EKZurIfPY6sFGMk6YLrFi6M65qXN0R/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1n8EKZurIfPY6sFGMk6YLrFi6M65qXN0R/view?usp=sharing",
+      "summary": "This study (23 clear aligner patients, 533–1,425 observations per parameter) evaluates the validity of DentalMonitoring's AI notification software against an orthodontist's visual review of the same scans. The AI shows high accuracy (>90%) for generalized detection (presence or absence) of clear aligner and oral hygiene issues, but accuracy drops for localized detection (identifying the exact tooth). For example, a \"slight unseat\" has a localized accuracy of 54.2%, and \"slight plaque/food\" 49.7%. The authors conclude DM is a viable clinical aid but is not fully automated and needs close oversight by the orthodontist.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Randomized controlled trial comparing AI-assisted digital and conventional orthodontics: Superior PAR reduction and occlusal outcomes",
       "journal": "PLOS One",
       "usp": "Clinical control",
-      "topic": "Braces",
+      "topic": "Braces, Treatment outcomes",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2026",
@@ -1523,13 +1745,16 @@
       "sentiment": 5,
       "country": "Global",
       "url": "https://drive.google.com/file/d/1a9JwbwT0MWAlF3bfdmmydWFqBcPms4kB/view?usp=sharing",
-      "url2": ""
+      "url2": "",
+      "summary": "In a single-center randomized controlled trial, 140 patients with Angle Class I malocclusion were evaluated to compare an AI-assisted digital workflow (incorporating DentalMonitoring, 3Shape Ortho Analyzer, and TRIOS 4 scanning) against conventional fixed-appliance therapy. The methodology utilized a parallel-group design where the digital group received clinician-directed care augmented by automated tooth segmentation, 3D-printed custom brackets, and algorithm-guided remote monitoring. Key findings revealed that the AI-assisted group achieved significantly superior occlusal outcomes, with a mean post-treatment Peer Assessment Rating (PAR) score of 4.88 compared to 7.81 in the conventional group. Furthermore, a much higher proportion of patients in the AI-assisted group reached the \"greatly improved\" threshold (≥70% PAR reduction) at a rate of 82.9% versus 50.0% for the conventional group. While these results demonstrate improved short-term occlusal quality, the study noted that the benefits reflect the integrated digital system rather than isolated AI effects.",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "Tooth-level spatial distribution of AI-detected oral hygiene insufficiency in fixed appliance versus clear aligner patients: A large-scale analysis using the dental monitoring™ platform.",
       "journal": "Journal of the World federation of orthodontists",
       "usp": "Clinical control",
-      "topic": "Aligners, Hygiene, Braces",
+      "topic": "Aligners, Braces, Oral hygiene & perio",
       "type": "Survey / Large-Database Analysis",
       "status": "Published",
       "date": "2026",
@@ -1537,13 +1762,16 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42613255/",
-      "url2": "https://drive.google.com/file/d/1TtV9GdzEO6_0Rv2yEYyYCYO7lwUxkOuE/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/1TtV9GdzEO6_0Rv2yEYyYCYO7lwUxkOuE/view?usp=sharing",
+      "summary": "This large-scale retrospective study evaluated over 15.3 million AI-generated tooth-level scan notifications from 40,748 global orthodontic patients to analyze the spatial distribution of oral hygiene insufficiency between patients with fixed appliances (FA) and those undergoing clear aligner therapy (CAT). The key finding reveals that FA patients consistently carry a significantly higher oral hygiene burden than CAT patients, exhibiting worse mean insufficiency scores (0.85 vs. 0.55) across every single tooth, arch, tooth type, and quadrant. Both treatment groups demonstrated near-bilateral symmetry and a distinct spatial distribution where mandibular and anterior teeth—particularly canines and incisors—experienced the greatest hygiene burden. Notably, patient-level analysis indicated that this disparity is predominantly driven by a higher frequency of poor hygiene events among FA patients rather than a greater severity of plaque accumulation on already-affected teeth. Ultimately, these findings identify tooth-level targets for precision hygiene interventions, though authors note that substantial age imbalances between the two cohorts mean the appliance-type differences should be interpreted as associative",
+      "sample": "",
+      "limits": ""
     },
     {
       "title": "The use of teleorthodontics and artificial intelligence for orthodontic triage and screening in a publicly funded healthcare system: A crossover randomized controlled trial",
       "journal": "European Journal of Orthodontics",
       "usp": "Product Accuracy",
-      "topic": "AI Accuracy",
+      "topic": "Screening & triage, AI accuracy",
       "type": "Randomized Controlled Trial (RCT)",
       "status": "Published",
       "date": "2026",
@@ -1551,7 +1779,234 @@
       "sentiment": 4,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42400943/",
-      "url2": "https://drive.google.com/file/d/192XBmK5uQtkx-PrT_KMl7HD3oTmJViLE/view?usp=sharing"
+      "url2": "https://drive.google.com/file/d/192XBmK5uQtkx-PrT_KMl7HD3oTmJViLE/view?usp=sharing",
+      "summary": "Single-centre crossover RCT in a Sydney public orthodontic clinic comparing triage by teleorthodontics with DentalMonitoring scans and AI against face-to-face screening. 255 referred patients were randomised and 178 completed both triages. For accepting or rejecting referrals (IOTN dental health component ≥3), the DM-based triage had a sensitivity of 1.0, specificity of 0.67 and overall accuracy of 0.98; three referrals were wrongly rejected. It was 2.9 times faster than face-to-face triage. The AI misread overbite/overjet in some patients and does not assess crossbite, contact-point displacement or functional shift. The authors conclude DM-based teleorthodontics is a valid and reliable screening tool for mild and severe malocclusions.",
+      "sample": "255 randomised, 178 completed (age 7–38)",
+      "limits": "Single public clinic using IOTN; blinding not possible; AI misses several IOTN traits (crossbite, contact-point displacement, functional shift)"
     }
+  ],
+  "cov_treat": [
+    {
+      "t": "Aligners",
+      "ih": 15,
+      "ac": 17
+    },
+    {
+      "t": "Braces",
+      "ih": 18,
+      "ac": 7
+    },
+    {
+      "t": "Phase 1",
+      "ih": 2,
+      "ac": 3
+    },
+    {
+      "t": "Observation",
+      "ih": 4,
+      "ac": 0
+    },
+    {
+      "t": "Retention",
+      "ih": 2,
+      "ac": 1
+    },
+    {
+      "t": "All treatments",
+      "ih": 12,
+      "ac": 1
+    }
+  ],
+  "cov_theme": [
+    {
+      "t": "Visits & chair time",
+      "ih": 20,
+      "ac": 8
+    },
+    {
+      "t": "Emergencies & breakages",
+      "ih": 8,
+      "ac": 1
+    },
+    {
+      "t": "Treatment outcomes",
+      "ih": 7,
+      "ac": 9
+    },
+    {
+      "t": "Clinical case management",
+      "ih": 11,
+      "ac": 2
+    },
+    {
+      "t": "AI accuracy",
+      "ih": 1,
+      "ac": 13
+    },
+    {
+      "t": "SmartSTL & 3D models",
+      "ih": 0,
+      "ac": 9
+    },
+    {
+      "t": "Oral hygiene & perio",
+      "ih": 1,
+      "ac": 8
+    },
+    {
+      "t": "Patient experience",
+      "ih": 4,
+      "ac": 6
+    },
+    {
+      "t": "Team & workflow",
+      "ih": 7,
+      "ac": 2
+    },
+    {
+      "t": "Practice growth & engagement",
+      "ih": 3,
+      "ac": 0
+    },
+    {
+      "t": "Screening & triage",
+      "ih": 2,
+      "ac": 2
+    }
+  ],
+  "type_benefit": [
+    {
+      "type": "Systematic Review",
+      "n": 1,
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "type": "Randomized Controlled Trial (RCT)",
+      "n": 7,
+      "by": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "type": "Comparative Study (DM vs no DM)",
+      "n": 7,
+      "by": [
+        0,
+        0,
+        1,
+        0,
+        5,
+        1
+      ]
+    },
+    {
+      "type": "Accuracy / Validation Study",
+      "n": 16,
+      "by": [
+        0,
+        1,
+        2,
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "type": "Single-Group / Feasibility Study",
+      "n": 3,
+      "by": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "Survey / Large-Database Analysis",
+      "n": 2,
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "type": "Case Report",
+      "n": 2,
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "type": "Narrative Review / Opinion",
+      "n": 2,
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "Lab / In-Vitro Study",
+      "n": 1,
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "type_order": [
+    "Systematic Review",
+    "Randomized Controlled Trial (RCT)",
+    "Comparative Study (DM vs no DM)",
+    "Accuracy / Validation Study",
+    "Single-Group / Feasibility Study",
+    "Survey / Large-Database Analysis",
+    "Case Report",
+    "Narrative Review / Opinion",
+    "Lab / In-Vitro Study"
+  ],
+  "reg_l": [
+    "EMEA",
+    "NAM",
+    "Global",
+    "ASIA",
+    "ANZ"
+  ],
+  "reg_v": [
+    29,
+    8,
+    4,
+    4,
+    2
   ]
 }
