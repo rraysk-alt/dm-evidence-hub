@@ -1,25 +1,23 @@
 {
   "updated": "2026-10-26",
-  "n_ih": 46,
-  "n_ac": 42,
-  "n_total": 88,
-  "n_pub": 84,
+  "n_ih": 47,
+  "n_ac": 43,
+  "n_total": 90,
+  "n_pub": 86,
   "n_prog": 4,
-  "ih_pub": 44,
-  "ac_pub": 40,
+  "ih_pub": 45,
+  "ac_pub": 41,
   "ih_prog": 2,
   "ac_prog": 2,
   "fmt_l": [
     "Data-driven white paper",
     "Case study",
-    "White Paper",
-    "Peer-reviewed study"
+    "White Paper"
   ],
   "fmt_v": [
-    21,
+    22,
     16,
-    8,
-    1
+    9
   ],
   "usp_l": [
     "Practice Optimization & Growth",
@@ -27,14 +25,14 @@
     "Product Accuracy"
   ],
   "usp_ih": [
-    33,
-    20,
-    2
+    35,
+    21,
+    1
   ],
   "usp_ac": [
     14,
     19,
-    21
+    22
   ],
   "ih_tl": [
     "Braces",
@@ -42,23 +40,23 @@
     "All",
     "Patient xp",
     "Observation",
-    "AI Accuracy",
     "Phase 1",
     "Retention",
     "Engage",
+    "AI Accuracy",
     "Hygiene",
     "DMC satisfaction"
   ],
   "ih_tv": [
     15,
-    12,
-    8,
+    13,
+    9,
     6,
     3,
     2,
     2,
     2,
-    2,
+    1,
     1,
     1
   ],
@@ -72,24 +70,24 @@
     "Patient xp",
     "Perio",
     "Aw passivity",
+    "Aligner unseats",
     "Phase 1",
     "Engage",
     "Picture quality",
     "Retention",
-    "DMC",
-    "Aligner unseats"
+    "DMC"
   ],
   "ac_tv": [
-    12,
+    13,
     8,
+    5,
     4,
     3,
-    3,
     2,
     2,
     2,
     2,
-    1,
+    2,
     1,
     1,
     1,
@@ -106,7 +104,7 @@
   "type_v": [
     20,
     14,
-    6,
+    7,
     1,
     1
   ],
@@ -114,14 +112,14 @@
     0,
     6,
     16,
-    17,
+    18,
     1
   ],
   "sen_v": [
     3,
     3,
     2,
-    16,
+    17,
     16
   ],
   "scatter": [
@@ -324,6 +322,11 @@
       "x": 4,
       "y": 4,
       "title": "Tooth-level spatial distribution of AI-detected oral hygiene"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "title": "The use of teleorthodontics and artificial intelligence for "
     }
   ],
   "inhouse": [
@@ -908,21 +911,34 @@
       "status": "Published",
       "region": "ASIA",
       "country": "Japan",
-      "date": "",
+      "date": "2026",
       "url": "https://drive.google.com/file/d/1ZY76SCwpFUtdXlURUMs1EfQPEoV-4nSn/view?usp=sharing",
       "url2": ""
     },
     {
-      "title": "The use of teleorthodontics and artificial intelligence for orthodontic triage and screening in a publicly funded healthcare system: A crossover randomized controlled trial",
-      "author": "Milosevic et al.",
-      "usp": "Product accuracy",
-      "topic": "AI Accuracy",
-      "format": "Peer-reviewed study",
+      "title": "55% Reduction in Refinement: Treatment Plan Accuracy Changes Outcomes",
+      "author": "Masakazu Yamada",
+      "usp": "Practice optimization & growth, Clinical Control",
+      "topic": "Aligners",
+      "format": "Data-driven white paper",
       "status": "Published",
-      "region": "Global",
-      "country": "Global",
-      "date": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42400943/",
+      "region": "ASIA",
+      "country": "Japan",
+      "date": "2026",
+      "url": "https://drive.google.com/file/d/18zeaqlkOSNOTJKdTPG23R2MrWO69w9Tq/view?usp=sharing",
+      "url2": ""
+    },
+    {
+      "title": "The Power of Pre-Gaming: How Dental Monitoring Redefines Clinic Flow",
+      "author": "Zach Varble",
+      "usp": "Practice optimization & growth",
+      "topic": "All",
+      "format": "White Paper",
+      "status": "Published",
+      "region": "NAM",
+      "country": "USA",
+      "date": "2026",
+      "url": "https://drive.google.com/file/d/1DA4qy8CW84z1L4kqfwSivCBGpqXmUUwO/view?usp=sharing",
       "url2": ""
     }
   ],
@@ -1344,7 +1360,7 @@
       "strength": 4,
       "sentiment": 5,
       "country": "Global",
-      "url": "https://link.springer.com/article/10.1186/s12903-025-07580-0?utm_source=researchgate.net&utm_medium=article",
+      "url": "https://link.springer.com/article/10.1186/s12903-025-07580-0",
       "url2": ""
     },
     {
@@ -1424,7 +1440,7 @@
       "topic": "Occlusion",
       "type": "Prospective Clinical Study (Non-RCT)",
       "status": "Published",
-      "date": "",
+      "date": "2026",
       "strength": 4,
       "sentiment": 5,
       "country": "Global",
@@ -1475,9 +1491,9 @@
     },
     {
       "title": "Evaluating the Artificial Intelligence Driven Monitoring System Notifications: Clear Aligner and Oral Hygiene Perspectives",
-      "journal": "Orthodontics & craniofacial research",
+      "journal": "Orthodontics & Craniofacial Research",
       "usp": "Product Accuracy",
-      "topic": "AI Accuracy",
+      "topic": "AI Accuracy, Hygiene, Aligners, Aligner unseats",
       "type": "Prospective Clinical Study (Non-RCT)",
       "status": "Published",
       "date": "2026",
@@ -1485,7 +1501,7 @@
       "sentiment": 3,
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41930378/",
-      "url2": ""
+      "url2": "https://drive.google.com/file/d/1n8EKZurIfPY6sFGMk6YLrFi6M65qXN0R/view?usp=sharing"
     },
     {
       "title": "Randomized controlled trial comparing AI-assisted digital and conventional orthodontics: Superior PAR reduction and occlusal outcomes",
@@ -1514,6 +1530,20 @@
       "country": "Global",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42613255/",
       "url2": "https://drive.google.com/file/d/1TtV9GdzEO6_0Rv2yEYyYCYO7lwUxkOuE/view?usp=sharing"
+    },
+    {
+      "title": "The use of teleorthodontics and artificial intelligence for orthodontic triage and screening in a publicly funded healthcare system: A crossover randomized controlled trial",
+      "journal": "European Journal of Orthodontics",
+      "usp": "Product Accuracy",
+      "topic": "AI Accuracy",
+      "type": "Randomized Controlled Trial (RCT)",
+      "status": "Published",
+      "date": "2026",
+      "strength": 4,
+      "sentiment": 4,
+      "country": "Global",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42400943/",
+      "url2": "https://drive.google.com/file/d/192XBmK5uQtkx-PrT_KMl7HD3oTmJViLE/view?usp=sharing"
     }
   ]
 }
