@@ -1,11 +1,11 @@
 {
   "updated": "2026-10-27",
-  "n_ih": 46,
+  "n_ih": 47,
   "n_ac": 43,
-  "n_total": 89,
-  "n_pub": 85,
+  "n_total": 90,
+  "n_pub": 86,
   "n_prog": 4,
-  "ih_pub": 44,
+  "ih_pub": 45,
   "ac_pub": 41,
   "ih_prog": 2,
   "ac_prog": 2,
@@ -16,7 +16,7 @@
   ],
   "fmt_v": [
     22,
-    16,
+    17,
     8
   ],
   "usp_l": [
@@ -26,7 +26,7 @@
   ],
   "usp_ih": [
     33,
-    21,
+    22,
     1
   ],
   "usp_ac": [
@@ -35,35 +35,35 @@
     22
   ],
   "ih_tl": [
-    "Visits & chair time",
     "Braces",
+    "Visits & chair time",
     "Aligners",
-    "All treatments",
     "Clinical case management",
+    "All treatments",
     "Emergencies & breakages",
     "Team & workflow",
     "Treatment outcomes",
     "Patient experience",
     "Observation",
     "Practice growth & engagement",
+    "Oral hygiene & perio",
     "Phase 1",
     "Screening & triage",
-    "Retention",
-    "Oral hygiene & perio"
+    "Retention"
   ],
   "ih_tv": [
     19,
-    18,
+    19,
     15,
+    12,
     11,
-    11,
-    8,
+    9,
     6,
     6,
     4,
     4,
     3,
-    2,
+    3,
     2,
     2,
     2
@@ -1035,6 +1035,21 @@
       "url2": "",
       "metrics": "Braces: 37.9% of patients had 1+ bracket debond, 33.5% a disengaged archwire · Aligners: 82.8% had 1+ tracking issue, 46.2% 1+ attachment debond · Hygiene issue in 39.4% of patients",
       "n_pts": ""
+    },
+    {
+      "title": "Traitement d’un encombrement sévère avec ectopie des incisives latérales mandibulaires par multi-attache autoligaturant et suivi DentalMonitoring",
+      "author": "Skander Ellouze",
+      "usp": "Clinical Control",
+      "topic": "Braces, Clinical case management, Emergencies & breakages, Oral hygiene & perio",
+      "format": "Case study",
+      "status": "Published",
+      "region": "EMEA",
+      "country": "Tunisia",
+      "date": "2026",
+      "url": "https://drive.google.com/file/d/1h-Cq4QCFGemJeo4pSspRnYrY0Ee4vpxC/view?usp=sharing",
+      "url2": "",
+      "metrics": "30 months · 54 DM scans (every 2 weeks) · 8 incidents & objectives detected by the AI · 3 situations managed remotely, no emergency visit",
+      "n_pts": "1"
     }
   ],
   "academic": [
@@ -1778,7 +1793,7 @@
     },
     {
       "t": "Braces",
-      "ih": 18,
+      "ih": 19,
       "ac": 7
     },
     {
@@ -1810,7 +1825,7 @@
     },
     {
       "t": "Emergencies & breakages",
-      "ih": 8,
+      "ih": 9,
       "ac": 1
     },
     {
@@ -1820,7 +1835,7 @@
     },
     {
       "t": "Clinical case management",
-      "ih": 11,
+      "ih": 12,
       "ac": 2
     },
     {
@@ -1835,7 +1850,7 @@
     },
     {
       "t": "Oral hygiene & perio",
-      "ih": 2,
+      "ih": 3,
       "ac": 8
     },
     {
@@ -1988,7 +2003,7 @@
     "ANZ"
   ],
   "reg_v": [
-    27,
+    28,
     8,
     5,
     4,
