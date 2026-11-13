@@ -3,12 +3,29 @@ import { signIn } from "@/auth";
 
 export const metadata = { title: "Sign in – Evidence Hub" };
 
+// Send people back to the page they asked for (e.g. a shared /ecosystem link),
+// not always to the home page. Only same-site paths are accepted, so the
+// callbackUrl can't be used to bounce users to another website.
+function safeReturnPath(callbackUrl?: string): string {
+  if (!callbackUrl) return "/";
+  try {
+    const u = new URL(callbackUrl, "https://hub.invalid");
+    const path = u.pathname + u.search;
+    if (!path.startsWith("/") || path.startsWith("//") || path.startsWith("/signin")) return "/";
+    if (u.origin !== "https://hub.invalid" && !/^https?:\/\/[^/]*dm-evidence-hub[^/]*\.vercel\.app$|^http:\/\/localhost(:\d+)?$/.test(u.origin)) return "/";
+    return path;
+  } catch {
+    return "/";
+  }
+}
+
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; callbackUrl?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, callbackUrl } = await searchParams;
+  const returnTo = safeReturnPath(callbackUrl);
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-6">
@@ -37,7 +54,7 @@ export default async function SignInPage({
           className="w-full"
           action={async () => {
             "use server";
-            await signIn("google", { redirectTo: "/" });
+            await signIn("google", { redirectTo: returnTo });
           }}
         >
           <button
