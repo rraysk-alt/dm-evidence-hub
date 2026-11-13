@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Evidence Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --surface:#f3f6f7; --surface-2:#e7eef0; --node:#ffffff;
+  --ink:#0e1113; --ink-2:#4a5358; --ink-3:#6b767b; --line:#cfd9dc;
+  --teal:#00aeca; --teal-ink:#00788a; --teal-soft:rgba(0,174,202,.12);
+  --link:#a35400; --link-bg:#fff3e0; --link-line:#f0b264;
+  --shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#07090a; --surface:#101416; --surface-2:#172024; --node:#0e1315;
+    --ink:#f2f5f6; --ink-2:#a3aeb3; --ink-3:#7d898e; --line:#26323a;
+    --teal:#00aeca; --teal-ink:#3fcbe0; --teal-soft:rgba(0,174,202,.16);
+  --link:#ffc24d; --link-bg:rgba(255,176,32,.12); --link-line:rgba(255,176,32,.45);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#07090a; --surface:#101416; --surface-2:#172024; --node:#0e1315;
+  --ink:#f2f5f6; --ink-2:#a3aeb3; --ink-3:#7d898e; --line:#26323a;
+  --teal:#00aeca; --teal-ink:#3fcbe0; --teal-soft:rgba(0,174,202,.16);
+  --link:#ffc24d; --link-bg:rgba(255,176,32,.12); --link-line:rgba(255,176,32,.45);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh}
+button{font-family:inherit}
+.wrap{max-width:1480px;margin:0 auto;padding:20px 24px 28px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.brand{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.brand b{color:var(--ink);font-weight:800;letter-spacing:.04em;text-transform:none;font-size:13px}
+h1{margin:6px 0 0;font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+h1 span{font-weight:300}
+.tools{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer}
+.btn:hover{border-color:var(--teal)}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#04161a}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:var(--surface);border-radius:14px;padding:12px 14px}
+.kpi .n{font-size:clamp(20px,2.2vw,28px);font-weight:800;letter-spacing:-.02em}
+.kpi .n em{font-style:normal;color:var(--teal-ink)}
+.kpi .l{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.35}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:16px;align-items:start}
+.mapcard{background:var(--surface);border-radius:20px;padding:10px 10px 6px;position:relative}
+svg#map{width:100%;height:auto;display:block}
+.band{fill:var(--teal-soft);opacity:.55}
+.colband{fill:var(--teal-soft);opacity:0;transition:opacity .45s}
+.colband.on{opacity:1;stroke:var(--teal);stroke-opacity:.35;stroke-width:1}
+.colh.on{fill:var(--teal-ink);font-weight:800}
+.colh.dim{opacity:.45}
+.colh{transition:fill .3s,opacity .3s;font-size:10.5px;font-weight:700;letter-spacing:.16em;fill:var(--ink-3)}
+.edge{fill:none;stroke:var(--line);stroke-width:1.6;transition:stroke .4s,opacity .4s}
+.edge.on{stroke:var(--teal);opacity:.55}
+.edge.dash{stroke-dasharray:5 6}
+.edge.off{opacity:.25}
+.dot{fill:var(--teal);transition:opacity .4s}
+.node{cursor:pointer;transition:opacity .45s}
+.node rect.box{fill:var(--node);stroke:var(--line);stroke-width:1.2;transition:stroke .3s,fill .3s}
+.node.dashed rect.box{stroke-dasharray:5 5}
+.node .k{font-size:9px;font-weight:600;letter-spacing:.12em;fill:var(--ink-3);text-transform:uppercase}
+.node .t{font-size:12.5px;font-weight:700;fill:var(--ink)}
+.node .s{font-size:10.5px;font-weight:500;fill:var(--ink-2)}
+.node .s tspan.num{fill:var(--teal-ink);font-weight:800}
+.node .bar{fill:var(--line);transition:fill .3s}
+.node.on rect.box{stroke:var(--teal);stroke-width:2}
+.node.on .bar{fill:var(--teal)}
+.node.sel rect.box{fill:var(--teal-soft)}
+.node.off{opacity:.28}
+.node:hover rect.box{stroke:var(--teal)}
+.node:focus{outline:none}
+.node:focus-visible rect.box{stroke:var(--teal);stroke-width:3}
+.looplab{font-size:11px;font-weight:600;fill:var(--ink-3);letter-spacing:.02em;transition:fill .3s}
+.looplab.on{fill:var(--teal-ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 8px 4px}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dots button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--node);color:var(--ink-2);font-size:12px;font-weight:700;cursor:pointer}
+.dots button.cur{background:var(--teal);border-color:var(--teal);color:#04161a}
+.navbtns{display:flex;gap:6px}
+.hint{font-size:11.5px;color:var(--ink-3)}
+aside{background:var(--surface);border-radius:20px;padding:20px 20px 18px;min-height:300px;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}
+.step-n{font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--teal-ink);text-transform:uppercase}
+aside h2{font-size:22px;font-weight:800;letter-spacing:-.01em;margin:6px 0 8px;line-height:1.2}
+aside p{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0 0 12px}
+aside p strong{color:var(--ink)}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 14px}
+.stat{background:var(--node);border-radius:12px;padding:10px 12px}
+.stat .n{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.stat .l{font-size:11.5px;color:var(--ink-2);line-height:1.35;margin-top:2px}
+.meta{font-size:12.5px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+.meta div{margin-bottom:4px}
+.meta b{color:var(--ink);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.links a{font-size:12.5px;font-weight:700;color:var(--link);text-decoration:none;border:1px solid var(--link-line);border-radius:999px;padding:6px 11px;background:var(--link-bg)}
+.links.ov{margin:0 0 14px}
+.built .br a.tl{font-weight:700;color:var(--link);text-decoration:underline;text-decoration-color:var(--link-line);text-underline-offset:3px}
+.built .br a.tl:hover{text-decoration-color:var(--link)}
+.links a:hover{border-color:var(--link);text-decoration:underline}
+.bars{margin:6px 0 14px}
+.bars .row{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:8px;align-items:center;margin-bottom:6px}
+.bars .lab{font-size:12px;color:var(--ink);line-height:1.3;position:relative;padding:5px 8px;border-radius:6px;overflow:hidden;z-index:0}
+.bars .lab i{position:absolute;inset:0 auto 0 0;background:var(--teal-soft);border-right:2px solid var(--teal);z-index:-1;width:0;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.bars .v{font-size:12px;font-weight:700;text-align:right;color:var(--ink)}
+.bars .cap{font-size:11px;color:var(--ink-3);margin-top:4px}
+.spark{display:flex;align-items:flex-end;gap:3px;height:70px;margin:6px 0 4px}
+.spark span{flex:1;background:var(--teal);opacity:.75;border-radius:3px 3px 0 0;min-height:2px;transform-origin:bottom;animation:grow .7s cubic-bezier(.2,.8,.2,1) both}
+.sparkx{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-3);margin-bottom:12px}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.quote{border-radius:12px;background:var(--node);padding:12px 14px;font-size:13.5px;line-height:1.5;color:var(--ink);margin:4px 0 12px}
+.quote small{display:block;color:var(--ink-3);font-size:11.5px;margin-top:4px}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.pills span{font-size:12px;font-weight:600;background:var(--node);border-radius:999px;padding:6px 10px}
+.flow{margin:0 0 12px;padding:0;list-style:none;counter-reset:f}
+.flow li{counter-increment:f;position:relative;padding:7px 0 7px 34px;font-size:13px;line-height:1.4;color:var(--ink);border-bottom:1px solid var(--line)}
+.flow li:last-child{border-bottom:none}
+.flow li::before{content:counter(f);position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#04161a;font-size:11px;font-weight:800;display:grid;place-items:center}
+.built{background:var(--node);border-radius:12px;padding:10px 12px;margin:0 0 12px}
+.built .bl{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-ink);margin-bottom:6px}
+.built .br{display:grid;grid-template-columns:118px 1fr;gap:8px;font-size:12.5px;line-height:1.4;padding:4px 0;border-top:1px solid var(--line)}
+.built .br:first-of-type{border-top:none}
+.built .br b{font-weight:700;color:var(--ink)}
+.built .br span{color:var(--ink-2)}
+.cmp{margin:4px 0 6px}
+.cmph,.cmpr{display:grid;grid-template-columns:62px repeat(3,minmax(0,1fr));gap:6px}
+.cmph{margin-bottom:6px}
+.cmph button{background:var(--node);border:1px solid var(--line);border-radius:10px;padding:7px 6px;text-align:left;cursor:pointer;color:var(--ink);font:inherit}
+.cmph button:hover{border-color:var(--teal)}
+.cmph b{display:block;font-size:11.5px;font-weight:700;line-height:1.25}
+.cmph small{display:block;font-size:10px;color:var(--ink-3);margin-top:2px}
+.cmpr{padding:7px 0;border-top:1px solid var(--line);font-size:11.5px;line-height:1.35;color:var(--ink)}
+.cmpr .cl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);line-height:1.3}
+.cmpr.hl{background:var(--teal-soft);border-radius:8px;border-top-color:transparent;padding:7px 4px;margin:2px -4px}
+.cmpr .yes{font-weight:700;color:var(--ink)}
+.cmpr .no{font-weight:800;color:var(--teal-ink)}
+.cmp .cap{font-size:11px;color:var(--ink-3);margin-top:8px}
+.back{background:none;border:none;color:var(--teal-ink);font-weight:600;font-size:12.5px;padding:0;cursor:pointer;margin-bottom:8px}
+.fade{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+footer{font-size:11.5px;color:var(--ink-3);margin-top:14px;line-height:1.5}
+@media (max-width:1100px){.stage{grid-template-columns:1fr} aside{position:static;max-height:none}}
+@media (max-width:720px){.wrap{padding:14px 16px 24px}.kpis{grid-template-columns:repeat(2,1fr)}.kpi:last-child{grid-column:span 2}.hint{display:none}.tools .btn{padding:7px 11px;font-size:12px}#fsBtn{display:none}}
+@media (prefers-reduced-motion:reduce){.fade,.spark span{animation:none}.bars .lab i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="brand"><b>DentalMonitoring</b> &nbsp;·&nbsp; Clinical Evidence</div>
+      <h1>The Evidence Ecosystem <span>— how DM evidence is generated, shared and improved</span></h1>
+    </div>
+    <div class="tools">
+      <button class="btn" id="themeBtn" title="Switch light / dark">◐ Theme</button>
+      <button class="btn" id="fsBtn" title="Full screen">⤢ Full screen</button>
+      <button class="btn primary" id="playBtn">▶ Walk me through</button>
+    </div>
+  </header>
+
+  <section class="kpis" aria-label="Key numbers">
+    <div class="kpi"><div class="n">91</div><div class="l">DM studies on file, in-house and peer-reviewed</div></div>
+    <div class="kpi"><div class="n">32</div><div class="l">AI & remote-monitoring ortho papers caught automatically, 5 about DM</div></div>
+    <div class="kpi"><div class="n">489</div><div class="l">evidence packs requested by 266 people via the search tool</div></div>
+    <div class="kpi"><div class="n">400<em>+</em></div><div class="l">questions asked to the evidence chatbot</div></div>
+    <div class="kpi"><div class="n">37</div><div class="l">reps signed in to the Sales Evidence Hub since June</div></div>
+  </section>
+
+  <div class="stage">
+    <div class="mapcard">
+      <svg id="map" viewBox="0 0 1400 650" role="img" aria-label="Map of the evidence ecosystem">
+        
+        <g id="cols"></g>
+        <g id="edges"></g>
+        <g id="dots"></g>
+        <g id="nodes"></g>
+        <text id="looplab" class="looplab" x="700" y="640" text-anchor="middle">↺  Gaps steer the next studies: in-house (Global Clinical Evidence Lead) and university (Clinical Affairs)</text>
+      </svg>
+      <div class="nav">
+        <div class="dots" id="dots-nav"></div>
+        <span class="hint">Click any box · ← → keys to move</span>
+        <div class="navbtns">
+          <button class="btn" id="prev">←</button>
+          <button class="btn" id="next">→</button>
+        </div>
+      </div>
+    </div>
+    <aside id="panel" aria-live="polite"></aside>
+  </div>
+
+  <footer>Figures as of 13 Nov 2026: study sheets and chatbot library (live counts), search-tool usage report (9 Nov), Hub analytics (PostHog, excluding the Clinical Evidence Lead's own visits), PubMed trackers (13 Nov), evidence gap list (Evidence Wishlist, commercial-impact scores). Sales survey: 57 responses, 19 Jan – 12 Feb 2026.</footer>
+</div>
+
+<script>
+const W=170,H=74, COLX=[105,305,505,705,905,1105,1305];
+const COLS=["1 · GENERATE","2 · MONITOR","3 · INTAKE","4 · PRIVATE DATABASES","5 · SHARE","6 · LISTEN & ANALYZE","7 · IMPROVE"];
+const L={
+  hub:"https://dm-evidence-hub.vercel.app",
+  dash:"https://rraysk-alt.github.io/dm-evidence-hub/",
+  usage:"https://rraysk-alt.github.io/dm-evidence-analytics/",
+  ph:"https://eu.posthog.com/project/202258/dashboard/748623",
+  phPublic:"https://eu.posthog.com/shared/mqitRHUQ_Md3CFJG0BcfLCCxuuxEpg",
+  pubs:"https://docs.google.com/spreadsheets/d/1nDJ81-Xpd-3RVll6ZizmKm3W6390G_-6fHMpaHo5TJw/edit",
+  evdb:"https://docs.google.com/spreadsheets/d/1Tt-9oBDAAlqn5k79qbN5q9rBRFbMYuUu48M932IADAE/edit",
+  lib:"https://drive.google.com/drive/folders/1ua8nThZ_oaWzcUrOjPyYETJoLkq-82p9",
+  lit:"https://docs.google.com/spreadsheets/d/1Gt4XpSoG2RzFyGDLUAuso5uHbGdVxiq4ZyNJ8gqS6V8/edit#gid=114027994",
+  inhouse:"https://docs.google.com/spreadsheets/d/1nDJ81-Xpd-3RVll6ZizmKm3W6390G_-6fHMpaHo5TJw/edit#gid=0",
+  academic:"https://docs.google.com/spreadsheets/d/1nDJ81-Xpd-3RVll6ZizmKm3W6390G_-6fHMpaHo5TJw/edit#gid=673524113",
+  form:"https://docs.google.com/forms/d/e/1FAIpQLSduFQlv2xWo0PIi_MqJ1bBXjybpZds4phT8tmjoqtg0TDiVUA/viewform",
+  chat:"https://marketing-nam.app.n8n.cloud/webhook/d105c3ad-3488-438c-b405-b856c90ce80e/chat",
+  wPub:"https://marketing-nam.app.n8n.cloud/workflow/xFwAA0FceF5rxayW", wDash:"https://marketing-nam.app.n8n.cloud/workflow/w1VceEEcwp9KHueF", wRag:"https://marketing-nam.app.n8n.cloud/workflow/vtcvSDc6NfQkzYPP",
+  wSearch:"https://marketing-nam.app.n8n.cloud/workflow/T8zuKGiRugveq6vO", wStats:"https://marketing-nam.app.n8n.cloud/workflow/Su77yTNIj8bgzJPE", wPh:"https://marketing-nam.app.n8n.cloud/workflow/NLQBseJAcGG6ny8B",
+  gaps:"https://docs.google.com/spreadsheets/d/1Gt4XpSoG2RzFyGDLUAuso5uHbGdVxiq4ZyNJ8gqS6V8/edit#gid=438728644",
+  survey:"https://docs.google.com/spreadsheets/d/1m-ksrGyFvb3ljW4wDfnVOXw4qsUAKinMv8MZMo1JilI/edit",
+  surveyDeck:"https://docs.google.com/presentation/d/12IU_O8PWzHy3B1NqIgc-sPvI-jASDl9h/edit"
+};
+
+const N={
+ survey:{c:5,y:90,k:"Survey · Jan 2026",t:"Sales survey",s:[["57","num"]," reps · 11 objections"],
+   tag:"Listening · phase 2",what:"In January we asked the sales team which objections cost them deals, and how they use evidence.",
+   stats:[["57","reps answered: NAM 27, EMEA 17, APAC 13"],["56%","already use evidence often or very often"],["3.65/5","how much evidence helps them close"],["5","objections became Hub pages"]],
+   chart:"objections",
+   quote:["“A central, searchable evidence library organised by common objections.”","What one account executive asked for. That is now the Hub."],
+   meta:[["Who answered","Implementation consultants 26, account executives 24, regional managers 5"],["Feeds","Evidence gap list"]],links:[["Survey results deck",L.surveyDeck]]},
+ produce:{c:0,y:90,k:"Clinical Evidence Lead",t:"In-house studies",s:[["47","num"]," pieces so far"],
+   links:[["In-house tab",L.inhouse]],tag:"Evidence generation · in-house",what:"White papers and case studies written with DM doctors.",
+   stats:[["47","in-house pieces: white papers and case studies"]],
+   meta:[["Owner","Rayan Skafi, Global Clinical Evidence Lead"],["Priorities from","The evidence gap list"]]},
+ university:{c:0,y:200,k:"Clinical Affairs",t:"University studies",s:["Academic research"],
+   tag:"Evidence generation · academic",what:"Studies Clinical Affairs runs with universities.",
+   stats:[["17","candidate topics on the gap list"]],
+   meta:[["Owner","Divya, Clinical Affairs"],["Priorities from","The evidence gap list"],["Once published","Goes through the one-step intake"]]},
+ peer:{c:0,y:310,k:"Journals",t:"Peer-reviewed studies",s:[["44","num"]," papers on DM"],
+   links:[["Academic tab",L.academic]],tag:"Evidence generation · published",what:"Papers on DM in peer-reviewed journals: some independent, some done with DM.",
+   stats:[["44","peer-reviewed papers on DM"]],
+   meta:[["Includes","Positive, mixed and negative results, all on the master list"],["New papers","Go through the one-step intake"]]},
+ pubmed:{c:1,y:420,k:"Automated · daily",t:"PubMed watch",s:[["5","num"]," DM papers caught · daily"],
+   links:[["Ortho tracker",L.lit],["n8n: daily PubMed watch",L.wPub]],tag:"Monitoring · literature",what:"Searches PubMed every day for AI and remote-monitoring papers in orthodontics, to catch every DM or competitor paper. Each one is summarised and emailed the same day; DM papers go to the one-step intake.",
+   stats:[["32","papers caught since Nov 2025"],["5","name DM in the title or key finding"],["13:00","daily run time"],["0","manual searching"]],
+   meta:null},
+ intake:{c:2,y:310,k:"Submit once",t:"One-step intake",s:[["1","num"]," study in → all updated"],
+   links:[["DM Publications",L.pubs],["Study library",L.lib],["Evidence Database",L.evdb]],tag:"Automatic update",what:"A new DM study, produced or found, is submitted once as a PDF, DOI or Drive link and filed everywhere it belongs. No manual copying.",
+   steps:["Checks it isn't already on file, in all three places","Reads the full text and rates strength and benefit to DM","Adds it to the master list (DM Publications)","Adds it to the external-safe database, if published and positive or neutral","Puts the full text in the library: the chatbot can answer from it within a minute","Refreshes the Evidence Dashboard"],
+   meta:[["Human check","The Global Clinical Evidence Lead confirms the verdict when a study is mixed or negative"],["Latest","Caruso 2026, children in mixed dentition (5 Nov); Yamada white paper, Japanese V7 (13 Nov)"]]},
+ pubs:{c:3,y:200,k:"Sheet · internal",t:"DM Publications",s:[["91","num"]," studies, all verdicts"],
+   tag:"Private database · master list",what:"Every DM study in one list, rated for strength and benefit to DM. Negative results stay in, so nothing surprises us in front of a customer.",
+   stats:[["91","studies: 47 in-house, 44 peer-reviewed"],["9","study types, from systematic review to case report"],["1–5★","strength and benefit-to-DM ratings"],["Mon","weekly refresh of the dashboard"]],
+   meta:[["Who sees it","Private: the Global Clinical Evidence Lead's working database"],["Feeds","Evidence Dashboard"]],links:[["Open sheet",L.pubs],["n8n: weekly dashboard push",L.wDash]]},
+ library:{c:3,y:310,k:"Drive folder",t:"Study library",s:[["85","num"]," studies · 96 PDFs"],
+   tag:"Private database · full texts",what:"The full PDF of every study, in one folder. A translated study has one PDF per language.",
+   stats:[["85","studies the chatbot can read"],["96","PDFs, including 11 translations"],["~1 min","from upload to answerable"]],
+   meta:[["Who sees it","Private: the Global Clinical Evidence Lead's working database"],["Feeds","Evidence chatbot"],["Languages","English, French, Japanese source files"]],links:[["Open folder",L.lib],["n8n: RAG workflow",L.wRag]]},
+ evdb:{c:3,y:420,k:"Sheet · external-safe",t:"Evidence Database",s:[["78","num"]," positive & neutral"],
+   tag:"Private database · external-safe",what:"Published studies that are positive or neutral for DM, each with a short summary and exact numbers. Safe to send to a doctor.",
+   stats:[["78","studies with ready-to-send summaries"],["0","negative papers, by design"]],
+   meta:[["Who sees it","Private: the Global Clinical Evidence Lead's working database"],["Feeds","Evidence Search Tool, whose email packs go to reps and external doctors"]],links:[["Open sheet",L.evdb]]},
+ lit:{c:3,y:530,k:"Sheet",t:"Literature tracker",s:[["32","num"]," papers logged"],
+   tag:"Monitoring log",what:"Log of every paper the PubMed watch catches: authors, journal and a one-line key finding.",
+   stats:[["32","papers logged since Nov 2025"],["5","about DM so far"]],
+   links:[["Open ortho tracker",L.lit]]},
+ hub:{c:4,y:90,k:"Website · sign-in",t:"Sales Evidence Hub",s:[["5","num"]," objection pages + chat"],
+   tag:"For sales · internal",what:"Internal website with Google sign-in: one page per top objection, with the rebuttal, key numbers and studies, and the chatbot built in.",
+   pills:["ROI uncertainty","Braces efficiency gains","Staff buy-in","AI accuracy","Patient engagement & compliance"],
+   stats:[["37","reps signed in since June"],["19","active in the last 30 days"]],
+   meta:[["Built from","The January sales survey"],["Measured by","Hub analytics"]],links:[["Open the Hub",L.hub]]},
+ dashboard:{c:4,y:200,k:"Website · internal",t:"Evidence Dashboard",s:[["91","num"]," studies, searchable"],
+   tag:"For everyone at DM",what:"Every study by treatment, theme, study type and verdict, with a chart of study design against what it says about DM.",
+   stats:[["91","studies"],["Weekly","automatic refresh, plus after every intake"]],
+   meta:[["Who sees it","Everyone at DM"],["Source","DM Publications sheet (private)"]],links:[["Open dashboard",L.dash],["n8n: weekly update",L.wDash]]},
+ chatbot:{c:4,y:310,k:"AI assistant",t:"Evidence chatbot",s:[["400+","num"]," questions asked"],
+   tag:"Ask anything",what:"Ask in any language; get an answer with exact numbers and links to the studies. It reads every full text, not just abstracts. Coming next to dentalmonitoring.com.",
+   stats:[["85","studies behind every answer, read in full"],["400+","questions asked so far"],["3","languages seen: English, French, Japanese"],["24/7","answers without waiting for an expert"]],
+   meta:[["Where","Inside the Hub, and on a stand-alone chat page"],["Logged","Every question, translated to English, in Hub analytics"]],links:[["Try it in the Hub",L.hub],["Chat page",L.chat],["n8n: RAG workflow",L.wRag]]},
+ search:{c:4,y:420,k:"Form + QR code",t:"Evidence Search Tool",s:[["489","num"]," requests · 266 people"],
+   links:[["Open the form",L.form],["n8n: search workflow",L.wSearch]],tag:"Evidence by email",what:"A short form, also a QR code at events: pick treatment, topic and country, get an evidence pack by email within minutes. For reps and doctors.",
+   stats:[["489","evidence packs sent since July 2025"],["266","people, reps and doctors"],["80","requests in the peak month (Aug 2025)"],["1.8","requests per person"]],
+   meta:[["Source","Evidence Database (positive and neutral only)"]]},
+ posthog:{c:5,y:200,k:"PostHog",t:"Hub analytics",s:[["37","num"]," reps · ",["19","num"]," active/30 d"],
+   tag:"Listening · usage",what:"Who uses the Hub, which pages and studies they open, and every chatbot question, translated to English.",
+   stats:[["37","reps signed in since June"],["19","active in the last 30 days"],["400+","chatbot questions logged"],["10","dashboard tiles"]],
+   meta:[["Excludes","The Global Clinical Evidence Lead's own test visits"],["Feeds","Evidence gap list"]],links:[["Open analytics",L.phPublic],["n8n: questions to PostHog",L.wPh]]},
+ usage:{c:5,y:420,k:"Weekly report",t:"Search usage report",s:[["10","num"]," evidence needs"],
+   tag:"Listening · requests",what:"Every search-tool request, grouped into evidence needs, refreshed weekly.",
+   chart:"needs",
+   stats:[["489","requests"],["266","people"]],meta:[["Feeds","Evidence gap list"]],links:[["Open report",L.usage],["n8n: weekly stats",L.wStats]]},
+ gaps:{c:6,y:310,k:"Demand vs supply",t:"Evidence gap list",s:[["17","num"]," study ideas, scored"],
+   tag:"What to study next",what:"Survey answers, chatbot questions and search requests are compared with the evidence we have. High demand with thin or negative evidence becomes a gap, scored for commercial impact and feasibility.",
+   stats:[["17","study ideas on the list"],["3","rated top commercial impact (5/5)"],["142","requests for the #1 need: efficiency and ROI"],["2","owners: Global Clinical Evidence Lead, Clinical Affairs"]],
+   chart:"gaps",
+   meta:[["Feeds","In-house studies (Rayan Skafi, Global Clinical Evidence Lead); university studies (Divya, Clinical Affairs)"]],links:[["Open gap list",L.gaps]]}
+};
+// Apps and workflows behind each box
+const KICK={pubmed:"n8n · daily",intake:"Claude AI agent",pubs:"Google Sheets",library:"Google Drive",evdb:"Google Sheets",lit:"Google Sheets",
+  hub:"Next.js · Vercel",dashboard:"GitHub Pages · n8n",chatbot:"n8n · OpenAI",search:"Google Form · n8n",
+  survey:"Google Forms",posthog:"PostHog · n8n",usage:"n8n · OpenAI",gaps:"Google Sheets"};
+for(const id in KICK) N[id].k=KICK[id];
+const TOOLS={
+ pubmed:[["n8n","“AI & remote orthodontics Publications” workflow, daily 13:00",L.wPub],["PubMed","saved searches and full records"],["OpenAI GPT","one-line summary of each paper"],["Google Sheets","Global Evidence Strategy tracker",L.lit],["Gmail","alert for each new ortho paper"]],
+ intake:[["Claude AI agent","reads, rates and files each study"],["Google Sheets","DM Publications and Evidence Database",L.pubs],["Google Drive","study library",L.lib],["n8n","refreshes the dashboard; the chatbot workflow reads the new file"]],
+ pubs:[["Google Sheets","in-house and academic tabs",L.pubs],["n8n","weekly push to the dashboard",L.wDash]],
+ library:[["Google Drive","“DM Studies” folder",L.lib],["n8n","“RAG System” workflow reads each new file",L.wRag],["OpenAI","turns each PDF into searchable text"],["Supabase","vector database"]],
+ evdb:[["Google Sheets","one row per study",L.evdb],["n8n","read live by the search tool",L.wSearch]],
+ lit:[["Google Sheets","Global Evidence Strategy Projects Tracker",L.lit],["Journal rankings","quartile and SJR for each paper"]],
+ hub:[["Next.js","website",L.hub],["Vercel","hosting"],["Google sign-in","DM accounts only"],["GitHub","code"],["PostHog","usage tracking",L.ph]],
+ dashboard:[["GitHub Pages","hosting",L.dash],["n8n","“DM Evidence Hub – Weekly data.json update”, Mondays 09:00",L.wDash],["Chart.js","charts"]],
+ chatbot:[["n8n","“RAG System” workflow",L.wRag],["OpenAI GPT-4.1","writes the answers"],["Supabase","vector search over the full texts, chat history"],["Cohere","picks the most relevant passages"]],
+ search:[["Google Forms","request form and QR code",L.form],["n8n","“Evidence Search Tool” workflow",L.wSearch],["OpenAI GPT-4.1-mini","picks the right studies"],["Google Sheets","Evidence Database, read live",L.evdb],["Gmail","sends the evidence pack"]],
+ survey:[["Google Forms","the survey"],["Google Sheets","responses"],["PowerPoint","results deck",L.surveyDeck]],
+ posthog:[["PostHog","“Evidence Hub — Sales Usage” dashboard",L.phPublic],["n8n","sends every chatbot question to PostHog every 30 minutes",L.wPh],["Google Translate","questions translated to English"]],
+ usage:[["n8n","“Evidence Stats — Weekly GitHub Update”, Mondays 07:15",L.wStats],["OpenAI GPT-4.1","groups requests into 10 evidence needs"],["GitHub Pages","usage report page",L.usage]],
+ gaps:[["Google Sheets","“Evidence Wishlist” tab, scored 1–5",L.gaps]]
+};
+// edges: [from,to,options]
+const E=[
+ ["survey","hub",{back:true}],
+ ["produce","intake"],["university","intake"],["peer","intake"],["pubmed","intake",{dash:true}],["pubmed","lit"],
+ ["intake","pubs"],["intake","library"],["intake","evdb"],
+ ["pubs","dashboard"],["library","chatbot"],["evdb","search"],
+ ["chatbot","hub",{side:true,bulge:40,dy:14}],["hub","posthog"],["chatbot","posthog"],["search","usage"],
+ ["survey","gaps"],["posthog","gaps"],["usage","gaps"],
+ ["gaps","produce",{loop:true}],["gaps","university",{loop:true}]
+];
+const OBJ=[["Too expensive / unclear ROI",43],["“Benefits are for aligners only”",43],["Staff buy-in",41],["Complex implementation",37],["Patient compliance",28],["Braces ROI",24],["Competitors are cheaper",20],["Low patient volume",16]];
+const HYPE=[["Promising, needs validation",19],["Practice-ready",8],["Unclear from the abstract",2],["Hype, claims beyond evidence",1]];
+const NEEDS=[["Efficiency and ROI, braces and aligners",142],["AI accuracy vs the orthodontist",81],["Fewer refinements, shorter treatment",44],["Patient experience and compliance",41],["Retention monitoring",32]];
+const GAPS=[["Fewer visits with twin-bracket braces",5],["Fewer visits with self-ligating braces",5],["Long-term retention: less relapse",5],["Fewer visits with custom brackets",4],["Shorter aligner treatment, fewer refinements",4],["Observation: higher conversion to treatment",4],["Patient compliance vs a control group",4]];
+const MONTHLY=[25,80,48,45,18,10,15,10,30,59,46,44,11,15,26,6];
+
+const STEPS=[
+ {h:"One system, end to end",p:"We generate evidence and watch the literature. Each new study is submitted once, kept in three private databases and shared four ways. Then we <strong>listen</strong> to sales, <strong>analyze</strong> what gets used, and <strong>improve</strong>: the gaps become the next studies. <strong>Click any box</strong>, or walk through it.",nodes:Object.keys(N),edges:"all",overview:true},
+ {h:"Generate",p:"Evidence starts in three places: our <strong>in-house studies</strong>, <strong>university studies</strong> run by Clinical Affairs, and <strong>peer-reviewed papers</strong> from journals.",nodes:["produce","university","peer"],edges:[],focus:"produce"},
+ {h:"Monitor",p:"We don't wait for papers to reach us. A daily <strong>PubMed watch</strong> flags every <strong>DM paper</strong> and every <strong>competitor</strong> paper, adds it to the <strong>literature tracker</strong> and sends an <strong>email alert</strong>.",nodes:["pubmed","lit"],edges:[["pubmed","lit"]],focus:"pubmed"},
+ {h:"Submit once, everything updates",p:"Produced or found, a new DM study is submitted <strong>once</strong> to a <strong>Claude AI agent</strong>. It reads, rates and files the study; everything else happens on its own.",nodes:["produce","university","peer","pubmed","intake","pubs","library","evdb","dashboard","chatbot"],edges:[["produce","intake"],["university","intake"],["peer","intake"],["pubmed","intake"],["intake","pubs"],["intake","library"],["intake","evdb"],["pubs","dashboard"],["library","chatbot"]],focus:"intake"},
+ {h:"Three private databases",p:"Kept by the Global Clinical Evidence Lead. Each holds the studies in a different form and feeds one tool.",nodes:["intake","pubs","library","evdb"],edges:[["intake","pubs"],["intake","library"],["intake","evdb"]],compare:true},
+ {h:"Four doors to the evidence",p:"One door per audience: the <strong>dashboard</strong> for everyone at DM, the <strong>search tool</strong> for anyone with the QR code, the <strong>chatbot</strong> for any question, and the <strong>Hub</strong> for sales. <strong>Next: the chatbot on dentalmonitoring.com.</strong>",nodes:["pubs","library","evdb","dashboard","chatbot","search","hub"],edges:[["pubs","dashboard"],["library","chatbot"],["evdb","search"],["chatbot","hub"]],focus:"chatbot"},
+ {h:"Then we listened to sales",p:"Phase 2, for the commercial side. Once the system was running, we asked sales what costs them deals. Their top objections became the pages of the <strong>Sales Evidence Hub</strong>.",nodes:["survey","hub"],edges:[["survey","hub"]],focus:"survey"},
+ {h:"We analyze what gets used",p:"Every request and every question is logged. <strong>Hub analytics</strong> shows what sales read and ask; the weekly <strong>search report</strong> groups requests into evidence needs.",links:[["Hub analytics (PostHog dashboard)",L.phPublic],["Search usage report",L.usage]],nodes:["hub","chatbot","search","posthog","usage"],edges:[["hub","posthog"],["chatbot","posthog"],["search","usage"]],focus:"usage"},
+ {h:"Improve: the evidence gap list",p:"What sales say and ask, compared with what we have, becomes the <strong>evidence gap list</strong>. It loops back to step 1 and sets the priorities for new studies. Top need: <strong>efficiency and ROI with braces</strong>, the “aligners only” objection 75% of reps hear.",nodes:["survey","posthog","usage","gaps","produce","university"],edges:[["survey","gaps"],["posthog","gaps"],["usage","gaps"],["gaps","produce"],["gaps","university"]],focus:"gaps",loop:true}
+];
+
+const svg=document.getElementById('map'), NS="http://www.w3.org/2000/svg";
+const mk=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const pos=id=>{const n=N[id];return {x:COLX[n.c],y:n.y}};
+const colBands=[],colHeads=[];
+mk('rect',{x:COLX[5]-W/2-12,y:8,width:COLX[6]-COLX[5]+W+24,height:580,rx:16,class:'band'},document.getElementById('cols'));
+COLS.forEach((c,i)=>{
+  colBands.push(mk('rect',{x:COLX[i]-W/2-12,y:8,width:W+24,height:580,rx:16,class:'colband'},document.getElementById('cols')));
+  const h=mk('text',{x:COLX[i],y:26,'text-anchor':'middle',class:'colh'},document.getElementById('cols'));h.textContent=c;colHeads.push(h);
+});
+const STEPCOL=[null,0,1,2,3,4,5,5,6];
+function lightCol(ci){colBands.forEach((b,i)=>b.classList.toggle('on',i===ci));colHeads.forEach((h,i)=>{h.classList.toggle('on',i===ci);h.classList.toggle('dim',ci!=null&&i!==ci)})}
+const edgeEls=[];
+function pathFor(a,b,o={}){
+  const A=pos(a),B=pos(b);
+  if(o.loop){
+    const sx=A.x, sy=A.y+H/2, r=10, by=614, ly=10, tx=B.x-W/2;
+    return `M${sx},${sy} V${by-r} Q${sx},${by} ${sx-r},${by} H${ly+r} Q${ly},${by} ${ly},${by-r} V${B.y+r} Q${ly},${B.y} ${ly+r},${B.y} H${tx}`;
+  }
+  if(o.back) return `M${A.x-W/2},${A.y} L${B.x+W/2},${B.y}`;
+  if(o.vert) return `M${A.x},${A.y+H/2} L${B.x},${B.y-H/2}`;
+  if(o.side){
+    const sx=A.x+W/2, tx=B.x+W/2, k=o.bulge||55;
+    const ty=B.y+(o.dy||0);
+    return `M${sx},${A.y} C${sx+k},${A.y} ${tx+k},${ty} ${tx},${ty}`;
+  }
+  const sx=A.x+W/2, tx=B.x-W/2, mx=(sx+tx)/2;
+  return `M${sx},${A.y} C${mx},${A.y} ${mx},${B.y} ${tx},${B.y}`;
+}
+E.forEach(([a,b,o={}])=>{
+  const p=mk('path',{d:pathFor(a,b,o),class:'edge'+(o.dash?' dash':'')},document.getElementById('edges'));
+  const len=p.getTotalLength();
+  const n=o.loop?6:Math.max(2,Math.round(len/120));
+  const dots=[];for(let i=0;i<n;i++){dots.push(mk('circle',{r:o.loop?2.6:3,class:'dot',opacity:0},document.getElementById('dots')))}
+  edgeEls.push({a,b,o,p,len,dots,on:true});
+});
+const nodeEls={};
+for(const id in N){
+  const n=N[id],{x,y}=pos(id);
+  const g=mk('g',{class:'node'+(n.dashed?' dashed':''),tabindex:0,role:'button','aria-label':n.t,transform:`translate(${x-W/2},${y-H/2})`},document.getElementById('nodes'));
+  mk('rect',{class:'box',width:W,height:H,rx:12},g);
+  mk('rect',{class:'bar',x:0,y:14,width:3,height:H-28,rx:1.5},g);
+  mk('text',{class:'k',x:14,y:21},g).textContent=n.k;
+  mk('text',{class:'t',x:14,y:42},g).textContent=n.t;
+  const s=mk('text',{class:'s',x:14,y:60},g);
+  n.s.forEach(part=>{const ts=mk('tspan',{},s);if(Array.isArray(part)){ts.textContent=part[0];ts.setAttribute('class','num')}else ts.textContent=part});
+  g.addEventListener('click',()=>showNode(id));
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showNode(id)}});
+  nodeEls[id]=g;
+}
+
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let t0=performance.now();
+function frame(now){
+  const t=(now-t0)/1000;
+  edgeEls.forEach((e,ei)=>{
+    const speed=e.o.loop?75:85, n=e.dots.length;
+    e.dots.forEach((d,i)=>{
+      if(reduce||!e.on){d.setAttribute('opacity',0);return}
+      const f=((t*speed/e.len)+i/n+ei*0.13)%1;
+      const pt=e.p.getPointAtLength(f*e.len);
+      d.setAttribute('cx',pt.x);d.setAttribute('cy',pt.y);
+      const fade=Math.min(1,f*8,(1-f)*8);
+      d.setAttribute('opacity',(e.o.dash?0.55:0.95)*fade);
+    });
+  });
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+function highlight(nodes,edges,sel){
+  const all=edges==="all";
+  for(const id in nodeEls){
+    const on=nodes.includes(id);
+    nodeEls[id].classList.toggle('on',on&&!all);
+    nodeEls[id].classList.toggle('off',!on);
+    nodeEls[id].classList.toggle('sel',id===sel);
+  }
+  edgeEls.forEach(e=>{
+    const on=all||edges.some(([a,b])=>a===e.a&&b===e.b);
+    e.on=on;e.p.classList.toggle('on',on&&!all);e.p.classList.toggle('off',!on);
+  });
+  document.getElementById('looplab').classList.toggle('on',!all&&edges.some(([a])=>a==='gaps'));
+}
+
+const panel=document.getElementById('panel');
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function bars(rows,total,cap,max){
+  max=max||Math.max(...rows.map(r=>r[1]));
+  return `<div class="bars">${rows.map(r=>`<div class="row"><div class="lab"><i data-w="${(r[1]/max*100).toFixed(1)}"></i>${esc(r[0])}</div><div class="v">${total==='score'?r[1]+'/5':total?Math.round(r[1]/total*100)+'%':r[1].toLocaleString('en-US')}</div></div>`).join('')}${cap?`<div class="cap">${cap}</div>`:''}</div>`;
+}
+function chartHTML(kind){
+  if(kind==='objections')return `<div class="tag" style="margin-bottom:8px">Share of reps who hear it</div>`+bars(OBJ,57,'57 reps; each could pick several objections.');
+  if(kind==='hype')return `<div class="tag" style="margin-bottom:8px">Ortho AI & remote-monitoring papers, by AI grade</div>`+bars(HYPE,0,'30 graded papers; 2 not yet graded.');
+  if(kind==='gaps')return `<div class="tag" style="margin-bottom:8px">Top gaps, by commercial impact</div>`+bars(GAPS,'score','7 of 17 ideas shown. Each also notes its feasibility and the main challenge.',5);
+  if(kind==='needs'){
+    const m=Math.max(...MONTHLY);
+    return `<div class="tag" style="margin-bottom:8px">Top evidence needs (requests)</div>`+bars(NEEDS,0)+
+    `<div class="tag" style="margin:4px 0 6px">Requests per month</div><div class="spark">${MONTHLY.map((v,i)=>`<span style="height:${(v/m*100).toFixed(0)}%;animation-delay:${i*30}ms" title="${v}"></span>`).join('')}</div><div class="sparkx"><span>Jul 2025</span><span>Oct 2026</span></div>`;
+  }
+  return '';
+}
+function nodeHTML(id,inStep){
+  const n=N[id];
+  return `<span class="tag">${esc(n.tag)}</span><h2>${esc(n.t)}</h2>${inStep?'':`<p>${esc(n.what)}</p>`}`+
+   (n.links?`<div class="links">${n.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${esc(l[0])} ↗</a>`).join('')}</div>`:'')+
+   (TOOLS[id]?`<div class="built"><div class="bl">Built with</div>${TOOLS[id].map(x=>`<div class="br">${x[2]?`<a class="tl" href="${x[2]}" target="_blank" rel="noopener">${esc(x[0])} ↗</a>`:`<b>${esc(x[0])}</b>`}<span>${esc(x[1])}</span></div>`).join('')}</div>`:'')+
+   (n.steps?`<ol class="flow">${n.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>`:'')+
+   (n.pills?`<div class="pills">${n.pills.map(p=>`<span>${esc(p)}</span>`).join('')}</div>`:'')+
+   (n.stats?`<div class="stats">${n.stats.map(s=>`<div class="stat"><div class="n">${esc(s[0])}</div><div class="l">${esc(s[1])}</div></div>`).join('')}</div>`:'')+
+   (n.chart?chartHTML(n.chart):'')+
+   (n.quote?`<div class="quote">${esc(n.quote[0])}<small>${esc(n.quote[1])}</small></div>`:'')+
+   (n.meta?`<div class="meta">${n.meta.map(m=>`<div><b>${esc(m[0])}:</b> ${esc(m[1])}</div>`).join('')}</div>`:'')+'';
+}
+function animateBars(){requestAnimationFrame(()=>panel.querySelectorAll('.bars i').forEach(i=>i.style.width=i.dataset.w+'%'))}
+
+const CMP={
+ cols:[["pubs","DM Publications","Google Sheets"],["library","Study library","Google Drive"],["evdb","Evidence Database","Google Sheets"]],
+ rows:[
+  ["Role","The complete list","The full texts","The send-safe shortlist"],
+  ["Holds","Ratings, findings, sample, limits","The full PDF of each study","A short summary with exact numbers"],
+  ["Size","91 studies","85 studies (96 PDFs incl. translations)","78 studies"],
+  ["Negative or mixed results","Included","Included","Left out"],
+  ["Feeds","Evidence Dashboard","Evidence chatbot","Evidence Search Tool"],
+  ["Who it reaches","Everyone at DM","Reps, in the Hub","Reps and external doctors, by email"]
+ ]};
+function cmpHTML(){
+  return `<div class="cmp"><div class="cmph"><span></span>${CMP.cols.map(c=>`<button onclick="showNode('${c[0]}')"><b>${esc(c[1])}</b><small>${esc(c[2])}</small></button>`).join('')}</div>`+
+   CMP.rows.map(r=>`<div class="cmpr${r[0]==='Negative or mixed results'?' hl':''}"><span class="cl">${esc(r[0])}</span>${r.slice(1).map(v=>`<span class="${v==='Left out'?'no':v==='Included'?'yes':''}">${esc(v)}</span>`).join('')}</div>`).join('')+
+   `<div class="cap">Click a column name for the full details.</div></div>`;
+}
+let step=0;
+function render(){
+  const s=STEPS[step];
+  highlight(s.nodes,s.edges,s.focus);
+  lightCol(STEPCOL[step]);
+  let html=`<div class="fade"><div class="step-n">${s.overview?'Overview':'Step '+step+' of '+(STEPS.length-1)}</div><h2>${s.h}</h2><p>${s.p}</p>`+(s.links?`<div class="links" style="margin:0 0 14px">${s.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${esc(l[0])} ↗</a>`).join('')}</div>`:'');
+  if(s.overview){
+    html+=`<div class="stats"><div class="stat"><div class="n">7</div><div class="l">stages, from generate to improve</div></div><div class="stat"><div class="n">1</div><div class="l">submission per study; everything else updates itself</div></div><div class="stat"><div class="n">4</div><div class="l">ways in: Hub, chatbot, search tool, dashboard</div></div><div class="stat"><div class="n">17</div><div class="l">evidence gaps, scored and prioritised</div></div><div class="stat"><div class="n">6</div><div class="l">n8n workflows doing the routine work</div></div><div class="stat"><div class="n">1</div><div class="l">AI assistant (Claude) running the study intake</div></div></div><div class="links ov"><a href="${L.hub}" target="_blank" rel="noopener">Evidence Hub ↗</a><a href="${L.dash}" target="_blank" rel="noopener">Evidence Dashboard ↗</a><a href="${L.form}" target="_blank" rel="noopener">Evidence Search Tool ↗</a><a href="${L.usage}" target="_blank" rel="noopener">Usage report ↗</a><a href="${L.gaps}" target="_blank" rel="noopener">Evidence gap list ↗</a></div><button class="btn primary" onclick="go(1)">▶ Walk me through</button>`;
+  } else if(s.compare){
+    html+=cmpHTML();
+  } else if(s.focus){
+    html+=`<div style="border-top:1px solid var(--line);margin:4px 0 14px"></div>`+nodeHTML(s.focus,true);
+  }
+  html+='</div>';
+  panel.innerHTML=html;animateBars();
+  document.querySelectorAll('#dots-nav button').forEach((b,i)=>b.classList.toggle('cur',i===step));
+}
+function go(i){step=Math.max(0,Math.min(STEPS.length-1,i));render()}
+window.go=go;
+function showNode(id){
+  const nb=new Set([id]),es=[];
+  edgeEls.forEach(e=>{if(e.a===id||e.b===id){nb.add(e.a);nb.add(e.b);es.push([e.a,e.b])}});
+  highlight([...nb],es,id);
+  lightCol(N[id].c);
+  panel.innerHTML=`<div class="fade"><button class="back" onclick="go(step)">← Back to ${step===0?'overview':'step '+step}</button><br>${nodeHTML(id)}</div>`;
+  animateBars();
+}
+const dn=document.getElementById('dots-nav');
+STEPS.forEach((s,i)=>{const b=document.createElement('button');b.textContent=i===0?'•':i;b.title=s.h;b.onclick=()=>go(i);dn.appendChild(b)});
+document.getElementById('prev').onclick=()=>go(step-1);
+document.getElementById('next').onclick=()=>go(step+1);
+document.getElementById('playBtn').onclick=()=>go(step===0?1:step+1>=STEPS.length?0:step+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.closest&&e.target.closest('.node'))return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(step+1)}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(step-1)}
+  else if(e.key==='Escape')go(0);
+});
+document.getElementById('fsBtn').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+document.getElementById('themeBtn').onclick=()=>{
+  const r=document.documentElement,cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  r.dataset.theme=cur==='dark'?'light':'dark';
+};
+render();
+</script>
+</body>
+</html>
